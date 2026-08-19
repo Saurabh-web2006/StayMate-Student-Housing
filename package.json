@@ -6,11 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-<<<<<<< HEAD
-    "lint": "eslint .",
-=======
     "lint": "oxlint",
->>>>>>> fe7b899917fa8e5c80fa1e97111f9583ba28a9af
     "preview": "vite preview"
   },
   "dependencies": {
@@ -18,21 +14,10 @@
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "@eslint/js": "^10.0.1",
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.4",
-    "eslint": "^10.8.0",
-    "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-react-refresh": "^0.5.3",
-    "globals": "^17.7.0",
-=======
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.4",
     "oxlint": "^1.75.0",
->>>>>>> fe7b899917fa8e5c80fa1e97111f9583ba28a9af
     "vite": "^8.2.0"
   }
 }
