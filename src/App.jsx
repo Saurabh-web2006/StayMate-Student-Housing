@@ -1,122 +1,133 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from "react";
+
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import ForgotPassword from "./components/ForgotPassword";
+import Legal from "./components/Legal";
+
+import Home from "./components/Home";
+import FindPGs from "./components/FindPGs";
+import Roommates from "./components/Roommates";
+import Saved from "./components/Saved";
+
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [page, setPage] = useState("login");
+
+  const [savedPGs, setSavedPGs] = useState([]);
+
+  const toggleSavedPG = (pg) => {
+
+    setSavedPGs((currentSaved) => {
+
+      const alreadySaved = currentSaved.some(
+        (saved) => saved.id === pg.id
+      );
+
+      if (alreadySaved) {
+
+        return currentSaved.filter(
+          (saved) => saved.id !== pg.id
+        );
+
+      }
+
+      return [...currentSaved, pg];
+
+    });
+
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="app">
 
-      <div className="ticks"></div>
+      {page === "login" && (
+        <Login
+          onGetStarted={() => setPage("signup")}
+          onForgotPassword={() => setPage("forgot")}
+          onLegal={() => setPage("legal")}
+          onLogin={() => setPage("home")}
+        />
+      )}
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      {page === "signup" && (
+        <Signup
+          onLogin={() => setPage("login")}
+          onLegal={() => setPage("legal")}
+        />
+      )}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      {page === "forgot" && (
+        <ForgotPassword
+          onBackToLogin={() => setPage("login")}
+        />
+      )}
+
+      {page === "legal" && (
+        <Legal
+          onBack={() => setPage("login")}
+        />
+      )}
+
+      {page === "home" && (
+        <Home
+          userName="Sanyam"
+          onLogout={() => setPage("login")}
+          onFindPGs={() => setPage("findPGs")}
+          onRoommates={() => setPage("roommates")}
+          onSaved={() => setPage("saved")}
+        />
+      )}
+
+      {page === "findPGs" && (
+        <FindPGs
+          userName="Sanyam"
+
+          onHome={() => setPage("home")}
+
+          onRoommates={() => setPage("roommates")}
+
+          onSaved={() => setPage("saved")}
+
+          onLogout={() => setPage("login")}
+
+          savedPGs={savedPGs}
+
+          onToggleSaved={toggleSavedPG}
+        />
+      )}
+
+      {page === "roommates" && (
+        <Roommates
+          userName="Sanyam"
+          onHome={() => setPage("home")}
+          onFindPGs={() => setPage("findPGs")}
+          onLogout={() => setPage("login")}
+          onSaved={() => setPage("saved")}
+        />
+      )}
+
+      {page === "saved" && (
+        <Saved
+          userName="Sanyam"
+
+          onHome={() => setPage("home")}
+
+          onFindPGs={() => setPage("findPGs")}
+
+          onRoommates={() => setPage("roommates")}
+
+          onLogout={() => setPage("login")}
+
+          savedPGs={savedPGs}
+
+          onToggleSaved={toggleSavedPG}
+        />
+      )}
+
+    </div>
+  );
 }
 
-export default App
+export default App;
