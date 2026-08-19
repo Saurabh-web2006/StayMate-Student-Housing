@@ -1,0 +1,995 @@
+/* =========================================
+   STAYMATE - PG DETAILS PAGE
+   Warm Cream + Olive Theme
+========================================= */
+
+.pg-details-page {
+  min-height: 100vh;
+  background: #f5efe6;
+  color: #29291f;
+  font-family: Inter, Arial, sans-serif;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.pg-details-navbar {
+  height: 72px;
+  width: 100%;
+
+  background: #fbf8f2;
+
+  border-bottom: 1px solid #e3dbcf;
+
+  padding: 0 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+}
+
+
+/* LOGO */
+
+.pg-details-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  color: #29291f;
+}
+
+.pg-details-logo img {
+  width: 45px;
+  height: 45px;
+
+  object-fit: contain;
+}
+
+.pg-details-logo > span > span {
+  color: #596c3d;
+}
+
+
+/* =========================================
+   BACK TO PGs BUTTON
+========================================= */
+
+.details-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  height: 42px;
+
+  padding: 0 16px;
+
+  margin: 0 0 20px 0;
+
+  background: #fbf8f2;
+
+  border: 1px solid #d8cdbc;
+
+  border-radius: 9px;
+
+  color: #596c3d;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 3px 10px rgba(67, 55, 38, 0.05);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* HOVER */
+
+.details-back:hover {
+  background: #e7ecdf;
+
+  border-color: #596c3d;
+
+  color: #485b30;
+
+  transform: translateX(-3px);
+
+  box-shadow:
+    0 5px 14px rgba(67, 55, 38, 0.09);
+}
+
+
+/* CLICK */
+
+.details-back:active {
+  transform: translateX(-1px) scale(0.98);
+}
+
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+.pg-details-main {
+  width: 90%;
+  max-width: 1100px;
+
+  margin: 35px auto 60px;
+
+  background: #fbf8f2;
+
+  border: 1px solid #e3dbcf;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 10px 35px rgba(67, 55, 38, 0.08);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.details-image {
+  width: 100%;
+  height: 360px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #ddd4c7;
+}
+
+.details-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* IMAGE DARK GRADIENT */
+
+.details-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(35, 32, 25, 0.35),
+      transparent 50%
+    );
+
+  pointer-events: none;
+}
+
+
+/* VERIFIED BADGE */
+
+.details-verified {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 22px;
+  bottom: 20px;
+
+  background: #fbf8f2;
+
+  color: #596c3d;
+
+  padding: 8px 12px;
+
+  border-radius: 8px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.details-content {
+  padding: 32px 38px 38px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.details-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 25px;
+
+  padding-bottom: 24px;
+
+  border-bottom: 1px solid #e8e0d5;
+}
+
+
+/* TITLE */
+
+.details-title h1 {
+  margin: 0 0 8px;
+
+  color: #29291f;
+
+  font-size: 29px;
+
+  line-height: 1.2;
+}
+
+.details-location {
+  margin: 0;
+
+  color: #77746b;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   RATING
+========================================= */
+
+.details-rating {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  background: #f5e9c9;
+
+  color: #96701d;
+
+  padding: 7px 10px;
+
+  border-radius: 7px;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   PRICE BOX
+========================================= */
+
+.details-price-box {
+  width: 100%;
+
+  min-height: 84px;
+
+  margin-top: 24px;
+
+  padding: 0 25px;
+
+  background: #f0e9dd;
+
+  border: 1px solid #dfd3c3;
+
+  border-radius: 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  box-sizing: border-box;
+}
+
+
+/* PRICE */
+
+.details-price strong {
+  color: #29291f;
+
+  font-size: 21px;
+}
+
+.details-price span {
+  color: #77746b;
+
+  font-size: 11px;
+
+  margin-left: 4px;
+}
+
+
+/* ROOM */
+
+.details-room {
+  background: #e7ecdf;
+
+  color: #596c3d;
+
+  padding: 8px 13px;
+
+  border-radius: 8px;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   ABOUT / GENERAL SECTIONS
+========================================= */
+
+.details-section {
+  margin-top: 30px;
+}
+
+.details-section h2 {
+  margin: 0 0 14px;
+
+  color: #29291f;
+
+  font-size: 19px;
+}
+
+.details-section > p {
+  margin: 0;
+
+  color: #77746b;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   AMENITIES
+========================================= */
+
+/*
+   IMPORTANT:
+   Your screenshot showed the amenities
+   stacked vertically. This forces them
+   into a proper horizontal grid.
+*/
+
+.amenities {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-top: 15px;
+}
+
+
+/* EACH AMENITY */
+
+.amenities > div {
+  min-height: 90px;
+
+  background: #f3ede4;
+
+  border: 1px solid #e3dbcf;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  color: #596c3d;
+
+  font-size: 13px;
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    border-color 0.2s;
+}
+
+.amenities > div:hover {
+  background: #e7ecdf;
+
+  border-color: #cbd7bd;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   IF AMENITIES USE SPANS
+========================================= */
+
+.amenities span {
+  color: #596c3d;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   AMENITIES GRID FALLBACK
+========================================= */
+
+.amenities-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+
+  width: 100%;
+
+  margin-top: 15px;
+}
+
+.amenity-card {
+  min-height: 90px;
+
+  background: #f3ede4;
+
+  border: 1px solid #e3dbcf;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  color: #596c3d;
+
+  font-size: 12px;
+
+  box-sizing: border-box;
+
+  transition: 0.2s;
+}
+
+.amenity-card:hover {
+  background: #e7ecdf;
+
+  border-color: #cbd7bd;
+
+  transform: translateY(-2px);
+}
+
+.amenity-card span:first-child {
+  font-size: 20px;
+}
+
+
+/* =========================================
+   FACILITIES
+========================================= */
+
+.details-facilities {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 15px;
+}
+
+.details-facilities span {
+  background: #e7ecdf;
+
+  color: #596c3d;
+
+  border-radius: 7px;
+
+  padding: 7px 10px;
+
+  font-size: 10px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================
+   LOCATION
+========================================= */
+
+.location-box {
+  width: 100%;
+
+  height: 170px;
+
+  margin-top: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e7ecdf,
+      #eee5d6
+    );
+
+  border: 1px solid #ded5c8;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-direction: column;
+
+  color: #596c3d;
+
+  box-sizing: border-box;
+}
+
+.location-box span {
+  font-size: 30px;
+
+  margin-bottom: 7px;
+}
+
+.location-box p {
+  margin: 0;
+
+  color: #77746b;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   REVIEWS
+========================================= */
+
+.review-summary {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  background: #f3ede4;
+
+  border: 1px solid #e3dbcf;
+
+  border-radius: 12px;
+
+  padding: 18px;
+
+  margin-bottom: 15px;
+}
+
+.review-score {
+  color: #96701d;
+
+  font-size: 30px;
+
+  font-weight: 700;
+}
+
+.review-stars {
+  color: #c99b32;
+
+  font-size: 15px;
+}
+
+.review-text {
+  color: #77746b;
+
+  font-size: 11px;
+}
+
+
+/* REVIEW CARD */
+
+.review-card {
+  padding: 15px 0;
+
+  border-bottom: 1px solid #e8e0d5;
+}
+
+.review-card:last-child {
+  border-bottom: none;
+}
+
+.review-user {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+.review-avatar {
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+
+  background: #d9c5a6;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #514c40;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.review-user strong {
+  color: #4c4a40;
+
+  font-size: 11px;
+}
+
+.review-card p {
+  margin: 9px 0 0;
+
+  color: #77746b;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.details-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  border-top: 1px solid #e3dbcf;
+
+  margin-top: 32px;
+
+  padding-top: 30px;
+}
+
+
+/* CONTACT */
+
+.contact-button {
+  width: 165px;
+
+  height: 52px;
+
+  border-radius: 10px;
+
+  background: #fffdf9;
+
+  border: 1px solid #cfc5b6;
+
+  color: #596c3d;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.contact-button:hover {
+  background: #f0e9dd;
+
+  border-color: #596c3d;
+}
+
+
+/* BOOK */
+
+.book-button {
+  flex: 1;
+
+  height: 52px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #596c3d;
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.book-button:hover {
+  background: #485b30;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   BACK BUTTON AT BOTTOM
+========================================= */
+
+.details-back-bottom {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  margin-top: 20px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #596c3d;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.details-back-bottom:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+  .pg-details-navbar {
+    padding: 0 25px;
+  }
+
+  .pg-details-main {
+    width: 94%;
+
+    margin-top: 25px;
+  }
+
+  .details-image {
+    height: 300px;
+  }
+
+  .details-content {
+    padding: 28px;
+  }
+
+  .amenities,
+  .amenities-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .pg-details-navbar {
+    padding: 0 18px;
+  }
+
+  .pg-details-logo {
+    font-size: 18px;
+  }
+
+  .pg-details-logo img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .details-image {
+    height: 220px;
+  }
+
+  .details-content {
+    padding: 22px 18px 28px;
+  }
+
+  .details-header {
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .details-title h1 {
+    font-size: 24px;
+  }
+
+  .details-price-box {
+    min-height: 80px;
+
+    padding: 15px 18px;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .amenities,
+  .amenities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .amenities > div,
+  .amenity-card {
+    min-height: 70px;
+  }
+
+  .details-actions {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .contact-button,
+  .book-button {
+    width: 100%;
+  }
+
+}
+/* =========================================
+   AMENITIES
+========================================= */
+
+.details-amenities {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+
+  margin-top: 15px;
+}
+
+
+/* EACH AMENITY CARD */
+
+.details-amenities .amenity-card {
+  min-height: 90px;
+
+  background: #f3ede4;
+
+  border: 1px solid #e3dbcf;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  color: #596c3d;
+
+  font-size: 13px;
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    border-color 0.2s;
+}
+
+
+/* HOVER */
+
+.details-amenities .amenity-card:hover {
+  background: #e7ecdf;
+
+  border-color: #cbd7bd;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .details-amenities {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .details-amenities .amenity-card {
+    min-height: 75px;
+
+    font-size: 12px;
+  }
+
+}
