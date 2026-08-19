@@ -1,0 +1,911 @@
+/* =================================
+   STAYMATE HOME
+================================= */
+
+.home-page {
+  min-height: 100vh;
+
+  background: #f5efe6;
+
+  color: #29291f;
+
+  display: flex;
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+}
+
+
+/* =================================
+   SIDEBAR
+================================= */
+
+.home-sidebar {
+  width: 225px;
+
+  min-height: 100vh;
+
+  background: #fbf8f2;
+
+  border-right: 1px solid #e4ddd1;
+
+  padding: 28px 16px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  flex-direction: column;
+
+  position: sticky;
+
+  top: 0;
+
+  height: 100vh;
+}
+
+
+/* LOGO */
+
+.home-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0 12px;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  color: #29291f;
+
+  margin-bottom: 38px;
+}
+
+.home-logo img {
+  width: 35px;
+
+  height: 55px;
+
+  object-fit: contain;
+}
+
+.home-logo > span > span {
+  color: #596c3d;
+}
+
+
+/* MENU */
+
+.sidebar-menu {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.sidebar-item {
+  width: 100%;
+
+  height: 44px;
+
+  border: none;
+
+  background: transparent;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 0 13px;
+
+  color: #666658;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition: 0.2s;
+}
+
+.sidebar-item span {
+  width: 20px;
+
+  font-size: 17px;
+
+  text-align: center;
+}
+
+.sidebar-item:hover {
+  background: #f1e9dc;
+
+  color: #3f4e2b;
+}
+
+.sidebar-item.active {
+  background: #ead8bb;
+
+  color: #3f4e2b;
+
+  font-weight: 600;
+}
+
+
+/* LOGOUT */
+
+.sidebar-logout {
+  margin-top: auto;
+
+  border: none;
+
+  background: transparent;
+
+  color: #706e65;
+
+  font-size: 13px;
+
+  display: flex;
+
+  gap: 12px;
+
+  align-items: center;
+
+  padding: 13px;
+
+  cursor: pointer;
+
+  border-radius: 10px;
+}
+
+.sidebar-logout:hover {
+  background: #f1e9dc;
+
+  color: #3f4e2b;
+}
+
+
+/* =================================
+   MAIN
+================================= */
+
+.home-main {
+  margin-left: 260px;
+
+  width: calc(100% - 260px);
+
+  min-height: 100vh;
+
+  padding: 0 38px 40px;
+
+  box-sizing: border-box;
+}
+
+
+/* =================================
+   TOP BAR
+================================= */
+
+.home-topbar {
+  height: 64px;
+
+  background: #fbf8f2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 40px;
+
+  border-bottom: 1px solid #e8e0d5;
+}
+
+.user-area {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #45443a;
+
+  font-size: 13px;
+}
+
+.user-avatar {
+  width: 31px;
+
+  height: 31px;
+
+  border-radius: 50%;
+
+  background: #d9c5a6;
+
+  color: #4d493d;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-weight: 700;
+}
+
+.dropdown-arrow {
+  color: #77746b;
+}
+
+
+/* =================================
+   HERO
+================================= */
+
+.home-hero {
+  position: relative;
+
+  min-height: 350px;
+
+  margin: 24px 30px 0;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background-size: cover;
+
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(38, 34, 25, 0.78),
+      rgba(38, 34, 25, 0.45),
+      rgba(38, 34, 25, 0.10)
+    );
+}
+
+.hero-content {
+  position: relative;
+
+  z-index: 1;
+
+  padding: 62px 45px;
+
+  max-width: 700px;
+
+  color: white;
+}
+
+.hero-small {
+  font-size: 11px;
+
+  letter-spacing: 1.5px;
+
+  font-weight: 600;
+
+  margin: 0 0 12px;
+
+  color: #e9d9bd;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+
+  line-height: 1.2;
+
+  margin: 0 0 10px;
+}
+
+.hero-description {
+  font-size: 15px;
+
+  margin: 0 0 25px;
+
+  color: #f2eee7;
+}
+
+
+/* SEARCH */
+
+.home-search {
+  height: 53px;
+
+  width: 580px;
+
+  max-width: 100%;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-radius: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 6px 0 16px;
+
+  box-sizing: border-box;
+}
+
+.home-search > span {
+  color: #777;
+
+  font-size: 18px;
+
+  margin-right: 9px;
+}
+
+.home-search input {
+  flex: 1;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  font-size: 13px;
+
+  color: #333;
+}
+
+.home-search button {
+  height: 43px;
+
+  padding: 0 22px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #596c3d;
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.home-search button:hover {
+  background: #485b30;
+}
+
+
+/* FILTERS */
+
+.hero-filters {
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+
+  margin-top: 13px;
+}
+
+.hero-filters button {
+  border: 1px solid rgba(255,255,255,0.3);
+
+  background: rgba(255,255,255,0.14);
+
+  color: white;
+
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(5px);
+}
+
+.hero-filters button:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+
+/* =================================
+   RECOMMENDED
+================================= */
+
+.recommended-section {
+  padding: 30px;
+}
+
+.section-heading {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 17px;
+}
+
+.section-heading h2 {
+  margin: 0 0 5px;
+
+  font-size: 21px;
+
+  color: #29291f;
+}
+
+.section-heading p {
+  margin: 0;
+
+  color: #7b776d;
+
+  font-size: 12px;
+}
+
+.view-all {
+  border: none;
+
+  background: transparent;
+
+  color: #596c3d;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.view-all:hover {
+  text-decoration: underline;
+}
+
+
+/* =================================
+   PG GRID
+================================= */
+
+.pg-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.pg-card {
+  background: #fbf8f2;
+
+  border: 1px solid #e3dbcf;
+
+  border-radius: 13px;
+
+  overflow: hidden;
+
+  transition: 0.25s;
+}
+
+.pg-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 30px rgba(67, 55, 38, 0.10);
+}
+
+
+/* IMAGE */
+
+.pg-image {
+  height: 175px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #ddd;
+}
+
+.pg-image img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: 0.3s;
+}
+
+.pg-card:hover .pg-image img {
+  transform: scale(1.04);
+}
+
+.heart-button {
+  position: absolute;
+
+  top: 12px;
+
+  right: 12px;
+
+  width: 34px;
+
+  height: 34px;
+
+  border: none;
+
+  background: rgba(255,255,255,0.92);
+
+  color: #625f55;
+
+  border-radius: 50%;
+
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+
+/* CONTENT */
+
+.pg-content {
+  padding: 15px;
+}
+
+.pg-card-title h3 {
+  font-size: 15px;
+
+  margin: 0 0 6px;
+
+  color: #29291f;
+}
+
+.pg-card-title p {
+  color: #77746b;
+
+  font-size: 11px;
+
+  margin: 0;
+}
+
+
+/* META */
+
+.pg-meta {
+  display: flex;
+
+  gap: 7px;
+
+  margin-top: 12px;
+}
+
+.pg-meta span {
+  padding: 5px 8px;
+
+  border-radius: 6px;
+
+  font-size: 9px;
+}
+
+.pg-meta span:first-child {
+  background: #f5e9c9;
+
+  color: #9a711e;
+
+  font-weight: 600;
+}
+
+.pg-meta span:last-child {
+  background: #e7ecdf;
+
+  color: #596c3d;
+}
+
+
+/* BOTTOM */
+
+.pg-bottom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 16px;
+
+  padding-top: 13px;
+
+  border-top: 1px solid #e9e2d8;
+}
+
+.pg-bottom strong {
+  font-size: 16px;
+
+  color: #29291f;
+}
+
+.pg-bottom > div span {
+  color: #8b887f;
+
+  font-size: 10px;
+
+  margin-left: 3px;
+}
+
+.pg-bottom button {
+  border: none;
+
+  background: #596c3d;
+
+  color: white;
+
+  padding: 9px 11px;
+
+  border-radius: 7px;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.pg-bottom button:hover {
+  background: #485b30;
+}
+
+
+/* =================================
+   ROOMMATE BANNER
+================================= */
+
+.roommate-banner {
+  margin: 0 30px 30px;
+
+  min-height: 210px;
+
+  border-radius: 17px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(54, 57, 38, 0.92),
+      rgba(54, 57, 38, 0.60)
+    ),
+    url("../assets/roommates.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+}
+
+.roommate-banner-content {
+  padding: 35px 38px;
+
+  color: white;
+
+  max-width: 620px;
+}
+
+.roommate-banner-content > p {
+  color: #dfcba7;
+
+  font-size: 10px;
+
+  letter-spacing: 1.3px;
+
+  font-weight: 600;
+
+  margin: 0 0 8px;
+}
+
+.roommate-banner-content h2 {
+  font-size: 25px;
+
+  margin: 0 0 9px;
+}
+
+.roommate-banner-content > span {
+  color: #eee9df;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.compatibility-tags {
+  display: flex;
+
+  gap: 7px;
+
+  margin-top: 18px;
+
+  flex-wrap: wrap;
+}
+
+.compatibility-tags span {
+  background: rgba(255,255,255,0.13);
+
+  border: 1px solid rgba(255,255,255,0.2);
+
+  border-radius: 15px;
+
+  padding: 6px 10px;
+
+  font-size: 9px;
+}
+
+.roommate-banner-content button {
+  position: absolute;
+
+  right: 35px;
+
+  bottom: 32px;
+
+  border: 1px solid rgba(255,255,255,0.7);
+
+  background: transparent;
+
+  color: white;
+
+  border-radius: 8px;
+
+  padding: 10px 15px;
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.roommate-banner-content button:hover {
+  background: white;
+
+  color: #4d5f35;
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+.home-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 0 30px;
+
+  color: #89857c;
+
+  font-size: 10px;
+}
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 900px) {
+
+  .home-sidebar {
+    width: 75px;
+
+    padding: 25px 10px;
+  }
+
+  .home-logo span {
+    display: none;
+  }
+
+  .sidebar-item {
+    justify-content: center;
+
+    padding: 0;
+  }
+
+  .sidebar-item {
+    font-size: 0;
+  }
+
+  .sidebar-item span {
+    font-size: 18px;
+  }
+
+  .sidebar-logout {
+    justify-content: center;
+
+    font-size: 0;
+  }
+
+  .pg-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .home-sidebar {
+    display: none;
+  }
+
+  .home-topbar {
+    padding: 0 20px;
+  }
+
+  .home-hero {
+    margin: 15px;
+
+    min-height: 390px;
+  }
+
+  .hero-content {
+    padding: 40px 25px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .home-search {
+    width: 100%;
+  }
+
+  .recommended-section {
+    padding: 20px 15px;
+  }
+
+  .pg-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .roommate-banner {
+    margin: 0 15px 25px;
+  }
+
+  .roommate-banner-content {
+    padding: 30px 25px 80px;
+  }
+
+  .roommate-banner-content button {
+    left: 25px;
+
+    right: auto;
+
+    bottom: 25px;
+  }
+
+  .home-footer {
+    padding: 0 15px;
+
+    gap: 10px;
+  }
+
+}
