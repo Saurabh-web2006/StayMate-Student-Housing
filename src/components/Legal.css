@@ -1,0 +1,424 @@
+/* =========================================
+   STAYMATE - LEGAL PAGE
+   Warm Cream + Olive Theme
+========================================= */
+
+.legal-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 5% 5%,
+      #e7ecdf 0,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 95% 95%,
+      #eadcc8 0,
+      transparent 25%
+    ),
+    #f5efe6;
+
+  color: #29291f;
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.legal-header {
+  height: 72px;
+
+  padding: 0 6%;
+
+  background: #fbf8f2;
+
+  border-bottom: 1px solid #e3dbcf;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 10;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.legal-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #29291f;
+
+  font-size: 22px;
+
+  font-weight: 700;
+}
+
+.legal-logo img {
+  width: 44px;
+
+  height: 44px;
+
+  object-fit: contain;
+}
+
+.legal-logo span {
+  color: #596c3d;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.legal-back {
+  height: 40px;
+
+  padding: 0 15px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  border: 1px solid #d8cdbc;
+
+  border-radius: 8px;
+
+  background: #fbf8f2;
+
+  color: #596c3d;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.legal-back:hover {
+  background: #e7ecdf;
+
+  border-color: #596c3d;
+
+  transform: translateX(-2px);
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.legal-content {
+  width: 90%;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 55px 0 80px;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.legal-title {
+  text-align: center;
+
+  margin-bottom: 42px;
+}
+
+.legal-title > span {
+  display: inline-block;
+
+  margin-bottom: 9px;
+
+  color: #596c3d;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.legal-title h1 {
+  margin: 0;
+
+  color: #29291f;
+
+  font-size: 36px;
+
+  line-height: 1.2;
+}
+
+.legal-title p {
+  margin: 9px 0 0;
+
+  color: #99948a;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   LEGAL SECTION
+========================================= */
+
+.legal-section {
+  background: #fbf8f2;
+
+  border: 1px solid #e3dbcf;
+
+  border-radius: 17px;
+
+  padding: 30px 35px;
+
+  margin-bottom: 25px;
+
+  box-shadow:
+    0 8px 25px rgba(67,55,38,0.05);
+}
+
+
+/* =========================================
+   SECTION LABEL
+========================================= */
+
+.section-label {
+  display: inline-flex;
+
+  align-items: center;
+
+  height: 26px;
+
+  padding: 0 10px;
+
+  border-radius: 6px;
+
+  background: #e7ecdf;
+
+  color: #596c3d;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.privacy-label {
+  background: #eee5d6;
+
+  color: #806b4b;
+}
+
+
+/* =========================================
+   SECTION TITLE
+========================================= */
+
+.legal-section > h2 {
+  margin: 12px 0 25px;
+
+  color: #29291f;
+
+  font-size: 24px;
+}
+
+
+/* =========================================
+   LEGAL BLOCK
+========================================= */
+
+.legal-block {
+  padding: 0 0 20px;
+
+  margin-bottom: 20px;
+
+  border-bottom: 1px solid #ebe4da;
+}
+
+.legal-block:last-child {
+  padding-bottom: 0;
+
+  margin-bottom: 0;
+
+  border-bottom: none;
+}
+
+
+/* =========================================
+   BLOCK HEADING
+========================================= */
+
+.legal-block h3 {
+  margin: 0 0 8px;
+
+  color: #4c4a40;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   BLOCK TEXT
+========================================= */
+
+.legal-block p {
+  margin: 0;
+
+  color: #77746b;
+
+  font-size: 12px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   HOVER EFFECT
+========================================= */
+
+.legal-block {
+  transition:
+    padding-left 0.2s,
+    background 0.2s;
+}
+
+.legal-block:hover {
+  padding-left: 8px;
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 700px) {
+
+  .legal-header {
+    padding: 0 20px;
+  }
+
+  .legal-content {
+    width: 92%;
+
+    padding-top: 35px;
+  }
+
+  .legal-section {
+    padding: 25px;
+  }
+
+  .legal-title h1 {
+    font-size: 30px;
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+  .legal-header {
+    height: auto;
+
+    padding: 14px 18px;
+  }
+
+  .legal-logo {
+    font-size: 18px;
+  }
+
+  .legal-logo img {
+    width: 38px;
+
+    height: 38px;
+  }
+
+  .legal-back {
+    height: 36px;
+
+    padding: 0 10px;
+
+    font-size: 9px;
+  }
+
+  .legal-content {
+    width: 94%;
+
+    padding: 30px 0 50px;
+  }
+
+  .legal-title {
+    margin-bottom: 28px;
+  }
+
+  .legal-title h1 {
+    font-size: 26px;
+  }
+
+  .legal-section {
+    padding: 22px 18px;
+
+    border-radius: 14px;
+  }
+
+  .legal-section > h2 {
+    font-size: 20px;
+  }
+
+  .legal-block h3 {
+    font-size: 12px;
+  }
+
+  .legal-block p {
+    font-size: 11px;
+
+    line-height: 1.7;
+  }
+
+  .legal-block:hover {
+    padding-left: 0;
+  }
+
+}

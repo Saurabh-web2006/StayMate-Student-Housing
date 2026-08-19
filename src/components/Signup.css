@@ -1,0 +1,716 @@
+/* =========================================
+   STAYMATE SIGNUP
+   Warm Cream + Olive Theme
+========================================= */
+
+.signup-page {
+  min-height: 100vh;
+
+  display: flex;
+
+  background: #f5efe6;
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  color: #29291f;
+}
+
+
+/* =========================================
+   LEFT SIDE
+========================================= */
+
+.signup-left {
+  width: 52%;
+
+  min-height: 100vh;
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 42px 6%;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      rgba(42, 45, 31, 0.72),
+      rgba(42, 45, 31, 0.55)
+    ),
+    url("../assets/signup.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.signup-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  position: relative;
+
+  z-index: 2;
+
+  color: white;
+
+  font-size: 25px;
+
+  font-weight: 700;
+}
+
+.signup-logo img {
+  width: 45px;
+
+  height: 45px;
+
+  object-fit: contain;
+}
+
+.signup-logo span {
+  color: #d6e2bc;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.signup-hero {
+  position: absolute;
+
+  left: 6%;
+
+  right: 8%;
+
+  bottom: 10%;
+
+  z-index: 2;
+}
+
+.signup-hero h1 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 46px;
+
+  line-height: 1.12;
+
+  letter-spacing: -1px;
+}
+
+.signup-hero h1 span {
+  color: #d6e2bc;
+}
+
+.signup-hero > p {
+  margin-top: 20px;
+
+  color: rgba(255,255,255,0.82);
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   BENEFITS
+========================================= */
+
+.signup-benefits {
+  margin-top: 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  max-width: 420px;
+}
+
+.signup-benefit {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 11px 13px;
+
+  background: rgba(251,248,242,0.10);
+
+  border: 1px solid rgba(255,255,255,0.17);
+
+  border-radius: 10px;
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* NUMBER */
+
+.benefit-number {
+  width: 35px;
+
+  height: 35px;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  background: rgba(214,226,188,0.18);
+
+  color: #d6e2bc;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+
+/* BENEFIT TEXT */
+
+.signup-benefit h3 {
+  margin: 0 0 3px;
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: 600;
+}
+
+.signup-benefit p {
+  margin: 0;
+
+  color: rgba(255,255,255,0.68);
+
+  font-size: 8px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   RIGHT SIDE
+========================================= */
+
+.signup-right {
+  width: 48%;
+
+  min-height: 100vh;
+
+  background: #f5efe6;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 30px 45px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   SIGNUP CARD
+========================================= */
+
+.signup-card {
+  width: 100%;
+
+  max-width: 490px;
+
+  background: #fbf8f2;
+
+  border: 1px solid #e3dbcf;
+
+  border-radius: 20px;
+
+  padding: 30px 40px 25px;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 18px 50px rgba(67,55,38,0.09);
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.signup-card h2 {
+  margin: 0;
+
+  text-align: center;
+
+  color: #29291f;
+
+  font-size: 25px;
+
+  line-height: 1.25;
+}
+
+.signup-card h2 span {
+  color: #596c3d;
+}
+
+.signup-subtitle {
+  margin: 7px 0 22px;
+
+  text-align: center;
+
+  color: #858176;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.signup-form-group {
+  margin-top: 15px;
+}
+
+.signup-form-group label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #4d4b42;
+
+  font-size: 10px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.signup-input {
+  width: 100%;
+
+  height: 45px;
+
+  padding: 0 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  box-sizing: border-box;
+
+  background: #fffdf9;
+
+  border: 1px solid #dcd3c7;
+
+  border-radius: 8px;
+
+  transition: 0.2s;
+}
+
+.signup-input:focus-within {
+  border-color: #596c3d;
+
+  box-shadow:
+    0 0 0 3px rgba(89,108,61,0.08);
+}
+
+.signup-input > span {
+  color: #77746b;
+
+  font-size: 14px;
+}
+
+.signup-input input {
+  width: 100%;
+
+  min-width: 0;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #29291f;
+
+  font-size: 11px;
+}
+
+.signup-input input::placeholder {
+  color: #aaa49a;
+}
+
+
+/* =========================================
+   EYE BUTTON
+========================================= */
+
+.signup-eye {
+  border: none;
+
+  background: transparent;
+
+  padding: 3px;
+
+  cursor: pointer;
+
+  font-size: 13px;
+
+  opacity: 0.65;
+}
+
+.signup-eye:hover {
+  opacity: 1;
+}
+
+
+/* =========================================
+   CREATE ACCOUNT
+========================================= */
+
+.signup-button {
+  width: 100%;
+
+  height: 48px;
+
+  margin-top: 21px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #596c3d;
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.signup-button:hover {
+  background: #485b30;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 18px rgba(89,108,61,0.18);
+}
+
+.signup-button span {
+  font-size: 15px;
+
+  transition: 0.2s;
+}
+
+.signup-button:hover span {
+  transform: translateX(3px);
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.signup-divider {
+  height: 1px;
+
+  background: #e5ddd2;
+
+  margin: 20px 0 17px;
+}
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+.signup-switch {
+  text-align: center;
+
+  color: #858176;
+
+  font-size: 10px;
+}
+
+.signup-switch button {
+  border: none;
+
+  background: transparent;
+
+  color: #596c3d;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  margin-left: 4px;
+}
+
+.signup-switch button:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   LEGAL BOX
+========================================= */
+
+.signup-right > .legal-box {
+  width: 100%;
+
+  max-width: 490px;
+
+  margin-top: 14px;
+
+  padding: 10px 13px;
+
+  background: #f3ede4;
+
+  border: 1px solid #e3dbcf;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  box-sizing: border-box;
+}
+
+.signup-right .legal-shield {
+  width: 32px;
+
+  height: 32px;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: #e7ecdf;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 14px;
+}
+
+.signup-right .legal-content {
+  flex: 1;
+}
+
+.signup-right .legal-main-text {
+  margin: 0;
+
+  color: #4c4a40;
+
+  font-size: 9px;
+
+  font-weight: 600;
+}
+
+.signup-right .legal-sub-text {
+  margin: 2px 0 3px;
+
+  color: #99948a;
+
+  font-size: 8px;
+}
+
+.signup-right .legal-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.signup-right .legal-links span {
+  color: #b1aa9e;
+
+  font-size: 8px;
+}
+
+.signup-right .legal-links button {
+  border: none;
+
+  background: transparent;
+
+  padding: 0;
+
+  color: #596c3d;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.signup-right .legal-links button:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .signup-page {
+    flex-direction: column;
+  }
+
+  .signup-left {
+    width: 100%;
+
+    min-height: 430px;
+
+    padding: 30px;
+  }
+
+  .signup-hero {
+    left: 30px;
+
+    right: 30px;
+
+    bottom: 35px;
+  }
+
+  .signup-hero h1 {
+    font-size: 38px;
+  }
+
+  .signup-right {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 35px 25px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .signup-left {
+    min-height: 330px;
+
+    padding: 25px;
+  }
+
+  .signup-logo {
+    font-size: 21px;
+  }
+
+  .signup-logo img {
+    width: 38px;
+
+    height: 38px;
+  }
+
+  .signup-hero {
+    left: 25px;
+
+    right: 25px;
+
+    bottom: 28px;
+  }
+
+  .signup-hero h1 {
+    font-size: 31px;
+  }
+
+  .signup-hero > p {
+    font-size: 12px;
+  }
+
+  .signup-hero > p br {
+    display: none;
+  }
+
+  .signup-benefits {
+    display: none;
+  }
+
+  .signup-right {
+    padding: 25px 15px;
+  }
+
+  .signup-card {
+    padding: 27px 20px 22px;
+
+    border-radius: 16px;
+  }
+
+  .signup-card h2 {
+    font-size: 22px;
+  }
+
+  .signup-right > .legal-box {
+    width: 100%;
+  }
+
+}
