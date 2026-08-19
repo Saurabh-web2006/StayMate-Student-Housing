@@ -5,10 +5,10 @@ import Signup from "./components/Signup";
 import ForgotPassword from "./components/ForgotPassword";
 import Legal from "./components/Legal";
 
-import Home from "./components/Home";
-import FindPGs from "./components/FindPGs";
-import Roommates from "./components/Roommates";
-import Saved from "./components/Saved";
+// import Home from "./components/Home";
+// import FindPGs from "./components/FindPGs";
+// import Roommates from "./components/Roommates";
+// import Saved from "./components/Saved";
 
 import "./App.css";
 

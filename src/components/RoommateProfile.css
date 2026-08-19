@@ -1,0 +1,757 @@
+/* =========================================
+   STAYMATE - ROOMMATE PROFILE
+   Warm Cream + Olive Theme
+========================================= */
+
+.roommate-profile-page {
+  min-height: 100vh;
+
+  background: #f5efe6;
+
+  color: #29291f;
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.roommate-profile-navbar {
+  height: 72px;
+
+  background: #fbf8f2;
+
+  border-bottom: 1px solid #e3dbcf;
+
+  padding: 0 6%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  box-sizing: border-box;
+}
+
+
+/* LOGO */
+
+.roommate-profile-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 22px;
+
+  font-weight: 700;
+
+  color: #29291f;
+}
+
+.roommate-profile-logo img {
+  width: 45px;
+
+  height: 45px;
+
+  object-fit: contain;
+}
+
+.roommate-profile-logo > span > span {
+  color: #596c3d;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.profile-back-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  height: 42px;
+
+  padding: 0 16px;
+
+  background: #fbf8f2;
+
+  border: 1px solid #d8cdbc;
+
+  border-radius: 9px;
+
+  color: #596c3d;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 3px 10px rgba(67,55,38,0.05);
+
+  transition: 0.2s;
+}
+
+.profile-back-button:hover {
+  background: #e7ecdf;
+
+  border-color: #596c3d;
+
+  transform: translateX(-2px);
+
+  box-shadow:
+    0 5px 14px rgba(67,55,38,0.09);
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.roommate-profile-main {
+  width: 90%;
+
+  max-width: 1050px;
+
+  margin: 35px auto 60px;
+
+  background: #fbf8f2;
+
+  border: 1px solid #e3dbcf;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 10px 35px rgba(67,55,38,0.08);
+}
+
+
+/* =========================================
+   PROFILE HEADER
+========================================= */
+
+.profile-header {
+  min-height: 230px;
+
+  padding: 35px 38px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eee5d6,
+      #e7ecdf
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   PROFILE PHOTO
+========================================= */
+
+.profile-avatar {
+  width: 150px;
+
+  height: 150px;
+
+  flex-shrink: 0;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  background: #d9c5a6;
+
+  border: 5px solid #fbf8f2;
+
+  box-shadow:
+    0 8px 20px rgba(67,55,38,0.12);
+}
+
+.profile-avatar img {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   BASIC INFO
+========================================= */
+
+.profile-basic-info {
+  flex: 1;
+}
+
+.profile-label {
+  margin: 0 0 8px;
+
+  color: #596c3d;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.profile-basic-info h1 {
+  margin: 0 0 8px;
+
+  color: #29291f;
+
+  font-size: 31px;
+
+  line-height: 1.2;
+}
+
+.profile-basic-info > p:not(.profile-label) {
+  margin: 6px 0;
+
+  color: #77746b;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   MATCH SCORE
+========================================= */
+
+.profile-match {
+  width: 110px;
+
+  height: 110px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #596c3d;
+
+  color: white;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-shadow:
+    0 8px 20px rgba(89,108,61,0.22);
+}
+
+.profile-match strong {
+  font-size: 25px;
+
+  line-height: 1;
+}
+
+.profile-match span {
+  margin-top: 6px;
+
+  font-size: 9px;
+
+  opacity: 0.9;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.profile-content {
+  padding: 35px 38px 40px;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.profile-section {
+  padding-bottom: 28px;
+
+  margin-bottom: 28px;
+
+  border-bottom: 1px solid #e8e0d5;
+}
+
+.profile-section:last-of-type {
+  border-bottom: none;
+}
+
+.profile-section h2 {
+  margin: 0 0 14px;
+
+  color: #29291f;
+
+  font-size: 19px;
+}
+
+.profile-section > p {
+  margin: 0;
+
+  color: #77746b;
+
+  font-size: 12px;
+
+  line-height: 1.8;
+
+  max-width: 800px;
+}
+
+
+/* =========================================
+   PREFERENCES
+========================================= */
+
+.profile-preferences {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.preference-card {
+  min-height: 88px;
+
+  background: #f3ede4;
+
+  border: 1px solid #e3dbcf;
+
+  border-radius: 12px;
+
+  padding: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  box-sizing: border-box;
+
+  transition: 0.2s;
+}
+
+.preference-card:hover {
+  background: #e7ecdf;
+
+  border-color: #cbd7bd;
+
+  transform: translateY(-2px);
+}
+
+.preference-card > span {
+  width: 38px;
+
+  height: 38px;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  background: #fbf8f2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 18px;
+}
+
+.preference-card small {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #99948a;
+
+  font-size: 9px;
+}
+
+.preference-card strong {
+  display: block;
+
+  color: #4c4a40;
+
+  font-size: 10px;
+
+  line-height: 1.3;
+}
+
+
+/* =========================================
+   COMPATIBILITY
+========================================= */
+
+.compatibility-box {
+  background: #f3ede4;
+
+  border: 1px solid #e3dbcf;
+
+  border-radius: 13px;
+
+  padding: 20px;
+}
+
+.compatibility-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.compatibility-top strong {
+  display: block;
+
+  color: #596c3d;
+
+  font-size: 17px;
+}
+
+.compatibility-top p {
+  margin: 6px 0 0;
+
+  color: #77746b;
+
+  font-size: 11px;
+}
+
+
+/* CIRCLE */
+
+.match-circle {
+  width: 60px;
+
+  height: 60px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #596c3d;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+/* PROGRESS BAR */
+
+.compatibility-bar {
+  width: 100%;
+
+  height: 9px;
+
+  margin-top: 18px;
+
+  background: #ddd7cc;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+.compatibility-bar div {
+  height: 100%;
+
+  background: #596c3d;
+
+  border-radius: 20px;
+
+  transition: width 0.5s ease;
+}
+
+
+/* =========================================
+   LOOKING FOR
+========================================= */
+
+.looking-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.looking-grid > div {
+  background: #f3ede4;
+
+  border: 1px solid #e3dbcf;
+
+  border-radius: 11px;
+
+  padding: 16px;
+}
+
+.looking-grid span {
+  display: block;
+
+  color: #99948a;
+
+  font-size: 9px;
+
+  margin-bottom: 7px;
+}
+
+.looking-grid strong {
+  display: block;
+
+  color: #4c4a40;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.profile-actions {
+  display: flex;
+
+  gap: 12px;
+
+  padding-top: 5px;
+}
+
+
+/* SAVE */
+
+.save-profile-button {
+  width: 180px;
+
+  height: 50px;
+
+  border: 1px solid #d8cdbc;
+
+  background: #fffdf9;
+
+  color: #596c3d;
+
+  border-radius: 9px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.save-profile-button:hover {
+  background: #e7ecdf;
+
+  border-color: #596c3d;
+}
+
+
+/* CONNECT */
+
+.connect-button {
+  flex: 1;
+
+  height: 50px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #596c3d;
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.connect-button:hover {
+  background: #485b30;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+  .roommate-profile-navbar {
+    padding: 0 25px;
+  }
+
+  .roommate-profile-main {
+    width: 94%;
+  }
+
+  .profile-header {
+    padding: 28px;
+
+    flex-wrap: wrap;
+  }
+
+  .profile-avatar {
+    width: 125px;
+
+    height: 125px;
+  }
+
+  .profile-match {
+    width: 90px;
+
+    height: 90px;
+  }
+
+  .profile-preferences {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .roommate-profile-navbar {
+    height: auto;
+
+    padding: 14px 18px;
+  }
+
+  .roommate-profile-logo {
+    font-size: 18px;
+  }
+
+  .roommate-profile-logo img {
+    width: 38px;
+
+    height: 38px;
+  }
+
+  .profile-back-button {
+    height: 38px;
+
+    padding: 0 10px;
+
+    font-size: 10px;
+  }
+
+  .roommate-profile-main {
+    width: 94%;
+
+    margin-top: 20px;
+  }
+
+  .profile-header {
+    padding: 25px 20px;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .profile-avatar {
+    width: 130px;
+
+    height: 130px;
+  }
+
+  .profile-basic-info h1 {
+    font-size: 26px;
+  }
+
+  .profile-match {
+    width: 85px;
+
+    height: 85px;
+  }
+
+  .profile-content {
+    padding: 25px 18px 30px;
+  }
+
+  .profile-preferences {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .looking-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+  }
+
+  .save-profile-button,
+  .connect-button {
+    width: 100%;
+  }
+
+}
