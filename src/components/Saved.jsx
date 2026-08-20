@@ -10,6 +10,10 @@ function Saved({
   onFindPGs,
   onRoommates,
   onMessages,
+  onBookings,
+  onNotifications,
+  onProfile,
+  onSettings,
   onLogout,
   savedPGs = [],
   onToggleSaved
@@ -49,23 +53,15 @@ function Saved({
 
         onSaved={() => {}}
 
-        onBookings={() => {
-          alert("My Bookings page coming soon!");
-        }}
+        onBookings={onBookings}
 
         onMessages={onMessages}
 
-        onNotifications={() => {
-          alert("Notifications page coming soon!");
-        }}
+        onNotifications={onNotifications}
 
-        onProfile={() => {
-          alert("Profile page coming soon!");
-        }}
+        onProfile={onProfile}
 
-        onSettings={() => {
-          alert("Settings page coming soon!");
-        }}
+        onSettings={onSettings}
 
         onLogout={onLogout}
 

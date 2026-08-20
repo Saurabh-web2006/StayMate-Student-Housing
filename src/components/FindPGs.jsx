@@ -19,6 +19,10 @@ function FindPGs({
   onLogout,
   onMessages,
   onSaved,
+  onBookings,
+  onNotifications,
+  onProfile,
+  onSettings,
   savedPGs,
   onToggleSaved
 }) {
@@ -203,23 +207,15 @@ function FindPGs({
 
         onSaved={onSaved}
 
-        onBookings={() => {
-          alert("My Bookings page coming soon!");
-        }}
+        onBookings={onBookings}
 
         onMessages={onMessages}
 
-        onNotifications={() => {
-          alert("Notifications page coming soon!");
-        }}
+        onNotifications={onNotifications}
 
-        onProfile={() => {
-          alert("Profile page coming soon!");
-        }}
+        onProfile={onProfile}
 
-        onSettings={() => {
-          alert("Settings page coming soon!");
-        }}
+        onSettings={onSettings}
 
         onLogout={onLogout}
 

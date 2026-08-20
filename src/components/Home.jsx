@@ -15,7 +15,11 @@ function Home({
   onFindPGs,
   onRoommates,
   onSaved,
-  onMessages
+  onBookings,
+  onMessages,
+  onNotifications,
+  onProfile,
+  onSettings
 }) {
 
   const [selectedPG, setSelectedPG] = useState(null);
@@ -139,7 +143,9 @@ function Home({
           </button>
 
 
-          <button className="sidebar-item">
+          <button className="sidebar-item"
+            onClick={onBookings}
+          >
             <span>▣</span>
             My Bookings
           </button>
@@ -153,19 +159,25 @@ function Home({
           </button>
 
 
-          <button className="sidebar-item">
+          <button className="sidebar-item"
+            onClick={onNotifications}
+          >
             <span>♧</span>
             Notifications
           </button>
 
 
-          <button className="sidebar-item">
+          <button className="sidebar-item"
+            onClick={onProfile}
+          >
             <span>◎</span>
             Profile
           </button>
 
 
-          <button className="sidebar-item">
+          <button className="sidebar-item"
+            onClick={onSettings}
+          >
             <span>⚙</span>
             Settings
           </button>
