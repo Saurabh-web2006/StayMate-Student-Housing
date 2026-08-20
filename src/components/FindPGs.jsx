@@ -17,12 +17,14 @@ function FindPGs({
   onHome,
   onRoommates,
   onLogout,
+  onMessages,
   onSaved,
   savedPGs,
-  onToggleSaved
+  onToggleSaved,
+  initialSearch = ""
 }) {
 
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(initialSearch);
   const [budget, setBudget] = useState("Any Budget");
   const [roomType, setRoomType] = useState("Any Room");
   const [pgType, setPgType] = useState("All");
@@ -217,9 +219,7 @@ function FindPGs({
           alert("My Bookings page coming soon!");
         }}
 
-        onMessages={() => {
-          alert("Messages page coming soon!");
-        }}
+        onMessages={onMessages}
 
         onNotifications={() => {
           alert("Notifications page coming soon!");

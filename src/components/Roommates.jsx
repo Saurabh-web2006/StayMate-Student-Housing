@@ -18,7 +18,9 @@ function Roommates({
   onFindPGs,
   onLogout,
   onProfile,
-  onSaved
+  onSaved,
+  onMessages,
+  onConnect
 }) {
 
   const [search, setSearch] = useState("");
@@ -210,6 +212,9 @@ function Roommates({
         onBack={() =>
           setSelectedRoommate(null)
         }
+        onConnect={(person) => {
+          onConnect(person);
+        }}
       />
     );
 
@@ -245,9 +250,7 @@ function Roommates({
           alert("My Bookings page coming soon!");
         }}
 
-        onMessages={() => {
-          alert("Messages page coming soon!");
-        }}
+        onMessages={onMessages}
 
         onNotifications={() => {
           alert("Notifications page coming soon!");

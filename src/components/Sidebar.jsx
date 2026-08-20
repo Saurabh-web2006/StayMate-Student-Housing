@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./Sidebar.css";
 import logo from "../assets/logo.png";
 
@@ -14,10 +15,18 @@ function Sidebar({
   onSettings,
   onLogout
 }) {
-  return (
-    <aside className="home-sidebar">
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
-      {/* ================= LOGO ================= */}
+  return (
+    <aside
+      className={`home-sidebar ${
+        isCollapsed ? "collapsed" : ""
+      }`} 
+    >
+
+      {/* =================================
+          LOGO
+      ================================= */}
 
       <div className="home-logo">
 
@@ -33,137 +42,194 @@ function Sidebar({
       </div>
 
 
-      {/* ================= MENU ================= */}
+      {/* =================================
+          SIDEBAR TOGGLE
+      ================================= */}
+
+      <button
+        className="sidebar-toggle"
+        onClick={() => setIsCollapsed(!isCollapsed)}
+        type="button"
+        aria-label={
+          isCollapsed
+            ? "Expand sidebar"
+            : "Collapse sidebar"
+        }
+      >
+        <span className="toggle-arrow">
+          {isCollapsed ? "›" : "‹"}
+        </span>
+      </button>
+
+
+      {/* =================================
+          SIDEBAR MENU
+      ================================= */}
 
       <div className="sidebar-menu">
 
+        {/* HOME */}
+
         <button
-          className={
+          className={`sidebar-item ${
             activePage === "home"
-              ? "sidebar-item active"
-              : "sidebar-item"
-          }
+              ? "active"
+              : ""
+          }`}
           onClick={onHome}
+          type="button"
         >
-          <span>⌂</span>
-          Home
+          <span>🏠</span>
+          <label>Home</label>
         </button>
 
 
+        {/* FIND PGs */}
+
         <button
-          className={
+          className={`sidebar-item ${
             activePage === "find"
-              ? "sidebar-item active"
-              : "sidebar-item"
-          }
+              ? "active"
+              : ""
+          }`}
           onClick={onFindPGs}
+          type="button"
         >
-          <span>⌕</span>
-          Find PGs
+          <span>🔍</span>
+          <label>Find PGs</label>
         </button>
 
 
+        {/* ROOMMATES */}
+
         <button
-          className={
+          className={`sidebar-item ${
             activePage === "roommates"
-              ? "sidebar-item active"
-              : "sidebar-item"
-          }
+              ? "active"
+              : ""
+          }`}
           onClick={onRoommates}
+          type="button"
         >
-          <span>♧</span>
-          Roommates
+          <span>👥</span>
+          <label>Roommates</label>
         </button>
 
 
+        {/* SAVED */}
+
         <button
-          className={
+          className={`sidebar-item ${
             activePage === "saved"
-              ? "sidebar-item active"
-              : "sidebar-item"
-          }
+              ? "active"
+              : ""
+          }`}
           onClick={onSaved}
+          type="button"
         >
           <span>♡</span>
-          Saved
+          <label>Saved</label>
         </button>
 
 
+        {/* BOOKINGS */}
+
         <button
-          className={
+          className={`sidebar-item ${
             activePage === "bookings"
-              ? "sidebar-item active"
-              : "sidebar-item"
-          }
+              ? "active"
+              : ""
+          }`}
           onClick={onBookings}
+          type="button"
         >
-          <span>▣</span>
-          My Bookings
+          <span>📋</span>
+          <label>My Bookings</label>
         </button>
 
 
+        {/* MESSAGES */}
+
         <button
-          className={
+          className={`sidebar-item ${
             activePage === "messages"
-              ? "sidebar-item active"
-              : "sidebar-item"
-          }
+              ? "active"
+              : ""
+          }`}
           onClick={onMessages}
+          type="button"
         >
-          <span>◌</span>
-          Messages
+          <span>💬</span>
+          <label>Messages</label>
         </button>
 
 
+        {/* NOTIFICATIONS */}
+
         <button
-          className={
+          className={`sidebar-item ${
             activePage === "notifications"
-              ? "sidebar-item active"
-              : "sidebar-item"
-          }
+              ? "active"
+              : ""
+          }`}
           onClick={onNotifications}
+          type="button"
         >
-          <span>♧</span>
-          Notifications
+          <span>🔔</span>
+          <label>Notifications</label>
         </button>
 
 
+        {/* PROFILE */}
+
         <button
-          className={
+          className={`sidebar-item ${
             activePage === "profile"
-              ? "sidebar-item active"
-              : "sidebar-item"
-          }
+              ? "active"
+              : ""
+          }`}
           onClick={onProfile}
+          type="button"
         >
-          <span>◎</span>
-          Profile
+          <span>👤</span>
+          <label>Profile</label>
         </button>
 
 
+        {/* SETTINGS */}
+
         <button
-          className={
+          className={`sidebar-item ${
             activePage === "settings"
-              ? "sidebar-item active"
-              : "sidebar-item"
-          }
+              ? "active"
+              : ""
+          }`}
           onClick={onSettings}
+          type="button"
         >
           <span>⚙</span>
-          Settings
+          <label>Settings</label>
         </button>
 
       </div>
 
 
-      {/* ================= LOGOUT ================= */}
+      {/* =================================
+          LOGOUT
+      ================================= */}
 
       <button
         className="sidebar-logout"
         onClick={onLogout}
+        type="button"
       >
-        ↪
-        <span>Logout</span>
+        <span className="logout-icon">
+          🚪
+        </span>
+
+        <label>
+          Logout
+        </label>
       </button>
 
     </aside>

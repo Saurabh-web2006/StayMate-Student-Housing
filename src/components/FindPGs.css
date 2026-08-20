@@ -13,9 +13,9 @@
 /* MAIN AREA - LEAVE SPACE FOR SIDEBAR */
 
 .find-pg-main {
-  margin-left: 260px;
+  margin-left: 90px;
 
-  width: calc(100% - 260px);
+  width: calc(100% - 90px);
 
   min-height: 100vh;
 
@@ -211,18 +211,7 @@
 }
 
 
-/* =========================================
-   MAIN
-========================================= */
 
-.find-pg-main {
-  width: 90%;
-  max-width: 1150px;
-
-  margin: 0 auto;
-
-  padding: 42px 0 60px;
-}
 
 
 /* =========================================
@@ -954,113 +943,11 @@
   }
 
   .find-pg-main {
-    width: 92%;
-
-    padding-top: 28px;
+    margin-left: 90px;
+    width: calc(100% - 90px);
+    padding: 0 18px 30px;
+    padding-top: 20px;
   }
-
-  .find-pg-heading h1 {
-    font-size: 26px;
-  }
-
-  .find-pg-search {
-    height: 53px;
-  }
-
-  .find-pg-search-button {
-    min-width: 72px;
-
-    padding: 0 12px;
-  }
-
-  .filters-panel {
-    flex-direction: column;
-
-    align-items: stretch;
-
-    padding: 15px;
-  }
-
-  .filter-item {
-    width: 100%;
-
-    min-width: 0;
-  }
-
-  .clear-filters {
-    width: 100%;
-  }
-
-  .results-header {
-    align-items: flex-start;
-
-    flex-direction: column;
-
-    gap: 10px;
-  }
-
-  .find-pg-grid {
-    grid-template-columns: 1fr;
-
-    gap: 16px;
-  }
-
-  .pg-image {
-    height: 210px;
-  }
-
-}
-
-/* =========================================
-   FIXED SIDEBAR LAYOUT
-========================================= */
-
-.find-pg-page {
-  width: 100%;
-  min-height: 100vh;
-  background: #f5efe6;
-  box-sizing: border-box;
-}
-
-.find-pg-main {
-  margin-left: 260px !important;
-
-  width: calc(100% - 260px) !important;
-
-  min-height: 100vh;
-
-  padding: 0 38px 50px;
-
-  box-sizing: border-box;
-}
-
-/* =========================================
-   FIX FIND PG SIDEBAR OVERLAP
-========================================= */
-
-.find-pg-page {
-  width: 100%;
-  min-height: 100vh;
-
-  background: #f5efe6;
-
-  box-sizing: border-box;
-}
-
-
-/* Main content must start AFTER sidebar */
-
-.find-pg-main {
-  margin-left: 260px !important;
-
-  width: calc(100% - 260px) !important;
-
-  min-height: 100vh;
-
-  padding: 0 38px 50px;
-
-  box-sizing: border-box;
-}
 
 
 /* Top bar */

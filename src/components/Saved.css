@@ -19,9 +19,9 @@
 ========================================= */
 
 .saved-main {
-  margin-left: 260px !important;
+  margin-left: 90px;
 
-  width: calc(100% - 260px) !important;
+  width: calc(100% - 90px);
 
   min-height: 100vh;
 
@@ -537,9 +537,9 @@
 @media (max-width: 800px) {
 
   .saved-main {
-    margin-left: 0 !important;
+    margin-left: 90px;
 
-    width: 100% !important;
+    width: calc(100% - 90px);
 
     padding: 0 18px 30px;
   }
