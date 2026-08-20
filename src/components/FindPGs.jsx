@@ -17,6 +17,7 @@ function FindPGs({
   onHome,
   onRoommates,
   onLogout,
+  onMessages,
   onSaved,
   savedPGs,
   onToggleSaved
@@ -217,9 +218,7 @@ function FindPGs({
           alert("My Bookings page coming soon!");
         }}
 
-        onMessages={() => {
-          alert("Messages page coming soon!");
-        }}
+        onMessages={onMessages}
 
         onNotifications={() => {
           alert("Notifications page coming soon!");

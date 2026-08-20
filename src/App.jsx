@@ -5,15 +5,18 @@ import Signup from "./components/Signup";
 import ForgotPassword from "./components/ForgotPassword";
 import Legal from "./components/Legal";
 
-      import Home from "./components/Home";
-      import FindPGs from "./components/FindPGs";
-      import Roommates from "./components/Roommates";
-      import Saved from "./components/Saved";
+import Home from "./components/Home";
+import FindPGs from "./components/FindPGs";
+import Roommates from "./components/Roommates";
+import Saved from "./components/Saved";
+import Messages from "./components/Messages";
 
 import "./App.css";
 
 function App() {
   const [page, setPage] = useState("login");
+
+  const [selectedChatPerson, setSelectedChatPerson] = useState(null);
 
   const [savedPGs, setSavedPGs] = useState([]);
 
@@ -77,6 +80,9 @@ function App() {
           onFindPGs={() => setPage("findPGs")}
           onRoommates={() => setPage("roommates")}
           onSaved={() => setPage("saved")}
+          onMessages={() => setPage("messages")}
+          savedPGs={savedPGs}
+          onToggleSaved={toggleSavedPG}
         />
       )}
 
@@ -92,6 +98,8 @@ function App() {
 
           onLogout={() => setPage("login")}
 
+          onMessages={() => setPage("messages")}
+
           savedPGs={savedPGs}
 
           onToggleSaved={toggleSavedPG}
@@ -105,6 +113,12 @@ function App() {
           onFindPGs={() => setPage("findPGs")}
           onLogout={() => setPage("login")}
           onSaved={() => setPage("saved")}
+          onMessages={() => setPage("messages")}
+          onLogout={() => setPage("login")}
+          onConnect={(person) => {
+            setSelectedChatPerson(person);
+            setPage("messages");
+          }}
         />
       )}
 
@@ -120,9 +134,23 @@ function App() {
 
           onLogout={() => setPage("login")}
 
+          onMessages={() => setPage("messages")}
+
           savedPGs={savedPGs}
 
           onToggleSaved={toggleSavedPG}
+        />
+      )}
+
+      {page === "messages" && (
+        <Messages
+          userName="Sanyam"
+          onHome={() => setPage("home")}
+          onFindPGs={() => setPage("findPGs")}
+          onRoommates={() => setPage("roommates")}
+          onSaved={() => setPage("saved")}
+          onLogout={() => setPage("login")}
+          selectedPerson={selectedChatPerson}
         />
       )}
 

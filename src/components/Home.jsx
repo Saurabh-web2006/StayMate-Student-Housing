@@ -14,7 +14,8 @@ function Home({
   onLogout,
   onFindPGs,
   onRoommates,
-  onSaved
+  onSaved,
+  onMessages
 }) {
 
   const [selectedPG, setSelectedPG] = useState(null);
@@ -144,7 +145,9 @@ function Home({
           </button>
 
 
-          <button className="sidebar-item">
+          <button className="sidebar-item"
+            onClick={onMessages}
+          >
             <span>◌</span>
             Messages
           </button>
