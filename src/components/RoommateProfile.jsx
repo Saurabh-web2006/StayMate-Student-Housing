@@ -2,7 +2,7 @@ import "./RoommateProfile.css";
 
 import logo from "../assets/logo.png";
 
-function RoommateProfile({ person, onBack }) {
+function RoommateProfile({ person, onBack, onConnect }) {
 
   if (!person) {
     return null;
@@ -302,7 +302,10 @@ function RoommateProfile({ person, onBack }) {
               ♡ Save Profile
             </button>
 
-            <button className="connect-button">
+            <button
+              className="connect-button"
+              onClick={() => onConnect(person)}
+            >
               Connect with {person.name.split(" ")[0]} →
             </button>
 

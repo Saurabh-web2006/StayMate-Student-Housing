@@ -9,6 +9,7 @@ function Saved({
   onHome,
   onFindPGs,
   onRoommates,
+  onMessages,
   onLogout,
   savedPGs = [],
   onToggleSaved
@@ -57,9 +58,7 @@ function Saved({
           alert("My Bookings page coming soon!");
         }}
 
-        onMessages={() => {
-          alert("Messages page coming soon!");
-        }}
+        onMessages={onMessages}
 
         onNotifications={() => {
           alert("Notifications page coming soon!");
