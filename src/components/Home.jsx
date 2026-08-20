@@ -15,9 +15,17 @@ function Home({
   onFindPGs,
   onRoommates,
   onSaved,
+<<<<<<< HEAD
   onMessages,
   savedPGs = [],
   onToggleSaved
+=======
+  onBookings,
+  onMessages,
+  onNotifications,
+  onProfile,
+  onSettings
+>>>>>>> 7270f639777e7dcb61dbb2c5e889101fafa63c5b
 }) {
   const [selectedPG, setSelectedPG] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -173,7 +181,112 @@ function Home({
         onLogout={onLogout}
       />
 
+<<<<<<< HEAD
       {/* =================================
+=======
+        <div className="home-logo">
+
+          <img
+            src={logo}
+            alt="StayMate"
+          />
+
+          <span>
+            Stay<span>Mate</span>
+          </span>
+
+        </div>
+
+
+        <div className="sidebar-menu">
+
+          <button className="sidebar-item active">
+            <span>⌂</span>
+            Home
+          </button>
+
+
+          <button
+            className="sidebar-item"
+            onClick={onFindPGs}
+          >
+            <span>⌕</span>
+            Find PGs
+          </button>
+
+
+          <button
+            className="sidebar-item"
+            onClick={onRoommates}
+          >
+            <span>♧</span>
+            Roommates
+          </button>
+
+
+          <button className="sidebar-item"
+            onClick={onSaved}
+          >
+            <span>♡</span>
+            Saved
+          </button>
+
+
+          <button className="sidebar-item"
+            onClick={onBookings}
+          >
+            <span>▣</span>
+            My Bookings
+          </button>
+
+
+          <button className="sidebar-item"
+            onClick={onMessages}
+          >
+            <span>◌</span>
+            Messages
+          </button>
+
+
+          <button className="sidebar-item"
+            onClick={onNotifications}
+          >
+            <span>♧</span>
+            Notifications
+          </button>
+
+
+          <button className="sidebar-item"
+            onClick={onProfile}
+          >
+            <span>◎</span>
+            Profile
+          </button>
+
+
+          <button className="sidebar-item"
+            onClick={onSettings}
+          >
+            <span>⚙</span>
+            Settings
+          </button>
+
+        </div>
+
+
+        <button
+          className="sidebar-logout"
+          onClick={onLogout}
+        >
+          ↪
+          Logout
+        </button>
+
+      </aside>
+
+
+      {/* =========================
+>>>>>>> 7270f639777e7dcb61dbb2c5e889101fafa63c5b
           MAIN CONTENT
       ================================= */}
 

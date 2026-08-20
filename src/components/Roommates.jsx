@@ -20,6 +20,9 @@ function Roommates({
   onProfile,
   onSaved,
   onMessages,
+  onBookings,
+  onNotifications,
+  onSettings,
   onConnect
 }) {
 
@@ -246,21 +249,15 @@ function Roommates({
 
         onSaved={onSaved}
 
-        onBookings={() => {
-          alert("My Bookings page coming soon!");
-        }}
+        onBookings={onBookings}
 
         onMessages={onMessages}
 
-        onNotifications={() => {
-          alert("Notifications page coming soon!");
-        }}
+        onNotifications={onNotifications}
 
         onProfile={onProfile}
 
-        onSettings={() => {
-          alert("Settings page coming soon!");
-        }}
+        onSettings={onSettings}
 
         onLogout={onLogout}
 

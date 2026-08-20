@@ -10,6 +10,13 @@ function Saved({
   onFindPGs,
   onRoommates,
   onMessages,
+<<<<<<< HEAD
+=======
+  onBookings,
+  onNotifications,
+  onProfile,
+  onSettings,
+>>>>>>> 7270f639777e7dcb61dbb2c5e889101fafa63c5b
   onLogout,
   savedPGs = [],
   onToggleSaved
@@ -17,10 +24,7 @@ function Saved({
 
   const [selectedPG, setSelectedPG] = useState(null);
 
-
-  /* =========================
-     PG DETAILS
-  ========================= */
+  //PG Details
 
   if (selectedPG) {
 
@@ -38,9 +42,7 @@ function Saved({
 
     <div className="saved-page">
 
-      {/* =========================
-          SIDEBAR
-      ========================= */}
+     {/* Sidebar */}
 
       <Sidebar
 
@@ -54,39 +56,21 @@ function Saved({
 
         onSaved={() => {}}
 
-        onBookings={() => {
-          alert("My Bookings page coming soon!");
-        }}
+        onBookings={onBookings}
 
         onMessages={onMessages}
 
-        onNotifications={() => {
-          alert("Notifications page coming soon!");
-        }}
+        onNotifications={onNotifications}
 
-        onProfile={() => {
-          alert("Profile page coming soon!");
-        }}
+        onProfile={onProfile}
 
-        onSettings={() => {
-          alert("Settings page coming soon!");
-        }}
+        onSettings={onSettings}
 
         onLogout={onLogout}
 
       />
 
-
-      {/* =========================
-          MAIN
-      ========================= */}
-
       <main className="saved-main">
-
-
-        {/* =========================
-            TOP BAR
-        ========================= */}
 
         <header className="saved-topbar">
 
@@ -108,11 +92,6 @@ function Saved({
 
         </header>
 
-
-        {/* =========================
-            PAGE HEADER
-        ========================= */}
-
         <section className="saved-heading">
 
           <p>
@@ -130,11 +109,6 @@ function Saved({
 
         </section>
 
-
-        {/* =========================
-            RESULTS HEADER
-        ========================= */}
-
         <div className="saved-results-header">
 
           <div>
@@ -151,11 +125,6 @@ function Saved({
 
         </div>
 
-
-        {/* =========================
-            SAVED PGs
-        ========================= */}
-
         {savedPGs.length > 0 ? (
 
           <div className="saved-grid">
@@ -167,17 +136,12 @@ function Saved({
                 key={pg.id}
               >
 
-                {/* IMAGE */}
-
                 <div className="saved-image">
 
                   <img
                     src={pg.image}
                     alt={pg.name}
                   />
-
-
-                  {/* REMOVE FROM SAVED */}
 
                   <button
                     className="saved-heart"
@@ -191,9 +155,6 @@ function Saved({
 
                 </div>
 
-
-                {/* CONTENT */}
-
                 <div className="saved-card-content">
 
                   <h3>
@@ -203,9 +164,6 @@ function Saved({
                   <p className="saved-location">
                     📍 {pg.location}
                   </p>
-
-
-                  {/* META */}
 
                   <div className="saved-meta">
 
@@ -223,9 +181,6 @@ function Saved({
 
                   </div>
 
-
-                  {/* AMENITIES */}
-
                   <div className="saved-amenities">
 
                     {pg.amenities.map(
@@ -239,9 +194,6 @@ function Saved({
                     )}
 
                   </div>
-
-
-                  {/* BOTTOM */}
 
                   <div className="saved-bottom">
 
@@ -278,10 +230,6 @@ function Saved({
 
         ) : (
 
-          /* =========================
-             EMPTY STATE
-          ========================= */
-
           <div className="saved-empty">
 
             <div className="saved-empty-icon">
@@ -306,11 +254,6 @@ function Saved({
           </div>
 
         )}
-
-
-        {/* =========================
-            FOOTER
-        ========================= */}
 
         <footer className="saved-footer">
 

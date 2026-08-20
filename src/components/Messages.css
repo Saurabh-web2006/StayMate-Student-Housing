@@ -4,11 +4,9 @@
 }
 
 .messages-main {
-  margin-left: 90px;
-  width: calc(100% - 90px);
+  margin-left: 260px;
   min-height: 100vh;
   padding: 30px 40px;
-  box-sizing: border-box;
 }
 
 
@@ -406,8 +404,7 @@
 @media (max-width: 900px) {
 
   .messages-main {
-    margin-left: 90px;
-    width: calc(100% - 90px);
+    margin-left: 0;
     padding: 25px 20px;
   }
 

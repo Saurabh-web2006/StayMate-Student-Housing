@@ -9,6 +9,10 @@ function Messages({
   onFindPGs,
   onRoommates,
   onSaved,
+  onBookings,
+  onNotifications,
+  onProfile,
+  onSettings,
   onLogout,
   selectedPerson
 }) {
@@ -144,23 +148,15 @@ function Messages({
 
         onSaved={onSaved}
 
-        onBookings={() => {
-          alert("My Bookings page coming soon!");
-        }}
+        onBookings={onBookings}
 
         onMessages={() => {}}
 
-        onNotifications={() => {
-          alert("Notifications page coming soon!");
-        }}
+        onNotifications={onNotifications}
 
-        onProfile={() => {
-          alert("Profile page coming soon!");
-        }}
+        onProfile={onProfile}
 
-        onSettings={() => {
-          alert("Settings page coming soon!");
-        }}
+        onSettings={onSettings}
 
         onLogout={onLogout}
 

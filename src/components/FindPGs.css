@@ -1,16 +1,8 @@
-/* =========================================
-   STAYMATE - FIND PGs
-   Warm Cream + Olive Theme
-========================================= */
-
 .find-pg-page {
   min-height: 100vh;
   width: 100%;
   background: #f5efe6;
 }
-
-
-/* MAIN AREA - LEAVE SPACE FOR SIDEBAR */
 
 .find-pg-main {
   margin-left: 90px;
@@ -71,7 +63,7 @@
 }
 
 
-/* LOGO */
+/* Logo */
 
 .find-pg-logo {
   display: flex;
@@ -96,10 +88,7 @@
   color: #596c3d;
 }
 
-
-/* =========================================
-   NAV LINKS
-========================================= */
+/* Nav Links */
 
 .find-pg-nav-links {
   height: 100%;
@@ -153,10 +142,7 @@
   border-radius: 4px 4px 0 0;
 }
 
-
-/* =========================================
-   PROFILE
-========================================= */
+/* Profile */
 
 .find-pg-profile {
   display: flex;
@@ -210,13 +196,14 @@
   color: #596c3d;
 }
 
+.find-pg-main {
+  width: 90%;
+  max-width: 1150px;
 
+  margin: 0 auto;
 
-
-
-/* =========================================
-   HEADING
-========================================= */
+  padding: 42px 0 60px;
+}
 
 .find-pg-heading {
   margin-bottom: 28px;
@@ -254,10 +241,7 @@
   line-height: 1.6;
 }
 
-
-/* =========================================
-   SEARCH
-========================================= */
+/* Search Bar */
 
 .find-pg-search {
   width: 100%;
@@ -323,8 +307,7 @@
   color: #99948a;
 }
 
-
-/* SEARCH BUTTON */
+/* Search Button */
 
 .find-pg-search-button {
   height: 44px;
@@ -354,10 +337,7 @@
   transform: translateY(-1px);
 }
 
-
-/* =========================================
-   FILTERS
-========================================= */
+/* Filtering  */
 
 .filters-panel {
   background: #fbf8f2;
@@ -426,8 +406,7 @@
     0 0 0 2px rgba(89, 108, 61, 0.07);
 }
 
-
-/* CLEAR FILTERS */
+/* Clear Filters */
 
 .clear-filters {
   height: 40px;
@@ -457,10 +436,7 @@
   background: #dce5d1;
 }
 
-
-/* =========================================
-   RESULTS
-========================================= */
+/* Results */
 
 .pg-results {
   margin-top: 35px;
@@ -491,8 +467,7 @@
   font-size: 11px;
 }
 
-
-/* SORT */
+/* Sorting */
 
 .sort-select {
   height: 38px;
@@ -518,10 +493,7 @@
   border-color: #596c3d;
 }
 
-
-/* =========================================
-   PG GRID
-========================================= */
+/* Grid */
 
 .find-pg-grid {
   display: grid;
@@ -531,11 +503,6 @@
 
   gap: 20px;
 }
-
-
-/* =========================================
-   PG CARD
-========================================= */
 
 .find-pg-card {
   background: #fbf8f2;
@@ -562,10 +529,6 @@
 }
 
 
-/* =========================================
-   IMAGE
-========================================= */
-
 .pg-image {
   height: 185px;
 
@@ -591,8 +554,7 @@
   transform: scale(1.045);
 }
 
-
-/* HEART */
+/* Heart(of saved) */
 
 .pg-heart {
   position: absolute;
@@ -631,17 +593,11 @@
   transform: scale(1.08);
 }
 
-
-/* =========================================
-   CARD CONTENT
-========================================= */
-
 .find-pg-card-content {
   padding: 16px;
 }
 
-
-/* TITLE */
+/* Card Title */
 
 .find-pg-card-title {
   display: flex;
@@ -671,9 +627,6 @@
   line-height: 1.5;
 }
 
-
-/* DISTANCE */
-
 .find-pg-distance {
   margin-top: 7px;
 
@@ -681,11 +634,6 @@
 
   font-size: 10px;
 }
-
-
-/* =========================================
-   DETAILS / TAGS
-========================================= */
 
 .find-pg-details {
   display: flex;
@@ -717,8 +665,7 @@
   white-space: nowrap;
 }
 
-
-/* RATING */
+/* Ratings */
 
 .find-pg-details .find-pg-rating {
   background: #f5e9c9;
@@ -736,10 +683,7 @@
   font-weight: 400;
 }
 
-
-/* =========================================
-   AMENITIES
-========================================= */
+/* Amentities */
 
 .amenities {
   display: flex;
@@ -766,11 +710,6 @@
 
   font-weight: 500;
 }
-
-
-/* =========================================
-   CARD BOTTOM
-========================================= */
 
 .find-pg-card-bottom {
   display: flex;
@@ -802,8 +741,7 @@
   margin-left: 3px;
 }
 
-
-/* DETAILS BUTTON */
+/* View Details Button */
 
 .find-pg-card-bottom button {
   border: none;
@@ -833,10 +771,7 @@
   transform: translateY(-1px);
 }
 
-
-/* =========================================
-   NO RESULTS
-========================================= */
+/* No Results */
 
 .no-results {
   background: #fbf8f2;
@@ -894,10 +829,7 @@
   background: #485b30;
 }
 
-
-/* =========================================
-   TABLET
-========================================= */
+/* For Tablets */
 
 @media (max-width: 1000px) {
 
@@ -923,10 +855,7 @@
 
 }
 
-
-/* =========================================
-   MOBILE
-========================================= */
+/* For Mobiles */
 
 @media (max-width: 650px) {
 
@@ -949,8 +878,80 @@
     padding-top: 20px;
   }
 
+  .find-pg-heading h1 {
+    font-size: 26px;
+  }
 
-/* Top bar */
+  .find-pg-search {
+    height: 53px;
+  }
+
+  .find-pg-search-button {
+    min-width: 72px;
+
+    padding: 0 12px;
+  }
+
+  .filters-panel {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    padding: 15px;
+  }
+
+  .filter-item {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+  .clear-filters {
+    width: 100%;
+  }
+
+  .results-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .find-pg-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .pg-image {
+    height: 210px;
+  }
+
+}
+
+/* Fixings */
+
+.find-pg-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background: #f5efe6;
+
+  box-sizing: border-box;
+}
+
+.find-pg-main {
+  margin-left: 260px !important;
+
+  width: calc(100% - 260px) !important;
+
+  min-height: 100vh;
+
+  padding: 0 38px 50px;
+
+  box-sizing: border-box;
+}
 
 .find-pg-topbar {
   width: 100%;
@@ -966,8 +967,7 @@
   box-sizing: border-box;
 }
 
-
-/* User */
+/* User Profile */
 
 .find-pg-profile {
   display: flex;
