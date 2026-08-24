@@ -1,16 +1,8 @@
-/* =========================================
-   STAYMATE - FIND PGs
-   Warm Cream + Olive Theme
-========================================= */
-
 .find-pg-page {
   min-height: 100vh;
   width: 100%;
   background: #f5efe6;
 }
-
-
-/* MAIN AREA - LEAVE SPACE FOR SIDEBAR */
 
 .find-pg-main {
   margin-left: 260px;
@@ -71,7 +63,7 @@
 }
 
 
-/* LOGO */
+/* Logo */
 
 .find-pg-logo {
   display: flex;
@@ -96,10 +88,7 @@
   color: #596c3d;
 }
 
-
-/* =========================================
-   NAV LINKS
-========================================= */
+/* Nav Links */
 
 .find-pg-nav-links {
   height: 100%;
@@ -153,10 +142,7 @@
   border-radius: 4px 4px 0 0;
 }
 
-
-/* =========================================
-   PROFILE
-========================================= */
+/* Profile */
 
 .find-pg-profile {
   display: flex;
@@ -210,11 +196,6 @@
   color: #596c3d;
 }
 
-
-/* =========================================
-   MAIN
-========================================= */
-
 .find-pg-main {
   width: 90%;
   max-width: 1150px;
@@ -223,11 +204,6 @@
 
   padding: 42px 0 60px;
 }
-
-
-/* =========================================
-   HEADING
-========================================= */
 
 .find-pg-heading {
   margin-bottom: 28px;
@@ -265,10 +241,7 @@
   line-height: 1.6;
 }
 
-
-/* =========================================
-   SEARCH
-========================================= */
+/* Search Bar */
 
 .find-pg-search {
   width: 100%;
@@ -334,8 +307,7 @@
   color: #99948a;
 }
 
-
-/* SEARCH BUTTON */
+/* Search Button */
 
 .find-pg-search-button {
   height: 44px;
@@ -365,10 +337,7 @@
   transform: translateY(-1px);
 }
 
-
-/* =========================================
-   FILTERS
-========================================= */
+/* Filtering  */
 
 .filters-panel {
   background: #fbf8f2;
@@ -437,8 +406,7 @@
     0 0 0 2px rgba(89, 108, 61, 0.07);
 }
 
-
-/* CLEAR FILTERS */
+/* Clear Filters */
 
 .clear-filters {
   height: 40px;
@@ -468,10 +436,7 @@
   background: #dce5d1;
 }
 
-
-/* =========================================
-   RESULTS
-========================================= */
+/* Results */
 
 .pg-results {
   margin-top: 35px;
@@ -502,8 +467,7 @@
   font-size: 11px;
 }
 
-
-/* SORT */
+/* Sorting */
 
 .sort-select {
   height: 38px;
@@ -529,10 +493,7 @@
   border-color: #596c3d;
 }
 
-
-/* =========================================
-   PG GRID
-========================================= */
+/* Grid */
 
 .find-pg-grid {
   display: grid;
@@ -542,11 +503,6 @@
 
   gap: 20px;
 }
-
-
-/* =========================================
-   PG CARD
-========================================= */
 
 .find-pg-card {
   background: #fbf8f2;
@@ -573,10 +529,6 @@
 }
 
 
-/* =========================================
-   IMAGE
-========================================= */
-
 .pg-image {
   height: 185px;
 
@@ -602,8 +554,7 @@
   transform: scale(1.045);
 }
 
-
-/* HEART */
+/* Heart(of saved) */
 
 .pg-heart {
   position: absolute;
@@ -642,17 +593,11 @@
   transform: scale(1.08);
 }
 
-
-/* =========================================
-   CARD CONTENT
-========================================= */
-
 .find-pg-card-content {
   padding: 16px;
 }
 
-
-/* TITLE */
+/* Card Title */
 
 .find-pg-card-title {
   display: flex;
@@ -682,9 +627,6 @@
   line-height: 1.5;
 }
 
-
-/* DISTANCE */
-
 .find-pg-distance {
   margin-top: 7px;
 
@@ -692,11 +634,6 @@
 
   font-size: 10px;
 }
-
-
-/* =========================================
-   DETAILS / TAGS
-========================================= */
 
 .find-pg-details {
   display: flex;
@@ -728,8 +665,7 @@
   white-space: nowrap;
 }
 
-
-/* RATING */
+/* Ratings */
 
 .find-pg-details .find-pg-rating {
   background: #f5e9c9;
@@ -747,10 +683,7 @@
   font-weight: 400;
 }
 
-
-/* =========================================
-   AMENITIES
-========================================= */
+/* Amentities */
 
 .amenities {
   display: flex;
@@ -777,11 +710,6 @@
 
   font-weight: 500;
 }
-
-
-/* =========================================
-   CARD BOTTOM
-========================================= */
 
 .find-pg-card-bottom {
   display: flex;
@@ -813,8 +741,7 @@
   margin-left: 3px;
 }
 
-
-/* DETAILS BUTTON */
+/* View Details Button */
 
 .find-pg-card-bottom button {
   border: none;
@@ -844,10 +771,7 @@
   transform: translateY(-1px);
 }
 
-
-/* =========================================
-   NO RESULTS
-========================================= */
+/* No Results */
 
 .no-results {
   background: #fbf8f2;
@@ -905,10 +829,7 @@
   background: #485b30;
 }
 
-
-/* =========================================
-   TABLET
-========================================= */
+/* For Tablets */
 
 @media (max-width: 1000px) {
 
@@ -934,10 +855,7 @@
 
 }
 
-
-/* =========================================
-   MOBILE
-========================================= */
+/* For Mobiles */
 
 @media (max-width: 650px) {
 
@@ -1011,14 +929,14 @@
 
 }
 
-/* =========================================
-   FIXED SIDEBAR LAYOUT
-========================================= */
+/* Fixings */
 
 .find-pg-page {
   width: 100%;
   min-height: 100vh;
+
   background: #f5efe6;
+
   box-sizing: border-box;
 }
 
@@ -1033,37 +951,6 @@
 
   box-sizing: border-box;
 }
-
-/* =========================================
-   FIX FIND PG SIDEBAR OVERLAP
-========================================= */
-
-.find-pg-page {
-  width: 100%;
-  min-height: 100vh;
-
-  background: #f5efe6;
-
-  box-sizing: border-box;
-}
-
-
-/* Main content must start AFTER sidebar */
-
-.find-pg-main {
-  margin-left: 260px !important;
-
-  width: calc(100% - 260px) !important;
-
-  min-height: 100vh;
-
-  padding: 0 38px 50px;
-
-  box-sizing: border-box;
-}
-
-
-/* Top bar */
 
 .find-pg-topbar {
   width: 100%;
@@ -1079,8 +966,7 @@
   box-sizing: border-box;
 }
 
-
-/* User */
+/* User Profile */
 
 .find-pg-profile {
   display: flex;

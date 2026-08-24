@@ -1,8 +1,3 @@
-/* =========================================
-   STAYMATE - PG DETAILS PAGE
-   Warm Cream + Olive Theme
-========================================= */
-
 .pg-details-page {
   min-height: 100vh;
   background: #f5efe6;
@@ -10,10 +5,7 @@
   font-family: Inter, Arial, sans-serif;
 }
 
-
-/* =========================================
-   NAVBAR
-========================================= */
+/* NavBar */
 
 .pg-details-navbar {
   height: 72px;
@@ -32,8 +24,7 @@
   box-sizing: border-box;
 }
 
-
-/* LOGO */
+/* Logo */
 
 .pg-details-logo {
   display: flex;
@@ -58,10 +49,7 @@
   color: #596c3d;
 }
 
-
-/* =========================================
-   BACK TO PGs BUTTON
-========================================= */
+/* Back to PGs Button */
 
 .details-back {
   display: inline-flex;
@@ -100,9 +88,6 @@
     box-shadow 0.2s ease;
 }
 
-
-/* HOVER */
-
 .details-back:hover {
   background: #e7ecdf;
 
@@ -116,17 +101,10 @@
     0 5px 14px rgba(67, 55, 38, 0.09);
 }
 
-
-/* CLICK */
-
 .details-back:active {
   transform: translateX(-1px) scale(0.98);
 }
 
-
-/* =========================================
-   MAIN CARD
-========================================= */
 
 .pg-details-main {
   width: 90%;
@@ -149,10 +127,6 @@
 }
 
 
-/* =========================================
-   IMAGE
-========================================= */
-
 .details-image {
   width: 100%;
   height: 360px;
@@ -173,9 +147,6 @@
   object-fit: cover;
 }
 
-
-/* IMAGE DARK GRADIENT */
-
 .details-image::after {
   content: "";
 
@@ -193,8 +164,6 @@
   pointer-events: none;
 }
 
-
-/* VERIFIED BADGE */
 
 .details-verified {
   position: absolute;
@@ -220,20 +189,12 @@
 }
 
 
-/* =========================================
-   CONTENT
-========================================= */
-
 .details-content {
   padding: 32px 38px 38px;
 
   box-sizing: border-box;
 }
 
-
-/* =========================================
-   HEADER
-========================================= */
 
 .details-header {
   display: flex;
@@ -249,8 +210,6 @@
   border-bottom: 1px solid #e8e0d5;
 }
 
-
-/* TITLE */
 
 .details-title h1 {
   margin: 0 0 8px;
@@ -270,10 +229,7 @@
   font-size: 12px;
 }
 
-
-/* =========================================
-   RATING
-========================================= */
+/* Ratings */
 
 .details-rating {
   display: inline-flex;
@@ -297,10 +253,7 @@
   white-space: nowrap;
 }
 
-
-/* =========================================
-   PRICE BOX
-========================================= */
+/* Price Box */
 
 .details-price-box {
   width: 100%;
@@ -327,7 +280,7 @@
 }
 
 
-/* PRICE */
+/* Price */
 
 .details-price strong {
   color: #29291f;
@@ -344,7 +297,7 @@
 }
 
 
-/* ROOM */
+/* Room */
 
 .details-room {
   background: #e7ecdf;
@@ -360,10 +313,6 @@
   font-weight: 600;
 }
 
-
-/* =========================================
-   ABOUT / GENERAL SECTIONS
-========================================= */
 
 .details-section {
   margin-top: 30px;
@@ -387,17 +336,7 @@
   line-height: 1.7;
 }
 
-
-/* =========================================
-   AMENITIES
-========================================= */
-
-/*
-   IMPORTANT:
-   Your screenshot showed the amenities
-   stacked vertically. This forces them
-   into a proper horizontal grid.
-*/
+/* Amenities */
 
 .amenities {
   width: 100%;
@@ -410,9 +349,6 @@
 
   margin-top: 15px;
 }
-
-
-/* EACH AMENITY */
 
 .amenities > div {
   min-height: 90px;
@@ -451,21 +387,11 @@
   transform: translateY(-2px);
 }
 
-
-/* =========================================
-   IF AMENITIES USE SPANS
-========================================= */
-
 .amenities span {
   color: #596c3d;
 
   font-size: 13px;
 }
-
-
-/* =========================================
-   AMENITIES GRID FALLBACK
-========================================= */
 
 .amenities-grid {
   display: grid;
@@ -520,11 +446,6 @@
   font-size: 20px;
 }
 
-
-/* =========================================
-   FACILITIES
-========================================= */
-
 .details-facilities {
   display: flex;
 
@@ -549,10 +470,7 @@
   font-weight: 500;
 }
 
-
-/* =========================================
-   LOCATION
-========================================= */
+/* Location */
 
 .location-box {
   width: 100%;
@@ -599,10 +517,7 @@
   font-size: 11px;
 }
 
-
-/* =========================================
-   REVIEWS
-========================================= */
+/* Reviews */
 
 .review-summary {
   display: flex;
@@ -641,9 +556,6 @@
 
   font-size: 11px;
 }
-
-
-/* REVIEW CARD */
 
 .review-card {
   padding: 15px 0;
@@ -699,10 +611,7 @@
   line-height: 1.6;
 }
 
-
-/* =========================================
-   ACTION BUTTONS
-========================================= */
+/* Action Buttons */
 
 .details-actions {
   display: flex;
@@ -718,8 +627,7 @@
   padding-top: 30px;
 }
 
-
-/* CONTACT */
+/* Contact */
 
 .contact-button {
   width: 165px;
@@ -749,8 +657,7 @@
   border-color: #596c3d;
 }
 
-
-/* BOOK */
+/* Book */
 
 .book-button {
   flex: 1;
@@ -780,11 +687,6 @@
   transform: translateY(-1px);
 }
 
-
-/* =========================================
-   BACK BUTTON AT BOTTOM
-========================================= */
-
 .details-back-bottom {
   display: inline-flex;
 
@@ -811,10 +713,7 @@
   text-decoration: underline;
 }
 
-
-/* =========================================
-   RESPONSIVE - TABLET
-========================================= */
+/* For Tablets */
 
 @media (max-width: 850px) {
 
@@ -844,10 +743,7 @@
 
 }
 
-
-/* =========================================
-   RESPONSIVE - MOBILE
-========================================= */
+/* For Mobiles */
 
 @media (max-width: 600px) {
 
@@ -916,9 +812,8 @@
   }
 
 }
-/* =========================================
-   AMENITIES
-========================================= */
+
+/* Amenities */
 
 .details-amenities {
   width: 100%;
@@ -931,9 +826,6 @@
 
   margin-top: 15px;
 }
-
-
-/* EACH AMENITY CARD */
 
 .details-amenities .amenity-card {
   min-height: 90px;
@@ -964,9 +856,6 @@
     border-color 0.2s;
 }
 
-
-/* HOVER */
-
 .details-amenities .amenity-card:hover {
   background: #e7ecdf;
 
@@ -975,10 +864,7 @@
   transform: translateY(-2px);
 }
 
-
-/* =========================================
-   MOBILE
-========================================= */
+/* For mobiles(for amenities) */
 
 @media (max-width: 600px) {
 

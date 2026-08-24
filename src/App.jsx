@@ -8,9 +8,10 @@ import Legal from "./components/Legal";
 import Home from "./components/Home";
 import FindPGs from "./components/FindPGs";
 import Roommates from "./components/Roommates";
-import RoleSelection from "./components/RoleSelection";
 import Saved from "./components/Saved";
 import Messages from "./components/Messages";
+import ComingSoon from "./components/ComingSoon";
+import RoleSelection from "./components/RoleSelection";
 
 import "./App.css";
 
@@ -42,6 +43,25 @@ function App() {
     });
 
   };
+
+
+  /* ============================
+     SHARED NAV CALLBACKS
+  ============================ */
+
+  const navCallbacks = {
+    onHome: () => setPage("home"),
+    onFindPGs: () => setPage("findPGs"),
+    onRoommates: () => setPage("roommates"),
+    onSaved: () => setPage("saved"),
+    onBookings: () => setPage("bookings"),
+    onMessages: () => setPage("messages"),
+    onNotifications: () => setPage("notifications"),
+    onProfile: () => setPage("profile"),
+    onSettings: () => setPage("settings"),
+    onLogout: () => setPage("login")
+  };
+
 
   return (
     <div className="app">
@@ -83,11 +103,15 @@ function App() {
       {page === "home" && (
         <Home
           userName="Sanyam"
-          onLogout={() => setPage("login")}
-          onFindPGs={() => setPage("findPGs")}
-          onRoommates={() => setPage("roommates")}
-          onSaved={() => setPage("saved")}
-          onMessages={() => setPage("messages")}
+          onLogout={navCallbacks.onLogout}
+          onFindPGs={navCallbacks.onFindPGs}
+          onRoommates={navCallbacks.onRoommates}
+          onSaved={navCallbacks.onSaved}
+          onBookings={navCallbacks.onBookings}
+          onMessages={navCallbacks.onMessages}
+          onNotifications={navCallbacks.onNotifications}
+          onProfile={navCallbacks.onProfile}
+          onSettings={navCallbacks.onSettings}
           savedPGs={savedPGs}
           onToggleSaved={toggleSavedPG}
         />
@@ -96,19 +120,8 @@ function App() {
       {page === "findPGs" && (
         <FindPGs
           userName="Sanyam"
-
-          onHome={() => setPage("home")}
-
-          onRoommates={() => setPage("roommates")}
-
-          onSaved={() => setPage("saved")}
-
-          onLogout={() => setPage("login")}
-
-          onMessages={() => setPage("messages")}
-
+          {...navCallbacks}
           savedPGs={savedPGs}
-
           onToggleSaved={toggleSavedPG}
         />
       )}
@@ -116,11 +129,7 @@ function App() {
       {page === "roommates" && (
         <Roommates
           userName="Sanyam"
-          onHome={() => setPage("home")}
-          onFindPGs={() => setPage("findPGs")}
-          onLogout={() => setPage("login")}
-          onSaved={() => setPage("saved")}
-          onMessages={() => setPage("messages")}
+          {...navCallbacks}
           onConnect={(person) => {
             setSelectedChatPerson(person);
             setPage("messages");
@@ -131,19 +140,8 @@ function App() {
       {page === "saved" && (
         <Saved
           userName="Sanyam"
-
-          onHome={() => setPage("home")}
-
-          onFindPGs={() => setPage("findPGs")}
-
-          onRoommates={() => setPage("roommates")}
-
-          onLogout={() => setPage("login")}
-
-          onMessages={() => setPage("messages")}
-
+          {...navCallbacks}
           savedPGs={savedPGs}
-
           onToggleSaved={toggleSavedPG}
         />
       )}
@@ -151,12 +149,40 @@ function App() {
       {page === "messages" && (
         <Messages
           userName="Sanyam"
-          onHome={() => setPage("home")}
-          onFindPGs={() => setPage("findPGs")}
-          onRoommates={() => setPage("roommates")}
-          onSaved={() => setPage("saved")}
-          onLogout={() => setPage("login")}
+          {...navCallbacks}
           selectedPerson={selectedChatPerson}
+        />
+      )}
+
+      {page === "bookings" && (
+        <ComingSoon
+          pageKey="bookings"
+          userName="Sanyam"
+          {...navCallbacks}
+        />
+      )}
+
+      {page === "notifications" && (
+        <ComingSoon
+          pageKey="notifications"
+          userName="Sanyam"
+          {...navCallbacks}
+        />
+      )}
+
+      {page === "profile" && (
+        <ComingSoon
+          pageKey="profile"
+          userName="Sanyam"
+          {...navCallbacks}
+        />
+      )}
+
+      {page === "settings" && (
+        <ComingSoon
+          pageKey="settings"
+          userName="Sanyam"
+          {...navCallbacks}
         />
       )}
 
@@ -165,3 +191,4 @@ function App() {
 }
 
 export default App;
+

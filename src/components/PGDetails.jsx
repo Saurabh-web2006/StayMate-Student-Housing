@@ -10,7 +10,7 @@ function PGDetails({ pg, onBack }) {
   return (
     <div className="pg-details-page">
 
-      {/* NAVBAR */}
+      {/* NavBar */}
 
       <nav className="pg-details-navbar">
 
@@ -31,12 +31,7 @@ function PGDetails({ pg, onBack }) {
 
       </nav>
 
-
-      {/* MAIN */}
-
       <main className="pg-details-main">
-
-        {/* IMAGE */}
 
         <div className="details-image">
 
@@ -52,7 +47,7 @@ function PGDetails({ pg, onBack }) {
         </div>
 
 
-        {/* INFORMATION */}
+        {/* Information */}
 
         <div className="details-content">
 
@@ -92,7 +87,7 @@ function PGDetails({ pg, onBack }) {
           </div>
 
 
-          {/* PRICE */}
+          {/* Price */}
 
           <div className="details-price-box">
 
@@ -115,7 +110,7 @@ function PGDetails({ pg, onBack }) {
           </div>
 
 
-          {/* ABOUT */}
+          {/* About */}
 
           <section className="details-section">
 
@@ -133,7 +128,7 @@ function PGDetails({ pg, onBack }) {
           </section>
 
 
-          {/* AMENITIES */}
+          {/* Amenities */}
 
           <section className="details-section">
 
@@ -159,7 +154,7 @@ function PGDetails({ pg, onBack }) {
           </section>
 
 
-          {/* ACTIONS */}
+          {/* Actions */}
 
           <div className="details-actions">
 

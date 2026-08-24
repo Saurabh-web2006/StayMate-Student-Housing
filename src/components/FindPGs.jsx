@@ -19,6 +19,10 @@ function FindPGs({
   onLogout,
   onMessages,
   onSaved,
+  onBookings,
+  onNotifications,
+  onProfile,
+  onSettings,
   savedPGs,
   onToggleSaved
 }) {
@@ -30,9 +34,8 @@ function FindPGs({
   const [selectedPG, setSelectedPG] = useState(null);
 
 
-  /* =========================
-     PG DATA
-  ========================= */
+
+// PG DATA 
 
   const pgData = [
 
@@ -123,9 +126,7 @@ function FindPGs({
   ];
 
 
-  /* =========================
-     FILTERING
-  ========================= */
+  //Filtering Logic
 
   const filteredPGs = pgData.filter((pg) => {
 
@@ -173,9 +174,7 @@ function FindPGs({
   });
 
 
-  /* =========================
-     PG DETAILS
-  ========================= */
+  //PG Details
 
   if (selectedPG) {
 
@@ -189,18 +188,12 @@ function FindPGs({
   }
 
 
-  /* =========================
-     PAGE
-  ========================= */
-
   return (
 
     <div className="find-pg-page">
 
 
-      {/* =========================
-          SIDEBAR
-      ========================= */}
+      {/* Sidebar */}
 
       <Sidebar
 
@@ -214,39 +207,21 @@ function FindPGs({
 
         onSaved={onSaved}
 
-        onBookings={() => {
-          alert("My Bookings page coming soon!");
-        }}
+        onBookings={onBookings}
 
         onMessages={onMessages}
 
-        onNotifications={() => {
-          alert("Notifications page coming soon!");
-        }}
+        onNotifications={onNotifications}
 
-        onProfile={() => {
-          alert("Profile page coming soon!");
-        }}
+        onProfile={onProfile}
 
-        onSettings={() => {
-          alert("Settings page coming soon!");
-        }}
+        onSettings={onSettings}
 
         onLogout={onLogout}
 
       />
 
-
-      {/* =========================
-          MAIN CONTENT
-      ========================= */}
-
       <main className="find-pg-main">
-
-
-        {/* =========================
-            TOP BAR
-        ========================= */}
 
         <header className="find-pg-topbar">
 
@@ -271,11 +246,6 @@ function FindPGs({
 
         </header>
 
-
-        {/* =========================
-            HEADER
-        ========================= */}
-
         <section className="find-pg-heading">
 
           <p className="find-pg-label">
@@ -292,11 +262,6 @@ function FindPGs({
           </p>
 
         </section>
-
-
-        {/* =========================
-            SEARCH
-        ========================= */}
 
         <section className="find-pg-search">
 
@@ -323,11 +288,6 @@ function FindPGs({
           </button>
 
         </section>
-
-
-        {/* =========================
-            FILTERS
-        ========================= */}
 
         <section className="filters-panel">
 
@@ -454,11 +414,6 @@ function FindPGs({
 
         </section>
 
-
-        {/* =========================
-            RESULTS
-        ========================= */}
-
         <section className="pg-results">
 
 
@@ -499,11 +454,6 @@ function FindPGs({
 
           </div>
 
-
-          {/* =========================
-              CARDS
-          ========================= */}
-
           {filteredPGs.length > 0 ? (
 
             <div className="find-pg-grid">
@@ -514,9 +464,6 @@ function FindPGs({
                   className="find-pg-card"
                   key={pg.id}
                 >
-
-
-                  {/* IMAGE */}
 
                   <div className="pg-image">
 
@@ -539,9 +486,6 @@ function FindPGs({
                     </button>
 
                   </div>
-
-
-                  {/* CONTENT */}
 
                   <div className="find-pg-card-content">
 
