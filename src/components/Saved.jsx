@@ -9,14 +9,11 @@ function Saved({
   onHome,
   onFindPGs,
   onRoommates,
-  onMessages,
-<<<<<<< HEAD
-=======
   onBookings,
+  onMessages,
   onNotifications,
   onProfile,
   onSettings,
->>>>>>> 7270f639777e7dcb61dbb2c5e889101fafa63c5b
   onLogout,
   savedPGs = [],
   onToggleSaved

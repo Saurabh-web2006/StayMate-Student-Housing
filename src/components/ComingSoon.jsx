@@ -81,6 +81,7 @@ function ComingSoon({
   onHome,
   onFindPGs,
   onRoommates,
+
   onSaved,
   onBookings,
   onMessages,

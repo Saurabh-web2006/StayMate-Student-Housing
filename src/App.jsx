@@ -12,6 +12,7 @@ import Saved from "./components/Saved";
 import Messages from "./components/Messages";
 import ComingSoon from "./components/ComingSoon";
 
+
 import "./App.css";
 
 function App() {
@@ -52,8 +53,16 @@ function App() {
 
   const navCallbacks = {
     onHome: () => setPage("home"),
-    onFindPGs: () => setPage("findPGs"),
+    onFindPGs: (query) => {
+      if (typeof query === "string") {
+        setLocationFilter(query);
+      } else {
+        setLocationFilter("");
+      }
+      setPage("findPGs");
+    },
     onRoommates: () => setPage("roommates"),
+
     onSaved: () => setPage("saved"),
     onBookings: () => setPage("bookings"),
     onMessages: () => setPage("messages"),
@@ -101,6 +110,7 @@ function App() {
           onLogout={navCallbacks.onLogout}
           onFindPGs={navCallbacks.onFindPGs}
           onRoommates={navCallbacks.onRoommates}
+          onSmartMatch={navCallbacks.onSmartMatch}
           onSaved={navCallbacks.onSaved}
           onBookings={navCallbacks.onBookings}
           onMessages={navCallbacks.onMessages}
@@ -133,6 +143,8 @@ function App() {
           }}
         />
       )}
+
+
 
       {page === "saved" && (
         <Saved

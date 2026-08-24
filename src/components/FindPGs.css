@@ -1,1020 +1,986 @@
+/* =========================================================
+   FIND PG PAGE
+   FULL-WIDTH / RESPONSIVE LAYOUT
+   ========================================================= */
+
 .find-pg-page {
-  min-height: 100vh;
-  width: 100%;
-  background: #f5efe6;
+    width: 100%;
+    min-height: 100vh;
+    background: #f5efe6;
+    color: #29291f;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Arial, sans-serif;
+    box-sizing: border-box;
 }
+
+/* =========================================================
+   MAIN CONTENT
+   Uses ALL available space after the 90px sidebar
+   ========================================================= */
 
 .find-pg-main {
-  margin-left: 90px;
+    margin-left: 90px;
+    width: calc(100% - 90px);
+    min-height: 100vh;
 
-  width: calc(100% - 90px);
+    padding: 0 48px 60px;
 
-  min-height: 100vh;
-
-  padding: 0 38px 50px;
-
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
 
 .find-pg-topbar {
-  height: 75px;
+    width: 100%;
+    height: 72px;
 
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
-  box-sizing: border-box;
+    box-sizing: border-box;
+
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    background: rgba(245, 239, 230, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid #e3dbcf;
 }
 
-.find-pg-profile {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* =========================================================
+   PROFILE
+   ========================================================= */
 
-  color: #4e4b43;
-  font-size: 13px;
+.find-pg-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #4e4b43;
+    font-size: 13px;
 }
 
 .find-pg-avatar {
-  width: 36px;
-  height: 36px;
+    width: 36px;
+    height: 36px;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  background: #d9c5a6;
-  color: #596c3d;
+    background: #d9c5a6;
+    color: #596c3d;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  font-weight: 700;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .find-pg-arrow {
-  color: #858176;
-}
-
-.find-pg-page {
-  min-height: 100vh;
-  background: #f5efe6;
-  color: #29291f;
-  font-family: Inter, Arial, sans-serif;
-}
-
-
-/* Logo */
-
-.find-pg-logo {
-  display: flex;
-  align-items: center;
-
-  gap: 10px;
-
-  font-size: 22px;
-  font-weight: 700;
-
-  color: #29291f;
-}
-
-.find-pg-logo img {
-  width: 45px;
-  height: 45px;
-
-  object-fit: contain;
-}
-
-.find-pg-logo > span > span {
-  color: #596c3d;
-}
-
-/* Nav Links */
-
-.find-pg-nav-links {
-  height: 100%;
-
-  display: flex;
-  align-items: center;
-
-  gap: 32px;
-}
-
-.find-pg-nav-links button {
-  height: 100%;
-
-  position: relative;
-
-  border: none;
-  background: transparent;
-
-  color: #77746b;
-
-  font-size: 13px;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.find-pg-nav-links button:hover {
-  color: #596c3d;
-}
-
-.find-pg-nav-links button.active {
-  color: #596c3d;
-
-  font-weight: 600;
-}
-
-.find-pg-nav-links button.active::after {
-  content: "";
-
-  position: absolute;
-
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  height: 3px;
-
-  background: #596c3d;
-
-  border-radius: 4px 4px 0 0;
-}
-
-/* Profile */
-
-.find-pg-profile {
-  display: flex;
-  align-items: center;
-
-  gap: 9px;
-
-  color: #45443a;
-
-  font-size: 13px;
-}
-
-.find-pg-avatar {
-  width: 35px;
-  height: 35px;
-
-  border-radius: 50%;
-
-  background: #d9c5a6;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 14px;
+    color: #858176;
 }
 
 .find-pg-logout {
-  margin-left: 8px;
+    margin-left: 8px;
 
-  border: none;
+    border: none;
+    background: transparent;
 
-  background: transparent;
+    color: #77746b;
 
-  color: #77746b;
+    font-size: 12px;
+    cursor: pointer;
 
-  font-size: 12px;
+    padding: 7px 9px;
+    border-radius: 7px;
 
-  cursor: pointer;
-
-  padding: 7px 9px;
-
-  border-radius: 7px;
-
-  transition: 0.2s;
+    transition: 0.2s ease;
 }
 
 .find-pg-logout:hover {
-  background: #f0e9dd;
-
-  color: #596c3d;
+    background: #f0e9dd;
+    color: #596c3d;
 }
 
-.find-pg-main {
-  width: 90%;
-  max-width: 1150px;
+/* =========================================================
+   LOGO
+   ========================================================= */
 
-  margin: 0 auto;
+.find-pg-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-  padding: 42px 0 60px;
+    font-size: 22px;
+    font-weight: 700;
+
+    color: #29291f;
 }
+
+.find-pg-logo img {
+    width: 45px;
+    height: 45px;
+
+    object-fit: contain;
+}
+
+.find-pg-logo > span > span {
+    color: #596c3d;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.find-pg-nav-links {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 32px;
+}
+
+.find-pg-nav-links button {
+    height: 100%;
+
+    position: relative;
+
+    border: none;
+    background: transparent;
+
+    color: #77746b;
+
+    font-size: 13px;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.find-pg-nav-links button:hover {
+    color: #596c3d;
+}
+
+.find-pg-nav-links button.active {
+    color: #596c3d;
+    font-weight: 600;
+}
+
+.find-pg-nav-links button.active::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 3px;
+
+    background: #596c3d;
+
+    border-radius: 4px 4px 0 0;
+}
+
+/* =========================================================
+   PAGE HEADING
+   ========================================================= */
 
 .find-pg-heading {
-  margin-bottom: 28px;
+    margin: 42px 0 28px;
 }
 
 .find-pg-label {
-  margin: 0 0 8px;
+    margin: 0 0 8px;
 
-  color: #596c3d;
+    color: #596c3d;
 
-  font-size: 10px;
+    font-size: 10px;
+    font-weight: 700;
 
-  font-weight: 700;
-
-  letter-spacing: 1.5px;
+    letter-spacing: 1.5px;
 }
 
 .find-pg-heading h1 {
-  margin: 0 0 9px;
+    margin: 0 0 9px;
 
-  color: #29291f;
+    color: #29291f;
 
-  font-size: 32px;
-
-  line-height: 1.2;
+    font-size: 32px;
+    line-height: 1.2;
 }
 
 .find-pg-heading > div > p:last-child {
-  margin: 0;
+    margin: 0;
 
-  color: #77746b;
+    color: #77746b;
 
-  font-size: 13px;
-
-  line-height: 1.6;
+    font-size: 13px;
+    line-height: 1.6;
 }
 
-/* Search Bar */
+/* =========================================================
+   SEARCH BAR
+   ========================================================= */
 
 .find-pg-search {
-  width: 100%;
+    width: 100%;
+    height: 58px;
 
-  height: 58px;
+    background: #fbf8f2;
 
-  background: #fbf8f2;
+    border: 1px solid #ded5c8;
+    border-radius: 12px;
 
-  border: 1px solid #ded5c8;
+    padding: 0 7px 0 17px;
 
-  border-radius: 12px;
+    display: flex;
+    align-items: center;
 
-  padding: 0 7px 0 17px;
+    box-sizing: border-box;
 
-  display: flex;
-  align-items: center;
+    margin-bottom: 15px;
 
-  box-sizing: border-box;
-
-  margin-bottom: 15px;
-
-  transition: 0.2s;
+    transition: 0.2s ease;
 }
 
 .find-pg-search:focus-within {
-  border-color: #596c3d;
+    border-color: #596c3d;
 
-  box-shadow:
-    0 0 0 3px rgba(89, 108, 61, 0.08);
+    box-shadow:
+        0 0 0 3px rgba(89, 108, 61, 0.08);
 }
 
 .find-pg-search-input {
-  flex: 1;
+    flex: 1;
 
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 
-  min-width: 0;
+    min-width: 0;
 }
 
 .find-pg-search-input span {
-  margin-right: 10px;
+    margin-right: 10px;
 
-  color: #77746b;
+    color: #77746b;
 
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .find-pg-search-input input {
-  width: 100%;
+    width: 100%;
 
-  border: none;
-  outline: none;
+    border: none;
+    outline: none;
 
-  background: transparent;
+    background: transparent;
 
-  color: #29291f;
+    color: #29291f;
 
-  font-size: 13px;
+    font-size: 13px;
 }
 
 .find-pg-search-input input::placeholder {
-  color: #99948a;
+    color: #99948a;
 }
 
-/* Search Button */
+/* Search button */
 
 .find-pg-search-button {
-  height: 44px;
+    height: 44px;
+    min-width: 90px;
 
-  min-width: 90px;
+    border: none;
+    border-radius: 8px;
 
-  border: none;
+    background: #596c3d;
+    color: white;
 
-  border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
 
-  background: #596c3d;
+    cursor: pointer;
 
-  color: white;
-
-  font-size: 12px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: 0.2s;
+    transition: 0.2s ease;
 }
 
 .find-pg-search-button:hover {
-  background: #485b30;
-
-  transform: translateY(-1px);
+    background: #485b30;
+    transform: translateY(-1px);
 }
 
-/* Filtering  */
+/* =========================================================
+   FILTERS
+   ========================================================= */
 
 .filters-panel {
-  background: #fbf8f2;
+    width: 100%;
 
-  border: 1px solid #e3dbcf;
+    background: #fbf8f2;
 
-  border-radius: 13px;
+    border: 1px solid #e3dbcf;
+    border-radius: 13px;
 
-  padding: 18px;
+    padding: 18px;
 
-  display: flex;
-  align-items: flex-end;
+    display: flex;
+    align-items: flex-end;
 
-  gap: 15px;
+    gap: 15px;
 
-  box-sizing: border-box;
+    box-sizing: border-box;
 
-  box-shadow:
-    0 4px 15px rgba(67, 55, 38, 0.03);
+    box-shadow:
+        0 4px 15px rgba(67, 55, 38, 0.03);
 }
 
 .filter-item {
-  flex: 1;
-
-  min-width: 0;
+    flex: 1;
+    min-width: 0;
 }
 
 .filter-item label {
-  display: block;
+    display: block;
 
-  margin-bottom: 7px;
+    margin-bottom: 7px;
 
-  color: #77746b;
+    color: #77746b;
 
-  font-size: 10px;
-
-  font-weight: 600;
+    font-size: 10px;
+    font-weight: 600;
 }
 
 .filter-item select {
-  width: 100%;
+    width: 100%;
+    height: 40px;
 
-  height: 40px;
+    border: 1px solid #ddd4c7;
+    border-radius: 8px;
 
-  border: 1px solid #ddd4c7;
+    background: #fffdf9;
 
-  border-radius: 8px;
+    color: #4d4b42;
 
-  background: #fffdf9;
+    padding: 0 10px;
 
-  color: #4d4b42;
+    font-size: 11px;
 
-  padding: 0 10px;
+    outline: none;
+    cursor: pointer;
 
-  font-size: 11px;
-
-  outline: none;
-
-  cursor: pointer;
+    box-sizing: border-box;
 }
 
 .filter-item select:focus {
-  border-color: #596c3d;
+    border-color: #596c3d;
 
-  box-shadow:
-    0 0 0 2px rgba(89, 108, 61, 0.07);
+    box-shadow:
+        0 0 0 2px rgba(89, 108, 61, 0.07);
 }
 
-/* Clear Filters */
-
 .clear-filters {
-  height: 40px;
+    height: 40px;
 
-  flex-shrink: 0;
+    flex-shrink: 0;
 
-  border: none;
+    border: none;
+    border-radius: 8px;
 
-  border-radius: 8px;
+    background: #e7ecdf;
+    color: #596c3d;
 
-  background: #e7ecdf;
+    padding: 0 16px;
 
-  color: #596c3d;
+    font-size: 11px;
+    font-weight: 600;
 
-  padding: 0 16px;
+    cursor: pointer;
 
-  font-size: 11px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: 0.2s;
+    transition: 0.2s ease;
 }
 
 .clear-filters:hover {
-  background: #dce5d1;
+    background: #dce5d1;
 }
 
-/* Results */
+/* =========================================================
+   RESULTS
+   ========================================================= */
 
 .pg-results {
-  margin-top: 35px;
+    width: 100%;
+    margin-top: 35px;
 }
 
 .results-header {
-  display: flex;
+    width: 100%;
 
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  margin-bottom: 18px;
+    margin-bottom: 18px;
 }
 
 .results-header h2 {
-  margin: 0 0 5px;
+    margin: 0 0 5px;
 
-  font-size: 21px;
-
-  color: #29291f;
+    font-size: 21px;
+    color: #29291f;
 }
 
 .results-header p {
-  margin: 0;
+    margin: 0;
 
-  color: #858176;
-
-  font-size: 11px;
+    color: #858176;
+    font-size: 11px;
 }
 
 /* Sorting */
 
 .sort-select {
-  height: 38px;
+    height: 38px;
 
-  border: 1px solid #ddd4c7;
+    border: 1px solid #ddd4c7;
+    border-radius: 8px;
 
-  border-radius: 8px;
+    background: #fbf8f2;
 
-  background: #fbf8f2;
+    color: #5f5c53;
 
-  color: #5f5c53;
+    padding: 0 12px;
 
-  padding: 0 12px;
+    font-size: 11px;
 
-  font-size: 11px;
-
-  outline: none;
-
-  cursor: pointer;
+    outline: none;
+    cursor: pointer;
 }
 
 .sort-select:focus {
-  border-color: #596c3d;
+    border-color: #596c3d;
 }
 
-/* Grid */
+/* =========================================================
+   PG GRID
+   IMPORTANT:
+   No max-width here.
+   Grid expands across available screen width.
+   ========================================================= */
 
 .find-pg-grid {
-  display: grid;
+    width: 100%;
 
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+    display: grid;
 
-  gap: 20px;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
 }
 
+/* =========================================================
+   PG CARD
+   ========================================================= */
+
 .find-pg-card {
-  background: #fbf8f2;
+    min-width: 0;
 
-  border: 1px solid #e3dbcf;
+    background: #fbf8f2;
 
-  border-radius: 14px;
+    border: 1px solid #e3dbcf;
+    border-radius: 14px;
 
-  overflow: hidden;
+    overflow: hidden;
 
-  box-shadow:
-    0 3px 12px rgba(67, 55, 38, 0.03);
+    box-shadow:
+        0 3px 12px rgba(67, 55, 38, 0.03);
 
-  transition:
-    transform 0.25s,
-    box-shadow 0.25s;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .find-pg-card:hover {
-  transform: translateY(-4px);
+    transform: translateY(-5px);
 
-  box-shadow:
-    0 14px 32px rgba(67, 55, 38, 0.11);
+    box-shadow:
+        0 14px 32px rgba(67, 55, 38, 0.11);
 }
 
+/* =========================================================
+   IMAGE
+   ========================================================= */
 
 .pg-image {
-  height: 185px;
+    width: 100%;
+    height: 220px;
 
-  position: relative;
+    position: relative;
 
-  overflow: hidden;
+    overflow: hidden;
 
-  background: #ddd4c7;
+    background: #ddd4c7;
 }
 
 .pg-image img {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  display: block;
+    display: block;
 
-  object-fit: cover;
+    object-fit: cover;
 
-  transition: transform 0.35s;
+    transition: transform 0.35s ease;
 }
 
 .find-pg-card:hover .pg-image img {
-  transform: scale(1.045);
+    transform: scale(1.045);
 }
 
-/* Heart(of saved) */
+/* =========================================================
+   HEART
+   ========================================================= */
 
 .pg-heart {
-  position: absolute;
+    position: absolute;
 
-  top: 12px;
-  right: 12px;
+    top: 12px;
+    right: 12px;
 
-  width: 36px;
-  height: 36px;
+    width: 36px;
+    height: 36px;
 
-  border: none;
+    border: none;
+    border-radius: 50%;
 
-  border-radius: 50%;
+    background: rgba(255, 255, 255, 0.94);
 
-  background: rgba(255, 255, 255, 0.94);
+    color: #5f5c53;
 
-  color: #5f5c53;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    font-size: 19px;
 
-  font-size: 19px;
+    cursor: pointer;
 
-  cursor: pointer;
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.08);
 
-  box-shadow:
-    0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: 0.2s ease;
 
-  transition: 0.2s;
+    z-index: 3;
 }
 
 .pg-heart:hover {
-  color: #596c3d;
-
-  transform: scale(1.08);
-}
-
-.find-pg-card-content {
-  padding: 16px;
-}
-
-/* Card Title */
-
-.find-pg-card-title {
-  display: flex;
-
-  justify-content: space-between;
-
-  gap: 10px;
-}
-
-.find-pg-card-title h3 {
-  margin: 0 0 6px;
-
-  color: #29291f;
-
-  font-size: 15px;
-
-  line-height: 1.3;
-}
-
-.find-pg-card-title p {
-  margin: 0;
-
-  color: #77746b;
-
-  font-size: 11px;
-
-  line-height: 1.5;
-}
-
-.find-pg-distance {
-  margin-top: 7px;
-
-  color: #9a958a;
-
-  font-size: 10px;
-}
-
-.find-pg-details {
-  display: flex;
-
-  align-items: center;
-
-  flex-wrap: wrap;
-
-  gap: 6px;
-
-  margin-top: 13px;
-}
-
-.find-pg-details > span {
-  display: inline-flex;
-
-  align-items: center;
-
-  padding: 5px 8px;
-
-  border-radius: 6px;
-
-  background: #f0e9dd;
-
-  color: #756c5e;
-
-  font-size: 9px;
-
-  white-space: nowrap;
-}
-
-/* Ratings */
-
-.find-pg-details .find-pg-rating {
-  background: #f5e9c9;
-
-  color: #96701d;
-
-  font-weight: 600;
-}
-
-.find-pg-rating small {
-  margin-left: 3px;
-
-  font-size: 8px;
-
-  font-weight: 400;
-}
-
-/* Amentities */
-
-.amenities {
-  display: flex;
-
-  align-items: center;
-
-  flex-wrap: wrap;
-
-  gap: 5px;
-
-  margin-top: 12px;
-}
-
-.amenities span {
-  padding: 4px 7px;
-
-  border-radius: 5px;
-
-  background: #e7ecdf;
-
-  color: #596c3d;
-
-  font-size: 8px;
-
-  font-weight: 500;
-}
-
-.find-pg-card-bottom {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 10px;
-
-  border-top: 1px solid #e9e2d8;
-
-  margin-top: 15px;
-
-  padding-top: 13px;
-}
-
-.find-pg-card-bottom strong {
-  color: #29291f;
-
-  font-size: 16px;
-}
-
-.find-pg-card-bottom small {
-  color: #8b887f;
-
-  font-size: 9px;
-
-  margin-left: 3px;
-}
-
-/* View Details Button */
-
-.find-pg-card-bottom button {
-  border: none;
-
-  background: #596c3d;
-
-  color: white;
-
-  padding: 9px 12px;
-
-  border-radius: 7px;
-
-  font-size: 10px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-
-  white-space: nowrap;
-}
-
-.find-pg-card-bottom button:hover {
-  background: #485b30;
-
-  transform: translateY(-1px);
-}
-
-/* No Results */
-
-.no-results {
-  background: #fbf8f2;
-
-  border: 1px solid #e3dbcf;
-
-  border-radius: 14px;
-
-  text-align: center;
-
-  padding: 70px 20px;
-
-  color: #77746b;
-}
-
-.no-results > div {
-  font-size: 34px;
-
-  margin-bottom: 12px;
-}
-
-.no-results h3 {
-  margin: 0 0 6px;
-
-  color: #29291f;
-
-  font-size: 18px;
-}
-
-.no-results p {
-  margin: 0 0 18px;
-
-  color: #858176;
-
-  font-size: 12px;
-}
-
-.no-results button {
-  border: none;
-
-  background: #596c3d;
-
-  color: white;
-
-  padding: 9px 16px;
-
-  border-radius: 7px;
-
-  font-size: 11px;
-
-  cursor: pointer;
-}
-
-.no-results button:hover {
-  background: #485b30;
-}
-
-/* For Tablets */
-
-@media (max-width: 1000px) {
-
-  .find-pg-navbar {
-    padding: 0 30px;
-  }
-
-  .find-pg-main {
-    width: 92%;
-  }
-
-  .find-pg-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .filters-panel {
-    flex-wrap: wrap;
-  }
-
-  .filter-item {
-    min-width: 180px;
-  }
-
-}
-
-/* For Mobiles */
-
-@media (max-width: 650px) {
-
-  .find-pg-navbar {
-    padding: 0 18px;
-  }
-
-  .find-pg-nav-links {
-    display: none;
-  }
-
-  .find-pg-profile span {
-    display: none;
-  }
-
-  .find-pg-main {
-    margin-left: 90px;
-    width: calc(100% - 90px);
-    padding: 0 18px 30px;
-    padding-top: 20px;
-  }
-
-  .find-pg-heading h1 {
-    font-size: 26px;
-  }
-
-  .find-pg-search {
-    height: 53px;
-  }
-
-  .find-pg-search-button {
-    min-width: 72px;
-
-    padding: 0 12px;
-  }
-
-  .filters-panel {
-    flex-direction: column;
-
-    align-items: stretch;
-
-    padding: 15px;
-  }
-
-  .filter-item {
-    width: 100%;
-
-    min-width: 0;
-  }
-
-  .clear-filters {
-    width: 100%;
-  }
-
-  .results-header {
-    align-items: flex-start;
-
-    flex-direction: column;
-
-    gap: 10px;
-  }
-
-  .find-pg-grid {
-    grid-template-columns: 1fr;
-
-    gap: 16px;
-  }
-
-  .pg-image {
-    height: 210px;
-  }
-
-}
-
-/* Fixings */
-
-.find-pg-page {
-  width: 100%;
-  min-height: 100vh;
-
-  background: #f5efe6;
-
-  box-sizing: border-box;
-}
-
-.find-pg-main {
-  margin-left: 260px !important;
-
-  width: calc(100% - 260px) !important;
-
-  min-height: 100vh;
-
-  padding: 0 38px 50px;
-
-  box-sizing: border-box;
-}
-
-.find-pg-topbar {
-  width: 100%;
-
-  height: 75px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: flex-end;
-
-  box-sizing: border-box;
-}
-
-/* User Profile */
-
-.find-pg-profile {
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  color: #4e4b43;
-
-  font-size: 13px;
-}
-
-.find-pg-avatar {
-  width: 36px;
-
-  height: 36px;
-
-  border-radius: 50%;
-
-  background: #d9c5a6;
-
-  color: #596c3d;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  font-weight: 700;
-}
-
-.find-pg-arrow {
-  color: #858176;
+    color: #596c3d;
+    transform: scale(1.08);
 }
 
 .pg-heart.saved {
-  background: #596c3d;
-  color: white;
-  border-color: #596c3d;
+    background: #596c3d;
+    color: white;
 }
 
-.pg-heart {
-  transition: 0.2s ease;
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.find-pg-card-content {
+    padding: 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
 }
 
-.pg-heart:hover {
-  transform: scale(1.08);
+.find-pg-card-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.find-pg-card-title h3 {
+    margin: 0 0 6px;
+
+    color: #29291f;
+
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+.find-pg-card-title p {
+    margin: 0;
+
+    color: #77746b;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.find-pg-distance {
+    margin-top: 7px;
+
+    color: #9a958a;
+
+    font-size: 10px;
+}
+
+.find-pg-details {
+    display: flex;
+
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 13px;
+}
+
+.find-pg-details > span {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 5px 8px;
+
+    border-radius: 6px;
+
+    background: #f0e9dd;
+
+    color: #756c5e;
+
+    font-size: 9px;
+
+    white-space: nowrap;
+}
+
+/* Rating */
+
+.find-pg-details .find-pg-rating {
+    background: #f5e9c9;
+    color: #96701d;
+    font-weight: 600;
+}
+
+.find-pg-rating small {
+    margin-left: 3px;
+
+    font-size: 8px;
+    font-weight: 400;
+}
+
+/* Amenities */
+
+.amenities {
+    display: flex;
+
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin-top: 12px;
+}
+
+.amenities span {
+    padding: 4px 7px;
+
+    border-radius: 5px;
+
+    background: #e7ecdf;
+
+    color: #596c3d;
+
+    font-size: 8px;
+    font-weight: 500;
+}
+
+/* =========================================================
+   CARD BOTTOM
+   ========================================================= */
+
+.find-pg-card-bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    border-top: 1px solid #e9e2d8;
+
+    margin-top: auto;
+    padding-top: 13px;
+}
+
+.find-pg-card-bottom strong {
+    color: #29291f;
+    font-size: 16px;
+}
+
+.find-pg-card-bottom small {
+    color: #8b887f;
+    font-size: 9px;
+
+    margin-left: 3px;
+}
+
+.find-pg-card-bottom button {
+    border: none;
+
+    background: #596c3d;
+    color: white;
+
+    padding: 9px 12px;
+
+    border-radius: 7px;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+    white-space: nowrap;
+}
+
+.find-pg-card-bottom button:hover {
+    background: #485b30;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   NO RESULTS
+   ========================================================= */
+
+.no-results {
+    grid-column: 1 / -1;
+
+    width: 100%;
+
+    background: #fbf8f2;
+
+    border: 1px solid #e3dbcf;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    padding: 70px 20px;
+
+    color: #77746b;
+
+    box-sizing: border-box;
+}
+
+.no-results > div {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.no-results h3 {
+    margin: 0 0 6px;
+
+    color: #29291f;
+
+    font-size: 18px;
+}
+
+.no-results p {
+    margin: 0 0 18px;
+
+    color: #858176;
+
+    font-size: 12px;
+}
+
+.no-results button {
+    border: none;
+
+    background: #596c3d;
+    color: white;
+
+    padding: 9px 16px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.no-results button:hover {
+    background: #485b30;
+}
+
+/* =========================================================
+   LARGE SCREENS
+   ========================================================= */
+
+@media (min-width: 1400px) {
+
+    .find-pg-main {
+        padding-left: 56px;
+        padding-right: 56px;
+    }
+
+    .find-pg-grid {
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+
+        gap: 26px;
+    }
+
+    .pg-image {
+        height: 225px;
+    }
+}
+
+/* =========================================================
+   TABLETS / LAPTOPS
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .find-pg-main {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .find-pg-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .filters-panel {
+        flex-wrap: wrap;
+    }
+
+    .filter-item {
+        min-width: 180px;
+    }
+}
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .find-pg-main {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding:
+            0 20px 40px;
+    }
+
+    .find-pg-topbar {
+        height: 68px;
+    }
+
+    .find-pg-heading {
+        margin-top: 28px;
+    }
+
+    .find-pg-heading h1 {
+        font-size: 28px;
+    }
+
+    .find-pg-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .filters-panel {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 15px;
+    }
+
+    .filter-item {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .clear-filters {
+        width: 100%;
+    }
+
+    .results-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .sort-select {
+        width: 100%;
+    }
+
+    .pg-image {
+        height: 220px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+    .find-pg-main {
+        padding:
+            0 16px 32px;
+    }
+
+    .find-pg-profile span {
+        display: none;
+    }
+
+    .find-pg-heading h1 {
+        font-size: 25px;
+    }
+
+    .find-pg-heading > div > p:last-child {
+        font-size: 12px;
+    }
+
+    .find-pg-search {
+        height: 54px;
+    }
+
+    .find-pg-search-button {
+        min-width: 72px;
+        padding: 0 12px;
+    }
+
+    .pg-image {
+        height: 210px;
+    }
+
+    .find-pg-card-content {
+        padding: 16px;
+    }
 }

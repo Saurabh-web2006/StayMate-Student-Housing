@@ -1,12 +1,16 @@
 .messages-page {
   min-height: 100vh;
   background: #f7f6f1;
+  display: flex;
+  font-family: 'Inter', Arial, sans-serif;
 }
 
 .messages-main {
-  margin-left: 260px;
+  margin-left: 90px;
+  width: calc(100% - 90px);
   min-height: 100vh;
   padding: 30px 40px;
+  box-sizing: border-box;
 }
 
 
@@ -178,7 +182,7 @@
   text-align: center;
 }
 
-.no-conversations > div {
+.no-conversations>div {
   font-size: 32px;
 }
 
@@ -357,7 +361,7 @@
   padding: 40px;
 }
 
-.select-chat > div {
+.select-chat>div {
   font-size: 55px;
 }
 
