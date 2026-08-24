@@ -8,13 +8,14 @@ import Legal from "./components/Legal";
 import Home from "./components/Home";
 import FindPGs from "./components/FindPGs";
 import Roommates from "./components/Roommates";
+import RoleSelection from "./components/RoleSelection";
 import Saved from "./components/Saved";
 import Messages from "./components/Messages";
 
 import "./App.css";
 
 function App() {
-  const [page, setPage] = useState("login");
+  const [page, setPage] = useState("roleSelection");
 
   const [selectedChatPerson, setSelectedChatPerson] = useState(null);
 
@@ -44,9 +45,15 @@ function App() {
 
   return (
     <div className="app">
-
+      
+      {page === "roleSelection" && (
+        <RoleSelection 
+          onProceedToLogin={() => setPage("login")} 
+        />
+      )}
       {page === "login" && (
         <Login
+          onBack={() => setPage("roleSelection")}
           onGetStarted={() => setPage("signup")}
           onForgotPassword={() => setPage("forgot")}
           onLegal={() => setPage("legal")}
@@ -72,7 +79,7 @@ function App() {
           onBack={() => setPage("login")}
         />
       )}
-
+       
       {page === "home" && (
         <Home
           userName="Sanyam"
@@ -114,7 +121,6 @@ function App() {
           onLogout={() => setPage("login")}
           onSaved={() => setPage("saved")}
           onMessages={() => setPage("messages")}
-          onLogout={() => setPage("login")}
           onConnect={(person) => {
             setSelectedChatPerson(person);
             setPage("messages");
