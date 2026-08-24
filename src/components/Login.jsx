@@ -7,13 +7,13 @@ function Login({
   onGetStarted,
   onForgotPassword,
   onLegal,
-  onLogin
+  onLogin,
+  onBack // Added onBack prop
 }) {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
-    
     onLogin();
   };
 
@@ -63,7 +63,6 @@ function Login({
               </div>
             </div>
 
-
             <div className="login-feature">
               <div className="feature-icon green">
                 ♧
@@ -78,7 +77,6 @@ function Login({
                 </p>
               </div>
             </div>
-
 
             <div className="login-feature">
               <div className="feature-icon purple">
@@ -109,6 +107,11 @@ function Login({
         {/* EVERYTHING IS INSIDE THIS CARD */}
 
         <div className="staymate-login-card">
+        
+          {/* BACK BUTTON */}
+          <button type="button" className="back-button" onClick={onBack}>
+            ← Back
+          </button>
 
           <h2>
             Welcome to <span>StayMate</span>
@@ -118,24 +121,19 @@ function Login({
             Let's get you started 👋
           </p>
 
-
           <div className="login-tab">
             Login
           </div>
 
-
           <form onSubmit={handleLogin}>
 
             {/* EMAIL */}
-
             <div className="form-group">
-
               <label>
                 Email or Phone Number
               </label>
 
               <div className="input-container">
-
                 <span className="input-icon">
                   ✉
                 </span>
@@ -145,22 +143,16 @@ function Login({
                   placeholder="Enter your email or phone number"
                   required
                 />
-
               </div>
-
             </div>
 
-
             {/* PASSWORD */}
-
             <div className="form-group">
-
               <label>
                 Password
               </label>
 
               <div className="input-container">
-
                 <span className="input-icon">
                   🔒
                 </span>
@@ -174,22 +166,15 @@ function Login({
                 <button
                   type="button"
                   className="password-toggle"
-                  onClick={() =>
-                    setShowPassword(!showPassword)
-                  }
+                  onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? "🙈" : "👁"}
                 </button>
-
               </div>
-
             </div>
 
-
             {/* FORGOT PASSWORD */}
-
             <div className="forgot-password">
-
               <button
                 type="button"
                 className="forgot-link"
@@ -201,12 +186,9 @@ function Login({
                   →
                 </span>
               </button>
-
             </div>
 
-
             {/* LOGIN BUTTON */}
-
             <button
               type="submit"
               className="auth-button"
@@ -217,38 +199,24 @@ function Login({
 
           </form>
 
-
           {/* DIVIDER */}
-
           <div className="auth-divider"></div>
 
-
           {/* SIGN UP */}
-
           <div className="switch-auth">
-
             Don't have an account?
-
-            <button onClick={onGetStarted}>
+            <button type="button" onClick={onGetStarted}>
               Get Started
             </button>
-
           </div>
 
-
-          {/* ===============================
-              LEGAL BOX
-              INSIDE LOGIN CARD
-          =============================== */}
-
+          {/* LEGAL BOX */}
           <div className="legal-box">
-
             <div className="legal-shield">
               🛡️
             </div>
 
             <div className="legal-content">
-
               <p className="legal-main-text">
                 Your privacy matters to us
               </p>
@@ -258,7 +226,6 @@ function Login({
               </p>
 
               <div className="legal-links">
-
                 <button
                   type="button"
                   onClick={onLegal}
@@ -274,11 +241,8 @@ function Login({
                 >
                   Privacy Policy
                 </button>
-
               </div>
-
             </div>
-
           </div>
 
         </div>
