@@ -27,9 +27,7 @@ function Sidebar({
       }`} 
     >
 
-      {/* =================================
-          LOGO
-      ================================= */}
+
 
       <div className="home-logo">
 
@@ -45,9 +43,7 @@ function Sidebar({
       </div>
 
 
-      {/* =================================
-          SIDEBAR TOGGLE
-      ================================= */}
+
 
       <button
         className="sidebar-toggle"
@@ -69,13 +65,10 @@ function Sidebar({
       </button>
 
 
-      {/* =================================
-          SIDEBAR MENU
-      ================================= */}
+
 
       <div className="sidebar-menu">
 
-        {/* HOME */}
 
         <button
           className={`sidebar-item ${
@@ -91,8 +84,6 @@ function Sidebar({
         </button>
 
 
-        {/* FIND PGs */}
-
         <button
           className={`sidebar-item ${
             activePage === "find"
@@ -107,7 +98,7 @@ function Sidebar({
         </button>
 
 
-        {/* ROOMMATES */}
+
 
         <button
           className={`sidebar-item ${
@@ -123,7 +114,6 @@ function Sidebar({
         </button>
 
 
-        {/* SAVED */}
 
         <button
           className={`sidebar-item ${
@@ -139,7 +129,6 @@ function Sidebar({
         </button>
 
 
-        {/* BOOKINGS */}
 
         <button
           className={`sidebar-item ${
@@ -155,7 +144,6 @@ function Sidebar({
         </button>
 
 
-        {/* MESSAGES */}
 
         <button
           className={`sidebar-item ${
@@ -171,7 +159,6 @@ function Sidebar({
         </button>
 
 
-        {/* NOTIFICATIONS */}
 
         <button
           className={`sidebar-item ${
@@ -187,7 +174,7 @@ function Sidebar({
         </button>
 
 
-        {/* PROFILE */}
+        
 
         <button
           className={`sidebar-item ${
@@ -203,7 +190,7 @@ function Sidebar({
         </button>
 
 
-        {/* SETTINGS */}
+        
 
         <button
           className={`sidebar-item ${
@@ -221,9 +208,7 @@ function Sidebar({
       </div>
 
 
-      {/* =================================
-          LOGOUT
-      ================================= */}
+    
 
       <button
         className="sidebar-logout"

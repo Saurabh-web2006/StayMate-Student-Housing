@@ -36,7 +36,6 @@ function Home({
   const [searchTab, setSearchTab] = useState("pg"); 
   const [expandedFaq, setExpandedFaq] = useState(null);
 
-  // Interactive Roommate Matcher state
   const [matcherPrefs, setMatcherPrefs] = useState({
     sleep: "night",
     clean: "neat", 
@@ -44,7 +43,6 @@ function Home({
     study: "quiet" 
   });
 
-  // Calculate dynamic match score based on user selection
   const matchScore = useMemo(() => {
     let base = 82;
     if (matcherPrefs.sleep === "night") base += 5;
@@ -54,7 +52,6 @@ function Home({
     return Math.min(base, 98);
   }, [matcherPrefs]);
 
-  // Dynamic time-based greeting
   const greeting = useMemo(() => {
     const hour = new Date().getHours();
     if (hour < 12) return "Good Morning";
@@ -111,7 +108,6 @@ function Home({
   ];
 
 
-  // for search submit on pg & roommate
   const handleSearchSubmit = (e) => {
     e?.preventDefault();
     if (searchTab === "roommate") {
@@ -140,11 +136,7 @@ function Home({
     }
   ];
 
-  /*
-   * -----------------------------------------
-   * PG DETAILS VIEW
-   * -----------------------------------------
-   */
+
   if (selectedPG) {
     return (
       <PGDetails
@@ -156,9 +148,7 @@ function Home({
 
   return (
     <div className="home-page">
-      {/* =================================
-          SIDEBAR
-      ================================= */}
+
       <Sidebar
         activePage="home"
         onHome={() => {}}
@@ -174,13 +164,9 @@ function Home({
         onLogout={onLogout}
       />
 
-      {/* =================================
-          MAIN CONTENT
-      ================================= */}
+
       <main className="home-main">
-        {/* =================================
-            TOP BAR
-        ================================= */}
+
         <header className="home-topbar">
           <div className="topbar-left">
             <div className="topbar-status">
@@ -218,9 +204,7 @@ function Home({
           </div>
         </header>
 
-        {/* =================================
-            HERO SECTION
-        ================================= */}
+
         <section
           className="home-hero"
           style={{
@@ -252,9 +236,7 @@ function Home({
               Find a place that feels like home — verified stays, transparent pricing, and compatible roommates tailored to your campus life.
             </p>
 
-            {/* SEARCH WIDGET CONTAINER */}
             <div className="search-widget-container">
-              {/* TABS */}
               <div className="search-widget-tabs">
                 <button
                   type="button"
@@ -272,7 +254,6 @@ function Home({
                 </button>
               </div>
 
-              {/* SEARCH BAR */}
               <form className="home-search" onSubmit={handleSearchSubmit}>
                 <span className="search-icon">
                   {searchTab === "pg" ? "📍" : "🔍"}
@@ -296,7 +277,6 @@ function Home({
 
           </div>
 
-          {/* FLOATING HERO METRIC BADGE */}
           <div className="hero-floating-card">
             <div className="floating-card-avatars">
               <img src={roommate1} alt="Student" />
@@ -311,9 +291,7 @@ function Home({
           </div>
         </section>
 
-        {/* =================================
-            LIVE STUDENT ACTIVITY STRIP
-        ================================= */}
+
         <div className="activity-banner">
           <div className="activity-ticker">
             <span className="pulse-circle"></span>
@@ -323,9 +301,6 @@ function Home({
           </div>
         </div>
 
-        {/* =================================
-            TRUST METRICS STRIP
-        ================================= */}
         <section className="trust-strip">
           <div className="trust-item">
             <div className="trust-icon-box">🛡️</div>
@@ -366,9 +341,7 @@ function Home({
           </div>
         </section>
 
-        {/* =================================
-            RECOMMENDED STAYS SECTION
-        ================================= */}
+
         <section className="recommended-section">
           <div className="section-heading">
             <div>
@@ -389,14 +362,12 @@ function Home({
 
 
 
-          {/* PG CARDS GRID */}
           <div className="pg-grid">
             {pgData.map((pg) => {
               const isSaved = savedPGs.some((saved) => saved.id === pg.id);
 
               return (
                 <div className="pg-card" key={pg.id}>
-                  {/* IMAGE CONTAINER */}
                   <div className="pg-image" onClick={() => setSelectedPG(pg)}>
                     <img src={pg.image} alt={pg.name} loading="lazy" />
 
@@ -428,7 +399,6 @@ function Home({
                     </div>
                   </div>
 
-                  {/* CARD CONTENT */}
                   <div className="pg-content">
                     <div className="pg-card-header">
                       <div>
@@ -485,9 +455,7 @@ function Home({
           </div>
         </section>
 
-        {/* =================================
-            INTERACTIVE ROOMMATE MATCHING WIDGET (USP HIGHLIGHT)
-        ================================= */}
+
         <section className="roommate-interactive-section">
           <div className="interactive-container">
             <div className="interactive-left">
@@ -497,7 +465,6 @@ function Home({
                 Living with the right roommate transforms your college experience. Test our live matching algorithm by choosing your preferences below:
               </p>
 
-              {/* INTERACTIVE TOGGLE BUTTONS */}
               <div className="interactive-controls">
                 <div className="pref-group">
                   <span className="pref-label">⏰ Sleep Schedule:</span>
@@ -568,7 +535,6 @@ function Home({
               </div>
             </div>
 
-            {/* LIVE SCORE DISPLAY CARD */}
             <div className="interactive-right">
               <div className="match-score-card">
                 <div className="score-ring-wrapper">
@@ -620,9 +586,7 @@ function Home({
 
 
 
-        {/* =================================
-            POPULAR STUDENT AREAS
-        ================================= */}
+
         <section className="areas-section">
           <div className="section-heading">
             <div>
@@ -678,9 +642,6 @@ function Home({
         </section>
 
 
-        {/* =================================
-            WHY STAYMATE (CORE VALUE PROPOSITION)
-        ================================= */}
         <section className="why-section">
           <div className="why-header">
             <div>
@@ -727,9 +688,7 @@ function Home({
           </div>
         </section>
 
-        {/* =================================
-            HOW IT WORKS (4 STEPS)
-        ================================= */}
+
         <section className="how-section">
           <div className="section-heading">
             <div>
@@ -772,9 +731,7 @@ function Home({
           </div>
         </section>
 
-        {/* =================================
-            STUDENT COMMUNITY TESTIMONIALS
-        ================================= */}
+
         <section className="testimonials-section">
           <div className="section-heading">
             <div>
@@ -829,9 +786,6 @@ function Home({
           </div>
         </section>
 
-        {/* =================================
-            FREQUENTLY ASKED QUESTIONS
-        ================================= */}
         <section className="faq-section">
           <div className="section-heading">
             <div>
@@ -861,9 +815,7 @@ function Home({
           </div>
         </section>
 
-        {/* =================================
-            FINAL CALL TO ACTION
-        ================================= */}
+
         <section className="final-cta">
           <div className="final-cta-left">
             <span className="cta-eyebrow">CAMPUS LIVING MADE EFFORTLESS</span>
@@ -883,9 +835,7 @@ function Home({
           </div>
         </section>
 
-        {/* =================================
-            FOOTER
-        ================================= */}
+
         <footer className="home-footer">
           <div className="footer-top">
             <div className="footer-brand">
