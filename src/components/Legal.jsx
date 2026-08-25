@@ -29,7 +29,7 @@ function Legal({ onBack }) {
       </header>
 
 
-      {/* CONTENT */}
+      
 
       <main className="legal-content">
 
@@ -48,9 +48,7 @@ function Legal({ onBack }) {
         </div>
 
 
-        {/* =========================
-            TERMS OF SERVICE
-        ========================= */}
+        
 
         <div className="legal-section">
 
@@ -157,9 +155,7 @@ function Legal({ onBack }) {
         </div>
 
 
-        {/* =========================
-            PRIVACY POLICY
-        ========================= */}
+        
 
         <div className="legal-section">
 

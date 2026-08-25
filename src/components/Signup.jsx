@@ -20,8 +20,7 @@ function Signup({
   return (
     <div className="signup-page">
 
-      {/* LEFT SIDE */}
-
+      
       <div className="signup-left">
 
         <div className="signup-logo">
@@ -107,7 +106,7 @@ function Signup({
       </div>
 
 
-      {/* RIGHT SIDE */}
+     
 
       <div className="signup-right">
 
@@ -124,7 +123,7 @@ function Signup({
 
           <form onSubmit={handleSignup}>
 
-            {/* NAME */}
+            
 
             <div className="signup-form-group">
 
@@ -149,7 +148,7 @@ function Signup({
             </div>
 
 
-            {/* EMAIL */}
+           
 
             <div className="signup-form-group">
 
@@ -174,7 +173,7 @@ function Signup({
             </div>
 
 
-            {/* COLLEGE */}
+            
 
             <div className="signup-form-group">
 
@@ -199,7 +198,7 @@ function Signup({
             </div>
 
 
-            {/* PASSWORD */}
+            
 
             <div className="signup-form-group">
 
@@ -240,7 +239,7 @@ function Signup({
             </div>
 
 
-            {/* CONFIRM PASSWORD */}
+            
 
             <div className="signup-form-group">
 
@@ -283,7 +282,7 @@ function Signup({
             </div>
 
 
-            {/* CREATE ACCOUNT */}
+            
 
             <button
               type="submit"

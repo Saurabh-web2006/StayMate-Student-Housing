@@ -27,7 +27,7 @@ function RoleSelection({ onProceedToLogin }) {
         <p className="role-subtitle">Please select how you want to use the app</p>
 
         <div className="role-buttons">
-          {/* Customer Button - Proceeds to Login */}
+          
           <button className="role-btn customer-btn" onClick={onProceedToLogin}>
             <span className="btn-icon">👨‍🎓</span>
             <div className="btn-text">
@@ -37,7 +37,7 @@ function RoleSelection({ onProceedToLogin }) {
             <span className="btn-arrow">→</span>
           </button>
 
-          {/* Client Button - Shows Coming Soon */}
+        
           <button className="role-btn client-btn" onClick={handleClientClick}>
             <span className="btn-icon">🏠</span>
             <div className="btn-text">
@@ -48,7 +48,7 @@ function RoleSelection({ onProceedToLogin }) {
           </button>
         </div>
 
-        {/* Coming Soon Alert Message */}
+        
         {showComingSoon && (
           <div className="coming-soon-alert">
             🚀 <strong>Feature Coming Soon!</strong> We are currently building the ultimate dashboard for property owners. Stay tuned!

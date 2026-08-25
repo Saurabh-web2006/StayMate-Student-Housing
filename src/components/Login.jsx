@@ -20,7 +20,7 @@ function Login({
   return (
     <div className="auth-page">
 
-      {/* ================= LEFT SIDE ================= */}
+     
 
       <div className="login-left">
 
@@ -100,15 +100,14 @@ function Login({
       </div>
 
 
-      {/* ================= RIGHT SIDE ================= */}
 
       <div className="login-right">
 
-        {/* EVERYTHING IS INSIDE THIS CARD */}
+        
 
         <div className="staymate-login-card">
         
-          {/* BACK BUTTON */}
+          
           <button type="button" className="back-button" onClick={onBack}>
             ← Back
           </button>
@@ -127,7 +126,7 @@ function Login({
 
           <form onSubmit={handleLogin}>
 
-            {/* EMAIL */}
+           
             <div className="form-group">
               <label>
                 Email or Phone Number
@@ -146,7 +145,7 @@ function Login({
               </div>
             </div>
 
-            {/* PASSWORD */}
+           
             <div className="form-group">
               <label>
                 Password
@@ -173,7 +172,7 @@ function Login({
               </div>
             </div>
 
-            {/* FORGOT PASSWORD */}
+           
             <div className="forgot-password">
               <button
                 type="button"
@@ -188,7 +187,7 @@ function Login({
               </button>
             </div>
 
-            {/* LOGIN BUTTON */}
+            
             <button
               type="submit"
               className="auth-button"
@@ -199,10 +198,9 @@ function Login({
 
           </form>
 
-          {/* DIVIDER */}
+          
           <div className="auth-divider"></div>
 
-          {/* SIGN UP */}
           <div className="switch-auth">
             Don't have an account?
             <button type="button" onClick={onGetStarted}>
@@ -210,7 +208,7 @@ function Login({
             </button>
           </div>
 
-          {/* LEGAL BOX */}
+          
           <div className="legal-box">
             <div className="legal-shield">
               🛡️

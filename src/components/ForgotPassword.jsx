@@ -17,7 +17,7 @@ function ForgotPassword({ onBackToLogin }) {
 
             <div className="forgot-card">
 
-                {/* LOGO */}
+                
 
                 <div className="forgot-logo">
                     <img src={logo} alt="StayMate Logo" />
