@@ -4,12 +4,6 @@ import PGDetails from "./PGDetails";
 import Sidebar from "./Sidebar";
 
 import heroRoom from "../assets/hero-room.jpg";
-import pg1 from "../assets/pg1.jpg";
-import pg2 from "../assets/pg2.jpg";
-import pg3 from "../assets/pg3.jpg";
-import pg4 from "../assets/pg4.jpg";
-import pg5 from "../assets/pg5.jpg";
-import pg6 from "../assets/pg6.jpg";
 import roommate1 from "../assets/roommate1.jpg";
 import roommate2 from "../assets/roommate2.jpg";
 import roommate3 from "../assets/roommate3.jpg";
@@ -30,7 +24,8 @@ function Home({
   onProfile,
   onSettings,
   savedPGs = [],
-  onToggleSaved
+  onToggleSaved,
+  listings = []
 }) {
   const [selectedPG, setSelectedPG] = useState(null);
   const [searchTab, setSearchTab] = useState("pg"); 
@@ -59,53 +54,7 @@ function Home({
     return "Good Evening";
   }, []);
 
-  const pgData = [
-    {
-      id: 1,
-      name: "Royal Student PG",
-      location: "Rajpura, Punjab",
-      distance: "1.2 km from campus",
-      price: 8000,
-      rating: 4.8,
-      reviews: 128,
-      type: "Boys PG",
-      room: "Single Room",
-      amenities: ["WiFi", "Food Included", "AC", "Laundry"],
-      image: pg1,
-      tag: "Most Popular",
-      verified: true
-    },
-    {
-      id: 2,
-      name: "Green View Homes",
-      location: "Rajpura, Punjab",
-      distance: "1.5 km from campus",
-      price: 9000,
-      rating: 4.9,
-      reviews: 96,
-      type: "Girls PG",
-      room: "Single Room",
-      amenities: ["High-speed WiFi", "3 Meals Included", "Power Backup", "Security 24/7"],
-      image: pg2,
-      tag: "Top Rated",
-      verified: true
-    },
-    {
-      id: 3,
-      name: "Student Hub Co-Living",
-      location: "Rajpura, Punjab",
-      distance: "2.0 km from campus",
-      price: 7500,
-      rating: 4.6,
-      reviews: 84,
-      type: "Co-living",
-      room: "Double Sharing",
-      amenities: ["WiFi", "AC", "Fitness Area", "Mess"],
-      image: pg3,
-      tag: "Best Value",
-      verified: true
-    },
-  ];
+  const pgData = listings;;
 
 
   const handleSearchSubmit = (e) => {

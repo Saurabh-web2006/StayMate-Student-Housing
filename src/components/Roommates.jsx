@@ -34,9 +34,6 @@ function Roommates({
   const [selectedRoommate, setSelectedRoommate] = useState(null);
 
 
-  /* =========================
-     ROOMMATE DATA
-  ========================= */
 
   const roommates = [
 
@@ -139,9 +136,6 @@ function Roommates({
   ];
 
 
-  /* =========================
-     FILTER LOGIC
-  ========================= */
 
   const filteredRoommates = roommates.filter((person) => {
 
@@ -189,9 +183,6 @@ function Roommates({
   });
 
 
-  /* =========================
-     CLEAR FILTERS
-  ========================= */
 
   const clearFilters = () => {
 
@@ -203,9 +194,7 @@ function Roommates({
   };
 
 
-  /* =========================
-     ROOMMATE PROFILE
-  ========================= */
+
 
   if (selectedRoommate) {
 
@@ -224,18 +213,14 @@ function Roommates({
   }
 
 
-  /* =========================
-     PAGE
-  ========================= */
+
 
   return (
 
     <div className="roommates-page">
 
 
-      {/* =========================
-          SHARED SIDEBAR
-      ========================= */}
+     
 
       <Sidebar
 
@@ -264,16 +249,12 @@ function Roommates({
       />
 
 
-      {/* =========================
-          MAIN CONTENT
-      ========================= */}
+
 
       <main className="roommates-main">
 
 
-        {/* =========================
-            TOP BAR
-        ========================= */}
+
 
         <header className="roommates-topbar">
 
@@ -296,9 +277,7 @@ function Roommates({
         </header>
 
 
-        {/* =========================
-            HERO
-        ========================= */}
+
 
         <section className="roommates-hero">
 
@@ -344,9 +323,6 @@ function Roommates({
         </section>
 
 
-        {/* =========================
-            SEARCH
-        ========================= */}
 
         <section className="roommate-search">
 
@@ -366,9 +342,6 @@ function Roommates({
         </section>
 
 
-        {/* =========================
-            FILTERS
-        ========================= */}
 
         <section className="roommate-filters">
 
@@ -481,9 +454,7 @@ function Roommates({
         </section>
 
 
-        {/* =========================
-            RESULTS
-        ========================= */}
+
 
         <section className="roommate-results">
 
@@ -522,9 +493,7 @@ function Roommates({
           </div>
 
 
-          {/* =========================
-              CARDS
-          ========================= */}
+
 
           {filteredRoommates.length > 0 ? (
 
@@ -538,7 +507,7 @@ function Roommates({
                 >
 
 
-                  {/* TOP */}
+                 
 
                   <div className="roommate-card-top">
 
@@ -567,7 +536,7 @@ function Roommates({
                   </div>
 
 
-                  {/* NAME */}
+               
 
                   <h3>
                     {person.name}
@@ -584,7 +553,7 @@ function Roommates({
                   </p>
 
 
-                  {/* INFORMATION */}
+                 
 
                   <div className="roommate-info-grid">
 
@@ -643,14 +612,14 @@ function Roommates({
                   </div>
 
 
-                  {/* LOCATION */}
+                
 
                   <div className="roommate-location">
                     📍 Looking for a room in {person.location}
                   </div>
 
 
-                  {/* ACTIONS */}
+                 
 
                   <div className="roommate-actions">
 

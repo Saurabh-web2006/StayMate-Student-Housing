@@ -4,12 +4,6 @@ import "./FindPGs.css";
 import PGDetails from "./PGDetails";
 import Sidebar from "./Sidebar";
 
-import pg1 from "../assets/pg1.jpg";
-import pg2 from "../assets/pg2.jpg";
-import pg3 from "../assets/pg3.jpg";
-import pg4 from "../assets/pg4.jpg";
-import pg5 from "../assets/pg5.jpg";
-import pg6 from "../assets/pg6.jpg";
 
 
 function FindPGs({
@@ -25,7 +19,8 @@ function FindPGs({
   onSettings,
   savedPGs,
   onToggleSaved,
-  initialSearch = ""
+  initialSearch = "",
+  listings = []
 }) {
 
   const [search, setSearch] = useState(initialSearch);
@@ -38,93 +33,7 @@ function FindPGs({
 
 // PG DATA 
 
-  const pgData = [
-
-    {
-      id: 1,
-      name: "Royal Student PG",
-      location: "Rajpura, Punjab",
-      distance: "1.2 km from college",
-      price: 8000,
-      rating: 4.5,
-      reviews: 128,
-      type: "Boys PG",
-      room: "Single",
-      amenities: ["WiFi", "Food", "AC"],
-      image: pg1
-    },
-
-    {
-      id: 2,
-      name: "Green View Homes",
-      location: "Rajpura, Punjab",
-      distance: "1.5 km from college",
-      price: 9000,
-      rating: 4.7,
-      reviews: 96,
-      type: "Girls PG",
-      room: "Single",
-      amenities: ["WiFi", "Food", "Laundry"],
-      image: pg2
-    },
-
-    {
-      id: 3,
-      name: "Student Hub",
-      location: "Rajpura, Punjab",
-      distance: "2 km from college",
-      price: 7500,
-      rating: 4.3,
-      reviews: 84,
-      type: "Co-living",
-      room: "Double",
-      amenities: ["WiFi", "AC", "Gym"],
-      image: pg3
-    },
-
-    {
-      id: 4,
-      name: "Campus Comfort",
-      location: "Near Chitkara University",
-      distance: "800 m from college",
-      price: 10500,
-      rating: 4.8,
-      reviews: 152,
-      type: "Boys PG",
-      room: "Single",
-      amenities: ["WiFi", "Food", "AC"],
-      image: pg4
-    },
-
-    {
-      id: 5,
-      name: "Urban Nest",
-      location: "Rajpura, Punjab",
-      distance: "2.5 km from college",
-      price: 7000,
-      rating: 4.2,
-      reviews: 67,
-      type: "Girls PG",
-      room: "Double",
-      amenities: ["WiFi", "Food", "Laundry"],
-      image: pg5
-    },
-
-    {
-      id: 6,
-      name: "The Student Residence",
-      location: "Patiala Road",
-      distance: "3 km from college",
-      price: 8500,
-      rating: 4.6,
-      reviews: 113,
-      type: "Co-living",
-      room: "Triple",
-      amenities: ["WiFi", "Food", "Gym"],
-      image: pg6
-    }
-
-  ];
+  const pgData = listings;
 
 
   //Filtering Logic

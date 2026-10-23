@@ -1,20 +1,11 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body{
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f8ff;
-  color: #101a3a;
-}
-
-button,
-input{
-  font-family: inherit;
-}
-
-.app{
-  min-height: 100vh;
-}
+* { box-sizing: border-box; }
+html, body, #root { min-height: 100%; margin: 0; }
+body { font-family: Arial, Helvetica, sans-serif; }
+button, input, select, textarea { font-family: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+.app { min-height: 100vh; }
+.route-state { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 24px; background: #f6f4ed; color: #292d22; text-align: center; }
+.route-state p { max-width: 520px; color: #77796d; font-size: 13px; line-height: 1.6; }
+.route-state button { border: 0; border-radius: 8px; padding: 11px 16px; background: #66734d; color: white; cursor: pointer; }
+.route-spinner { width: 30px; height: 30px; border: 3px solid #e3e8d9; border-top-color: #66734d; border-radius: 50%; animation: route-spin .8s linear infinite; }
+@keyframes route-spin { to { transform: rotate(360deg); } }

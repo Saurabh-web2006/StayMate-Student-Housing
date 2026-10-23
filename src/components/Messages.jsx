@@ -45,9 +45,7 @@ function Messages({
   });
 
 
-  /* =========================
-     SEND MESSAGE
-  ========================= */
+
 
   const handleSendMessage = (e) => {
 
@@ -116,9 +114,6 @@ function Messages({
   };
 
 
-  /* =========================
-     CURRENT CONVERSATION
-  ========================= */
 
   const currentConversation = conversations.find(
     (chat) =>
@@ -132,9 +127,7 @@ function Messages({
     <div className="messages-page">
 
 
-      {/* =========================
-          SIDEBAR
-      ========================= */}
+      
 
       <Sidebar
 
@@ -164,14 +157,12 @@ function Messages({
       />
 
 
-      {/* =========================
-          MAIN
-      ========================= */}
+      
 
       <main className="messages-main">
 
 
-        {/* TOPBAR */}
+       
 
         <header className="messages-topbar">
 
@@ -207,17 +198,11 @@ function Messages({
         </header>
 
 
-        {/* =========================
-            CHAT LAYOUT
-        ========================= */}
-
+       
         <div className="chat-layout">
 
 
-          {/* =========================
-              CONVERSATION LIST
-          ========================= */}
-
+        
           <aside className="conversation-list">
 
             <div className="conversation-heading">
@@ -300,9 +285,7 @@ function Messages({
           </aside>
 
 
-          {/* =========================
-              CHAT AREA
-          ========================= */}
+    
 
           <section className="chat-area">
 
@@ -311,7 +294,7 @@ function Messages({
 
               <>
 
-                {/* CHAT HEADER */}
+             
 
                 <header className="chat-header">
 
@@ -349,7 +332,7 @@ function Messages({
                 </header>
 
 
-                {/* MESSAGES */}
+               
 
                 <div className="chat-messages">
 
@@ -385,7 +368,7 @@ function Messages({
                 </div>
 
 
-                {/* MESSAGE INPUT */}
+               
 
                 <form
                   className="message-input-area"
@@ -441,7 +424,7 @@ function Messages({
         </div>
 
 
-        {/* FOOTER */}
+       
 
         <footer className="messages-footer">
 

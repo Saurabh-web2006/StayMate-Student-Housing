@@ -11,7 +11,7 @@ function RoommateProfile({ person, onBack, onConnect }) {
   return (
     <div className="roommate-profile-page">
 
-      {/* ================= NAVBAR ================= */}
+      
 
       <nav className="roommate-profile-navbar">
 
@@ -35,7 +35,7 @@ function RoommateProfile({ person, onBack, onConnect }) {
       </nav>
 
 
-      {/* ================= MAIN ================= */}
+      
 
       <main className="roommate-profile-main">
 
@@ -89,12 +89,12 @@ function RoommateProfile({ person, onBack, onConnect }) {
         </section>
 
 
-        {/* ================= CONTENT ================= */}
+        
 
         <div className="profile-content">
 
 
-          {/* ABOUT */}
+          
 
           <section className="profile-section">
 
@@ -112,7 +112,7 @@ function RoommateProfile({ person, onBack, onConnect }) {
           </section>
 
 
-          {/* LIFESTYLE */}
+          
 
           <section className="profile-section">
 
@@ -202,7 +202,7 @@ function RoommateProfile({ person, onBack, onConnect }) {
           </section>
 
 
-          {/* COMPATIBILITY */}
+          
 
           <section className="profile-section">
 
@@ -249,7 +249,7 @@ function RoommateProfile({ person, onBack, onConnect }) {
           </section>
 
 
-          {/* LOCATION & BUDGET */}
+          
 
           <section className="profile-section">
 
@@ -294,7 +294,7 @@ function RoommateProfile({ person, onBack, onConnect }) {
           </section>
 
 
-          {/* ACTIONS */}
+          
 
           <div className="profile-actions">
 

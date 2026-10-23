@@ -1,23 +1,10 @@
-import { useState } from "react";
 import "./RoleSelection.css";
 import logo from "../assets/logo.png";
 
-function RoleSelection({ onProceedToLogin }) {
-  const [showComingSoon, setShowComingSoon] = useState(false);
-
-  const handleClientClick = () => {
-    
-    setShowComingSoon(true);
-    
-    setTimeout(() => {
-      setShowComingSoon(false);
-    }, 3000);
-  };
-
+function RoleSelection({ onProceedToLogin, onProceedToOwner }) {
   return (
     <div className="role-page">
       <div className="role-card">
-        
         <div className="role-logo">
           <img src={logo} alt="StayMate Logo" />
           <span>Stay<strong>Mate</strong></span>
@@ -27,7 +14,6 @@ function RoleSelection({ onProceedToLogin }) {
         <p className="role-subtitle">Please select how you want to use the app</p>
 
         <div className="role-buttons">
-          
           <button className="role-btn customer-btn" onClick={onProceedToLogin}>
             <span className="btn-icon">👨‍🎓</span>
             <div className="btn-text">
@@ -37,8 +23,7 @@ function RoleSelection({ onProceedToLogin }) {
             <span className="btn-arrow">→</span>
           </button>
 
-        
-          <button className="role-btn client-btn" onClick={handleClientClick}>
+          <button className="role-btn client-btn" onClick={onProceedToOwner}>
             <span className="btn-icon">🏠</span>
             <div className="btn-text">
               <h3>I am a Property Owner</h3>
@@ -47,14 +32,6 @@ function RoleSelection({ onProceedToLogin }) {
             <span className="btn-arrow">→</span>
           </button>
         </div>
-
-        
-        {showComingSoon && (
-          <div className="coming-soon-alert">
-            🚀 <strong>Feature Coming Soon!</strong> We are currently building the ultimate dashboard for property owners. Stay tuned!
-          </div>
-        )}
-
       </div>
     </div>
   );
