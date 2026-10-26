@@ -1,0 +1,527 @@
+.owner-auth-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f8fafc;
+  font-family: Inter, Arial, sans-serif;
+  color: #0f172a;
+}
+
+.owner-auth-page .login-left {
+  width: 52%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 42px 6%;
+  box-sizing: border-box;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.20) 0%,
+      rgba(15, 23, 42, 0.35) 55%,
+      rgba(30, 27, 75, 0.65) 100%
+    ),
+    url("../assets/login.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Optional: keeps white text sharp against a clearer background image */
+.owner-auth-page .staymate-logo,
+.owner-auth-page .login-hero h1,
+.owner-auth-page .login-hero > p {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+.owner-auth-page .staymate-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.owner-auth-page .staymate-logo img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.owner-auth-page .staymate-logo span {
+  color: #c7d2fe;
+}
+
+.owner-auth-page .login-hero {
+  position: absolute;
+  left: 6%;
+  right: 8%;
+  bottom: 11%;
+  z-index: 2;
+}
+
+.owner-auth-page .login-hero h1 {
+  margin: 0;
+  color: white;
+  font-size: 47px;
+  line-height: 1.12;
+  letter-spacing: -1px;
+}
+
+.owner-auth-page .login-hero h1 span {
+  color: #c7d2fe;
+}
+
+.owner-auth-page .login-hero > p {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.owner-auth-page .login-features {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.owner-auth-page .login-feature {
+  min-width: 180px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  border-radius: 11px;
+  padding: 11px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  box-sizing: border-box;
+}
+
+.owner-auth-page .feature-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.16);
+  color: white;
+}
+
+.owner-auth-page .feature-icon.blue,
+.owner-auth-page .feature-icon.green,
+.owner-auth-page .feature-icon.purple {
+  background: rgba(255, 255, 255, 0.16);
+  color: #c7d2fe;
+}
+
+.owner-auth-page .login-feature h3 {
+  margin: 0 0 3px;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.owner-auth-page .login-feature p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 8px;
+  line-height: 1.4;
+}
+
+.owner-auth-page .login-right {
+  width: 48%;
+  min-height: 100vh;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 45px;
+  box-sizing: border-box;
+}
+
+.owner-auth-page .staymate-login-card {
+  width: 100%;
+  max-width: 470px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 34px 40px 28px;
+  box-sizing: border-box;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+}
+
+.owner-auth-page .staymate-login-card h2 {
+  margin: 0;
+  text-align: center;
+  color: #0f172a;
+  font-size: 27px;
+  line-height: 1.2;
+}
+
+.owner-auth-page .staymate-login-card h2 span {
+  color: #4f46e5;
+}
+
+.owner-auth-page .login-subtitle {
+  margin: 8px 0 0;
+  text-align: center;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.owner-auth-page .login-tab {
+  margin-top: 30px;
+  padding-bottom: 11px;
+  text-align: center;
+  color: #4f46e5;
+  font-size: 13px;
+  font-weight: 700;
+  border-bottom: 2px solid #4f46e5;
+}
+
+.owner-auth-page .form-group {
+  margin-top: 20px;
+}
+
+.owner-auth-page .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.owner-auth-page .input-container {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 13px;
+  box-sizing: border-box;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  transition: 0.2s;
+}
+
+.owner-auth-page .input-container:focus-within {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.owner-auth-page .input-icon {
+  margin-right: 10px;
+  color: #64748b;
+  font-size: 15px;
+}
+
+.owner-auth-page .input-container input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #0f172a;
+  font-size: 12px;
+}
+
+.owner-auth-page .input-container input::placeholder {
+  color: #94a3b8;
+}
+
+.owner-auth-page .password-toggle {
+  border: none;
+  background: transparent;
+  padding: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.65;
+}
+
+.owner-auth-page .password-toggle:hover {
+  opacity: 1;
+}
+
+.owner-auth-page .forgot-password {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.owner-auth-page .forgot-link {
+  height: 34px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #e2e8f0;
+  border-radius: 7px;
+  background: #f1f5f9;
+  color: #4f46e5;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.owner-auth-page .forgot-link:hover {
+  background: #eef2ff;
+  border-color: #4f46e5;
+  transform: translateX(2px);
+}
+
+.owner-auth-page .forgot-arrow {
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.owner-auth-page .forgot-link:hover .forgot-arrow {
+  transform: translateX(3px);
+}
+
+.owner-auth-page .auth-button {
+  width: 100%;
+  height: 50px;
+  margin-top: 22px;
+  border: none;
+  border-radius: 9px;
+  background: #4f46e5;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: 0.2s;
+}
+
+.owner-auth-page .auth-button:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(79, 70, 229, 0.22);
+}
+
+.owner-auth-page .auth-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 25px 0 20px;
+}
+
+.owner-auth-page .switch-auth {
+  text-align: center;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.owner-auth-page .switch-auth button {
+  border: none;
+  background: transparent;
+  color: #4f46e5;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.owner-auth-page .switch-auth button:hover {
+  text-decoration: underline;
+}
+
+.owner-auth-page .legal-box {
+  width: 100%;
+  margin-top: 20px;
+  padding: 11px 13px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.owner-auth-page .legal-shield {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #eef2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.owner-auth-page .legal-content {
+  flex: 1;
+}
+
+.owner-auth-page .legal-main-text {
+  margin: 0;
+  color: #334155;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.owner-auth-page .legal-sub-text {
+  margin: 2px 0 3px;
+  color: #64748b;
+  font-size: 9px;
+}
+
+.owner-auth-page .legal-links {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.owner-auth-page .legal-links span {
+  color: #94a3b8;
+  font-size: 9px;
+}
+
+.owner-auth-page .legal-links button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: #4f46e5;
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.owner-auth-page .legal-links button:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .owner-auth-page {
+    flex-direction: column;
+  }
+
+  .owner-auth-page .login-left {
+    width: 100%;
+    min-height: 430px;
+    padding: 30px;
+  }
+
+  .owner-auth-page .login-hero {
+    left: 30px;
+    right: 30px;
+    bottom: 35px;
+  }
+
+  .owner-auth-page .login-hero h1 {
+    font-size: 38px;
+  }
+
+  .owner-auth-page .login-features {
+    display: none;
+  }
+
+  .owner-auth-page .login-right {
+    width: 100%;
+    min-height: auto;
+    padding: 35px 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .owner-auth-page .login-left {
+    min-height: 330px;
+    padding: 25px;
+  }
+
+  .owner-auth-page .staymate-logo {
+    font-size: 21px;
+  }
+
+  .owner-auth-page .staymate-logo img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .owner-auth-page .login-hero {
+    left: 25px;
+    right: 25px;
+    bottom: 28px;
+  }
+
+  .owner-auth-page .login-hero h1 {
+    font-size: 31px;
+  }
+
+  .owner-auth-page .login-hero > p {
+    font-size: 12px;
+  }
+
+  .owner-auth-page .login-hero > p br {
+    display: none;
+  }
+
+  .owner-auth-page .login-right {
+    padding: 25px 15px;
+  }
+
+  .owner-auth-page .staymate-login-card {
+    padding: 28px 20px 23px;
+    border-radius: 16px;
+  }
+
+  .owner-auth-page .staymate-login-card h2 {
+    font-size: 23px;
+  }
+}
+
+.owner-auth-page .back-button {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 20px;
+  transition: 0.2s ease-in-out;
+}
+
+.owner-auth-page .back-button:hover {
+  color: #4f46e5;
+  transform: translateX(-3px);
+}
+
+.owner-auth-page .input-error-border {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.15);
+}
+
+.owner-auth-page .error-message {
+  display: block;
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.owner-auth-page .error-list {
+  margin: 6px 0 0 0;
+  padding-left: 18px;
+  color: #ef4444;
+  text-align: left;
+}
+
+.owner-auth-page .error-list .error-message {
+  display: list-item;
+  margin-top: 2px;
+} 

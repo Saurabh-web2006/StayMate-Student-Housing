@@ -113,7 +113,7 @@ function PropertyForm({ editing, property, onSave, onCancel, saving, error }) {
   );
 }
 
-function OwnerDashboard() {
+function OwnerDashboard({ onLogout }) {
   const navigate = useNavigate();
   const location = useLocation();
   const editMatch = location.pathname.match(/\/owner\/properties\/([^/]+)\/edit$/);
@@ -172,7 +172,7 @@ function OwnerDashboard() {
         <div className="owner-sidebar-bottom">
           <div className="owner-help-card"><span>✦</span><strong>Hosting tip</strong><p>Clear photos and accurate room availability help students choose confidently.</p></div>
           <button className="owner-nav-item" onClick={() => nav("/")}>↩ <span>Switch role</span></button>
-          <button className="owner-nav-item" onClick={() => nav("/")}>⇥ <span>Log out</span></button>
+          <button className="owner-nav-item" onClick={() => onLogout ? onLogout() : nav("/owner/login")}>⇥ <span>Log out</span></button>
         </div>
       </aside>
 
