@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { usePersistentState } from "../utils/usePersistentState";
 import "./Sidebar.css";
 import logo from "../assets/logo.png";
 
@@ -15,10 +15,7 @@ function Sidebar({
   onSettings,
   onLogout
 }) {
-  const [isCollapsed, setIsCollapsed] = useState(() => {
-  const stored = localStorage.getItem("sidebarCollapsed");
-  return stored ? JSON.parse(stored) : false;
-});
+  const [isCollapsed, setIsCollapsed] = usePersistentState("sidebarCollapsed", false);
  
   return (
     <aside
@@ -48,9 +45,7 @@ function Sidebar({
       <button
         className="sidebar-toggle"
         onClick={() => {
-          const newState = !isCollapsed;
-          setIsCollapsed(newState);
-          localStorage.setItem("sidebarCollapsed", JSON.stringify(newState));
+          setIsCollapsed((current) => !current);
         }}
         type="button"
         aria-label={

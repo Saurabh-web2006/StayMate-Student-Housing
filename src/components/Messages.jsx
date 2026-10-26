@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import "./Messages.css";
 
 import Sidebar from "./Sidebar";
+import { usePersistentState } from "../utils/usePersistentState";
 
 function Messages({
   userName = "Sanyam",
@@ -14,15 +15,14 @@ function Messages({
   onProfile,
   onSettings,
   onLogout,
-  selectedPerson
+  selectedPerson,
+  onChatOpened,
+  persistenceKey = "staymate:guest"
 }) {
 
-  const [activeChat, setActiveChat] = useState(selectedPerson || null);
-
-  const [message, setMessage] = useState("");
-
-  const [conversations, setConversations] = useState(() => {
-
+  const [activeChat, setActiveChat] = usePersistentState(`${persistenceKey}:messages:activeChat`, selectedPerson || null);
+  const [message, setMessage] = usePersistentState(`${persistenceKey}:messages:draft`, "");
+  const [conversations, setConversations] = usePersistentState(`${persistenceKey}:messages:conversations`, () => {
     if (!selectedPerson) {
       return [];
     }
@@ -44,6 +44,27 @@ function Messages({
 
   });
 
+  useEffect(() => {
+    if (!selectedPerson) return;
+    setActiveChat(selectedPerson);
+    setConversations((current) => {
+      if (current.some((chat) => chat.id === selectedPerson.id)) return current;
+      return [
+        ...current,
+        {
+          id: selectedPerson.id,
+          person: selectedPerson,
+          messages: [{
+            id: 1,
+            sender: "them",
+            text: `Hi ${userName}! Nice to connect with you 👋`,
+            time: "10:30 AM",
+          }],
+        },
+      ];
+    });
+    onChatOpened?.();
+  }, [selectedPerson, setActiveChat, setConversations, userName, onChatOpened]);
 
 
 
@@ -179,11 +200,11 @@ function Messages({
           </div>
 
 
-          <div className="messages-user">
+          <button className="messages-user" onClick={onProfile} type="button" title="View Profile" aria-label={`Open profile for ${userName}`}>
 
-            <div className="messages-avatar">
+            <span className="messages-avatar">
               {userName.charAt(0)}
-            </div>
+            </span>
 
             <span>
               {userName}
@@ -193,7 +214,7 @@ function Messages({
               ▾
             </span>
 
-          </div>
+          </button>
 
         </header>
 

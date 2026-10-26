@@ -257,10 +257,7 @@
 
 import { useState } from "react";
 import "./Login.css";
-import FormInput from '../components/FormInput'; 
-
-
-
+import FormInput from "./FormInput";
 
 import logo from "../assets/logo.png";
 import { validateIdentifier, validatePassword } from "./utils/validation";
@@ -272,7 +269,6 @@ function Login({
   onLogin,
   onBack
 }) {
-  
   const [formData, setFormData] = useState({
     identifier: "",
     password: "",
@@ -282,6 +278,8 @@ function Login({
     identifier: "",
     password: "",
   });
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateField = (name, value) => {
     if (name === "identifier") return validateIdentifier(value);
@@ -293,10 +291,10 @@ function Login({
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-  
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
     }
+    if (submitError) setSubmitError("");
   };
 
   const handleBlur = (e) => {
@@ -304,13 +302,13 @@ function Login({
     setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     const identifierError = validateIdentifier(formData.identifier);
     const passwordError = validatePassword(formData.password);
 
-    if (identifierError || passwordError) {
+    if (identifierError || (Array.isArray(passwordError) ? passwordError.length > 0 : Boolean(passwordError))) {
       setErrors({
         identifier: identifierError,
         password: passwordError,
@@ -318,7 +316,15 @@ function Login({
       return;
     }
 
-    onLogin(formData);
+    setSubmitError("");
+    setIsSubmitting(true);
+    try {
+      await onLogin(formData);
+    } catch (error) {
+      setSubmitError(error.message || "We couldn't log you in. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -394,7 +400,7 @@ function Login({
             Welcome to <span>StayMate</span>
           </h2>
 
-          <p className="login-subtitle">Let's get you started 👋</p>
+          <p className="login-subtitle">Log in to continue to your account.</p>
 
           <div className="login-tab">Login</div>
 
@@ -423,6 +429,8 @@ function Login({
               error={errors.password}
             />
 
+            {submitError && <p className="login-submit-error" role="alert">{submitError}</p>}
+
             <div className="forgot-password">
               <button
                 type="button"
@@ -435,8 +443,8 @@ function Login({
               </button>
             </div>
 
-            <button type="submit" className="auth-button">
-              Login
+            <button type="submit" className="auth-button" disabled={isSubmitting}>
+              {isSubmitting ? "Logging in..." : "Login"}
               <span>→</span>
             </button>
           </form>

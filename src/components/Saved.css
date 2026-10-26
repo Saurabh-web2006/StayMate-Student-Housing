@@ -32,6 +32,10 @@
 }
 
 .saved-user {
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
   display: flex;
 
   align-items: center;
@@ -41,6 +45,17 @@
   color: #4e4b43;
 
   font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.saved-user:hover,
+.saved-user:focus-visible {
+  background: #eee8dc;
+}
+
+.saved-user:focus-visible {
+  outline: 3px solid rgba(89, 108, 61, 0.3);
 }
 
 .saved-avatar {

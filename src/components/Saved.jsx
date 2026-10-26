@@ -1,8 +1,8 @@
-import { useState } from "react";
 import "./Saved.css";
 
 import Sidebar from "./Sidebar";
 import PGDetails from "./PGDetails";
+import { usePersistentState } from "../utils/usePersistentState";
 
 function Saved({
   userName = "Sanyam",
@@ -16,10 +16,12 @@ function Saved({
   onSettings,
   onLogout,
   savedPGs = [],
-  onToggleSaved
+  onToggleSaved,
+  onBook,
+  persistenceKey = "staymate:guest"
 }) {
 
-  const [selectedPG, setSelectedPG] = useState(null);
+  const [selectedPG, setSelectedPG] = usePersistentState(`${persistenceKey}:saved:selectedPG`, null);
 
   //PG Details
 
@@ -29,6 +31,10 @@ function Saved({
       <PGDetails
         pg={selectedPG}
         onBack={() => setSelectedPG(null)}
+        onBook={(pg) => {
+          setSelectedPG(null);
+          onBook?.(pg);
+        }}
       />
     );
 
@@ -71,11 +77,11 @@ function Saved({
 
         <header className="saved-topbar">
 
-          <div className="saved-user">
+          <button className="saved-user" onClick={onProfile} type="button" title="View Profile" aria-label={`Open profile for ${userName}`}>
 
-            <div className="saved-avatar">
+            <span className="saved-avatar">
               {userName.charAt(0)}
-            </div>
+            </span>
 
             <span>
               {userName}
@@ -85,7 +91,7 @@ function Saved({
               ▾
             </span>
 
-          </div>
+          </button>
 
         </header>
 

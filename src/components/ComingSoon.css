@@ -48,11 +48,25 @@
 }
 
 .coming-soon-topbar .user-area {
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 14px;
   color: #5a5648;
+  cursor: pointer;
+}
+
+.coming-soon-topbar .user-area:hover,
+.coming-soon-topbar .user-area:focus-visible {
+  background: #eee8dc;
+}
+
+.coming-soon-topbar .user-area:focus-visible {
+  outline: 3px solid rgba(89, 108, 61, 0.3);
 }
 
 .coming-soon-topbar .user-avatar {

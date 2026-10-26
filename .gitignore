@@ -27,5 +27,7 @@ node_modules/
 dist/
 .env
 .env.local
+/data/accounts.json
+/data/accounts.json.tmp
 .DS_Store
 npm-debug.log*

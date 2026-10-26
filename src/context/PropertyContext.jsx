@@ -54,9 +54,10 @@ export function PropertyProvider({ children }) {
       const data = await request(API_URL);
       dispatch({ type: "loaded", payload: Array.isArray(data) ? data : [] });
     } catch (error) {
+      console.error("Could not load property data.", error);
       dispatch({
         type: "error",
-        payload: "Could not load properties. Make sure JSON Server is running on port 3001, then refresh.",
+        payload: `Could not load properties${error.message ? `: ${error.message}` : ""}. Make sure JSON Server is running on port 3001, then refresh.`,
       });
     }
   }, []);

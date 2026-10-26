@@ -372,7 +372,9 @@ import {
   validateConfirmPassword,
 } from "./utils/validation";
 
-function Signup({ onLogin, onLegal }) {
+function Signup({ onLogin, onLegal, onAccountCreated }) {
+  const [submitError, setSubmitError] = useState("");
+  const [isCreatingAccount, setIsCreatingAccount] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     identifier: "",
@@ -411,6 +413,7 @@ function Signup({ onLogin, onLegal }) {
     const { name, value } = e.target;
     const updatedFormData = { ...formData, [name]: value };
     setFormData(updatedFormData);
+    if (submitError) setSubmitError("");
 
     
     const updatedErrors = { ...errors };
@@ -440,7 +443,7 @@ function Signup({ onLogin, onLegal }) {
     }));
   };
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
 
     const newErrors = {
@@ -463,7 +466,15 @@ function Signup({ onLogin, onLegal }) {
       return;
     }
 
-    alert("Account created!");
+    setSubmitError("");
+    setIsCreatingAccount(true);
+    try {
+      await onAccountCreated(formData);
+    } catch (error) {
+      setSubmitError(error.message || "We couldn't create your account. Please try again.");
+    } finally {
+      setIsCreatingAccount(false);
+    }
   };
 
   return (
@@ -604,8 +615,10 @@ function Signup({ onLogin, onLegal }) {
               toggleClass="signup-eye"
             />
 
-            <button type="submit" className="signup-button">
-              Create Account
+            {submitError && <p className="signup-submit-error" role="alert">{submitError}</p>}
+
+            <button type="submit" className="signup-button" disabled={isCreatingAccount}>
+              {isCreatingAccount ? "Creating account..." : "Create Account"}
               <span>→</span>
             </button>
           </form>

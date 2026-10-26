@@ -2,7 +2,7 @@ import "./PGDetails.css";
 
 import logo from "../assets/logo.png";
 
-function PGDetails({ pg, onBack }) {
+function PGDetails({ pg, onBack, onBook }) {
   if (!pg) {
     return null;
   }
@@ -162,7 +162,7 @@ function PGDetails({ pg, onBack }) {
               Contact Owner
             </button>
 
-            <button className="book-button">
+            <button className="book-button" onClick={() => onBook?.(pg)}>
               Request to Book →
             </button>
 

@@ -2,10 +2,238 @@
 html, body, #root { min-height: 100%; margin: 0; }
 body { font-family: Arial, Helvetica, sans-serif; }
 button, input, select, textarea { font-family: inherit; }
-button { -webkit-tap-highlight-color: transparent; }
+button { -webkit-tap-highlight-color: transparent; cursor: pointer; }
 .app { min-height: 100vh; }
 .route-state { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 24px; background: #f6f4ed; color: #292d22; text-align: center; }
 .route-state p { max-width: 520px; color: #77796d; font-size: 13px; line-height: 1.6; }
-.route-state button { border: 0; border-radius: 8px; padding: 11px 16px; background: #66734d; color: white; cursor: pointer; }
 .route-spinner { width: 30px; height: 30px; border: 3px solid #e3e8d9; border-top-color: #66734d; border-radius: 50%; animation: route-spin .8s linear infinite; }
 @keyframes route-spin { to { transform: rotate(360deg); } }
+
+:root {
+  --sm-button-primary: #596c3d;
+  --sm-button-primary-hover: #485b30;
+  --sm-button-secondary-border: #d8dace;
+  --sm-button-secondary-text: #4e5840;
+  --sm-button-secondary-hover: #f0f2eb;
+  --sm-button-focus: rgba(89, 108, 61, 0.3);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--sm-button-focus);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* Shared appearance for primary actions across student, owner, and auth pages. */
+.app :is(
+  .route-state button,
+  .auth-button,
+  .signup-button,
+  .reset-button,
+  .forgot-button,
+  .quick-action-btn.primary,
+  .find-pg-search-button,
+  .find-pg-card-bottom button,
+  .no-results button,
+  .roommate-no-results button,
+  .saved-bottom button,
+  .saved-empty button,
+  .student-bookings-empty button,
+  .student-profile-edit-button,
+  .student-profile-save-button,
+  .book-button,
+  .connect-button,
+  .save-profile-button,
+  .owner-btn-primary
+) {
+  min-height: 42px;
+  padding: 0 17px;
+  border: 1px solid var(--sm-button-primary);
+  border-radius: 9px;
+  background: var(--sm-button-primary);
+  box-shadow: none;
+  color: #fff;
+  font: 600 13px/1.2 Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  transform: none;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.app :is(
+  .route-state button,
+  .auth-button,
+  .signup-button,
+  .reset-button,
+  .forgot-button,
+  .quick-action-btn.primary,
+  .find-pg-search-button,
+  .find-pg-card-bottom button,
+  .no-results button,
+  .roommate-no-results button,
+  .saved-bottom button,
+  .saved-empty button,
+  .student-bookings-empty button,
+  .student-profile-edit-button,
+  .student-profile-save-button,
+  .book-button,
+  .connect-button,
+  .save-profile-button,
+  .owner-btn-primary
+):hover:not(:disabled) {
+  border-color: var(--sm-button-primary-hover);
+  background: var(--sm-button-primary-hover);
+  box-shadow: 0 3px 10px rgba(41, 49, 31, 0.14);
+  color: #fff;
+  transform: none;
+}
+
+.app :is(
+  .details-back,
+  .profile-back-button,
+  .student-profile-cancel-button,
+  .owner-btn-ghost,
+  .owner-btn-light,
+  .owner-row-actions button:not(.danger)
+) {
+  min-height: 40px;
+  padding: 0 15px;
+  border: 1px solid var(--sm-button-secondary-border);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--sm-button-secondary-text);
+  font: 600 13px/1.2 Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  transform: none;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.app :is(
+  .details-back,
+  .profile-back-button,
+  .student-profile-cancel-button,
+  .owner-btn-ghost,
+  .owner-btn-light,
+  .owner-row-actions button:not(.danger)
+):hover:not(:disabled) {
+  border-color: var(--sm-button-secondary-border);
+  background: var(--sm-button-secondary-hover);
+  color: var(--sm-button-secondary-text);
+  transform: none;
+}
+
+.app :is(.quick-action-btn.secondary) {
+  min-height: 42px;
+  padding: 0 17px;
+  border: 1px solid var(--sm-button-secondary-border);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--sm-button-secondary-text);
+  font: 600 13px/1.2 Arial, Helvetica, sans-serif;
+  transform: none;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.app :is(.quick-action-btn.secondary):hover:not(:disabled) {
+  border-color: var(--sm-button-secondary-border);
+  background: var(--sm-button-secondary-hover);
+  color: var(--sm-button-secondary-text);
+  transform: none;
+}
+
+.app :is(
+  .user-area,
+  .find-pg-profile,
+  .roommates-user,
+  .saved-user,
+  .messages-user,
+  .student-bookings-user,
+  .student-profile-user
+) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 5px 12px 5px 6px;
+  border: 1px solid #e2dace;
+  border-radius: 999px;
+  background: #fffefa;
+  color: #4e4b43;
+  font: 600 13px/1.2 Arial, Helvetica, sans-serif;
+  text-align: left;
+  white-space: nowrap;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.app :is(
+  .user-area,
+  .find-pg-profile,
+  .roommates-user,
+  .saved-user,
+  .messages-user,
+  .student-bookings-user,
+  .student-profile-user
+):hover:not(:disabled) {
+  border-color: #d3d9c8;
+  background: #f0f2eb;
+}
+
+.app :is(
+  .user-area,
+  .find-pg-profile,
+  .roommates-user,
+  .saved-user,
+  .messages-user,
+  .student-bookings-user,
+  .student-profile-user
+) :is(
+  .user-avatar,
+  .find-pg-avatar,
+  .roommates-avatar,
+  .saved-avatar,
+  .messages-avatar,
+  .student-bookings-avatar,
+  .student-profile-avatar
+) {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--sm-button-primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.app :is(
+  .switch-auth button,
+  .signup-switch button,
+  .legal-links button,
+  .signup-right .legal-links button,
+  .footer-links button,
+  .owner-text-btn
+) {
+  padding: 2px 0;
+  border: 0;
+  background: transparent;
+  color: var(--sm-button-primary);
+  font: 600 12px/1.4 Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+.app :is(
+  .switch-auth button,
+  .signup-switch button,
+  .legal-links button,
+  .signup-right .legal-links button,
+  .footer-links button,
+  .owner-text-btn
+):hover:not(:disabled) {
+  background: transparent;
+  color: var(--sm-button-primary-hover);
+  text-decoration: underline;
+}

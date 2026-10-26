@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import "./FindPGs.css";
 
 import PGDetails from "./PGDetails";
 import Sidebar from "./Sidebar";
+import { usePersistentState } from "../utils/usePersistentState";
 
 
 
@@ -19,15 +20,22 @@ function FindPGs({
   onSettings,
   savedPGs,
   onToggleSaved,
+  onBook,
   initialSearch = "",
-  listings = []
+  onSearchChange,
+  listings = [],
+  persistenceKey = "staymate:guest"
 }) {
 
-  const [search, setSearch] = useState(initialSearch);
-  const [budget, setBudget] = useState("Any Budget");
-  const [roomType, setRoomType] = useState("Any Room");
-  const [pgType, setPgType] = useState("All");
-  const [selectedPG, setSelectedPG] = useState(null);
+  const [search, setSearch] = usePersistentState(`${persistenceKey}:findPGs:search`, initialSearch);
+  const [budget, setBudget] = usePersistentState(`${persistenceKey}:findPGs:budget`, "Any Budget");
+  const [roomType, setRoomType] = usePersistentState(`${persistenceKey}:findPGs:roomType`, "Any Room");
+  const [pgType, setPgType] = usePersistentState(`${persistenceKey}:findPGs:pgType`, "All");
+  const [selectedPG, setSelectedPG] = usePersistentState(`${persistenceKey}:findPGs:selectedPG`, null);
+
+  useEffect(() => {
+    if (initialSearch) setSearch(initialSearch);
+  }, [initialSearch, setSearch]);
 
 
 
@@ -92,6 +100,10 @@ function FindPGs({
       <PGDetails
         pg={selectedPG}
         onBack={() => setSelectedPG(null)}
+        onBook={(pg) => {
+          setSelectedPG(null);
+          onBook?.(pg);
+        }}
       />
     );
 
@@ -138,11 +150,11 @@ function FindPGs({
           <div></div>
 
 
-          <div className="find-pg-profile">
+          <button className="find-pg-profile" onClick={onProfile} type="button" title="View Profile" aria-label={`Open profile for ${userName}`}>
 
-            <div className="find-pg-avatar">
+            <span className="find-pg-avatar">
               {userName.charAt(0)}
-            </div>
+            </span>
 
             <span>
               {userName}
@@ -152,7 +164,7 @@ function FindPGs({
               ▾
             </span>
 
-          </div>
+          </button>
 
         </header>
 
@@ -185,9 +197,10 @@ function FindPGs({
               type="text"
               placeholder="Search by PG name or location..."
               value={search}
-              onChange={(e) =>
-                setSearch(e.target.value)
-              }
+              onChange={(e) => {
+                setSearch(e.target.value);
+                onSearchChange?.(e.target.value);
+              }}
             />
 
           </div>

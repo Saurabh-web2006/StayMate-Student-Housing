@@ -1,8 +1,8 @@
-import { useState } from "react";
 import "./Roommates.css";
 
 import RoommateProfile from "./RoommateProfile";
 import Sidebar from "./Sidebar";
+import { usePersistentState } from "../utils/usePersistentState";
 
 import roommate1 from "../assets/roommate1.jpg";
 import roommate2 from "../assets/roommate2.jpg";
@@ -23,15 +23,17 @@ function Roommates({
   onBookings,
   onNotifications,
   onSettings,
-  onConnect
+  onConnect,
+  initialSearch = "",
+  persistenceKey = "staymate:guest"
 }) {
 
-  const [search, setSearch] = useState("");
-  const [gender, setGender] = useState("All");
-  const [budget, setBudget] = useState("Any Budget");
-  const [lifestyle, setLifestyle] = useState("All");
+  const [search, setSearch] = usePersistentState(`${persistenceKey}:roommates:search`, initialSearch);
+  const [gender, setGender] = usePersistentState(`${persistenceKey}:roommates:gender`, "All");
+  const [budget, setBudget] = usePersistentState(`${persistenceKey}:roommates:budget`, "Any Budget");
+  const [lifestyle, setLifestyle] = usePersistentState(`${persistenceKey}:roommates:lifestyle`, "All");
 
-  const [selectedRoommate, setSelectedRoommate] = useState(null);
+  const [selectedRoommate, setSelectedRoommate] = usePersistentState(`${persistenceKey}:roommates:selected`, null);
 
 
 
@@ -258,11 +260,11 @@ function Roommates({
 
         <header className="roommates-topbar">
 
-          <div className="roommates-user">
+          <button className="roommates-user" onClick={onProfile} type="button" title="View Profile" aria-label={`Open profile for ${userName}`}>
 
-            <div className="roommates-avatar">
+            <span className="roommates-avatar">
               {userName.charAt(0)}
-            </div>
+            </span>
 
             <span>
               {userName}
@@ -272,7 +274,7 @@ function Roommates({
               ▾
             </span>
 
-          </div>
+          </button>
 
         </header>
 

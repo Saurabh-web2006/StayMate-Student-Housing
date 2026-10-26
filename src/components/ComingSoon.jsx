@@ -145,17 +145,17 @@ function ComingSoon({
             {config.title}
           </span>
 
-          <div className="user-area">
+          <button className="user-area" onClick={onProfile} type="button" title="View Profile" aria-label={`Open profile for ${userName}`}>
 
-            <div className="user-avatar">
+            <span className="user-avatar">
               {userName.charAt(0)}
-            </div>
+            </span>
 
             <span>
               {userName}
             </span>
 
-          </div>
+          </button>
 
         </header>
 

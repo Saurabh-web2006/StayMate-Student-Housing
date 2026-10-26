@@ -1,0 +1,351 @@
+.student-bookings-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f5efe6;
+  color: #29291f;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.student-bookings-main {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  margin-left: 90px;
+}
+
+.student-bookings-topbar {
+  min-height: 75px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fbf8f2;
+  border-bottom: 1px solid #e2dace;
+}
+
+.student-bookings-topbar > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.student-bookings-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.student-bookings-subtitle {
+  color: #8b8579;
+  font-size: 11px;
+}
+
+.student-bookings-user {
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #5a5648;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.student-bookings-user:hover,
+.student-bookings-user:focus-visible {
+  background: #eee8dc;
+}
+
+.student-bookings-user:focus-visible {
+  outline: 3px solid rgba(89, 108, 61, 0.3);
+}
+
+.student-bookings-user > span {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #596c3d, #7a9a52);
+  color: white;
+}
+
+.student-bookings-content {
+  width: min(1100px, calc(100% - 64px));
+  margin: 38px auto;
+}
+
+.student-bookings-intro {
+  margin-bottom: 24px;
+}
+
+.student-bookings-eyebrow {
+  margin: 0 0 7px;
+  color: #718253;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.student-bookings-intro h1 {
+  margin: 0;
+  font-size: clamp(25px, 3vw, 32px);
+  letter-spacing: -0.8px;
+}
+
+.student-bookings-intro > p:last-child {
+  margin: 8px 0 0;
+  color: #77746b;
+  font-size: 13px;
+}
+
+.student-bookings-count {
+  min-height: 50px;
+  margin-bottom: 14px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #e3dbcf;
+  border-radius: 10px;
+  background: #fbf8f2;
+  color: #77746b;
+  font-size: 12px;
+}
+
+.student-bookings-count strong {
+  color: #414e30;
+  font-size: 17px;
+}
+
+.student-bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.student-booking-card {
+  min-height: 150px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border: 1px solid #e3dbcf;
+  border-radius: 14px;
+  background: #fbf8f2;
+  box-shadow: 0 6px 18px rgba(67, 55, 38, 0.045);
+}
+
+.student-booking-image {
+  width: 190px;
+  height: 125px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #e9e3d8;
+}
+
+.student-booking-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.student-booking-type {
+  color: #718253;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.student-booking-info h2 {
+  margin: 6px 0;
+  font-size: 17px;
+}
+
+.student-booking-location,
+.student-booking-date {
+  margin: 5px 0;
+  color: #77746b;
+  font-size: 11px;
+}
+
+.student-booking-summary {
+  min-width: 160px;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  border-left: 1px solid #ebe4d9;
+}
+
+.student-booking-summary > strong {
+  color: #414e30;
+  font-size: 17px;
+}
+
+.student-booking-summary > strong > span {
+  color: #898478;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.student-booking-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 9px;
+  border: 1px solid #e9dcb8;
+  border-radius: 20px;
+  background: #fbf4df;
+  color: #80652b;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.student-booking-status > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c89b3c;
+}
+
+.student-booking-status.accepted {
+  border-color: #d3e4cb;
+  background: #edf5e9;
+  color: #4e7042;
+}
+
+.student-booking-status.accepted > span {
+  background: #669452;
+}
+
+.student-booking-status.declined {
+  border-color: #ead5cf;
+  background: #fbefec;
+  color: #9a5749;
+}
+
+.student-booking-status.declined > span {
+  background: #bd6b59;
+}
+
+.student-bookings-error {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid #efd1c9;
+  border-radius: 9px;
+  background: #fff3ef;
+  color: #9d4c3c;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.student-booking-room {
+  color: #898478;
+  font-size: 10px;
+}
+
+.student-bookings-empty {
+  padding: 56px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px dashed #d8cdbc;
+  border-radius: 15px;
+  background: rgba(251, 248, 242, 0.75);
+}
+
+.student-bookings-empty-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: #e9eddf;
+  color: #596c3d;
+  font-size: 28px;
+}
+
+.student-bookings-empty h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.student-bookings-empty p {
+  max-width: 390px;
+  margin: 9px 0 18px;
+  color: #77746b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.student-bookings-empty button {
+  min-height: 42px;
+  padding: 0 15px;
+  border: 0;
+  border-radius: 8px;
+  background: #596c3d;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.student-bookings-empty button span {
+  margin-left: 7px;
+}
+
+@media (max-width: 700px) {
+  .student-bookings-main {
+    margin-left: 76px;
+  }
+
+  .student-bookings-topbar {
+    min-height: 66px;
+    padding: 0 15px;
+  }
+
+  .student-bookings-content {
+    width: calc(100% - 24px);
+    margin: 25px auto;
+  }
+
+  .student-booking-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .student-booking-image {
+    width: 110px;
+    height: 95px;
+  }
+
+  .student-booking-info {
+    flex-basis: calc(100% - 130px);
+  }
+
+  .student-booking-info h2 {
+    font-size: 14px;
+  }
+
+  .student-booking-summary {
+    width: 100%;
+    min-width: 0;
+    padding: 11px 0 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #ebe4d9;
+    border-left: 0;
+  }
+}

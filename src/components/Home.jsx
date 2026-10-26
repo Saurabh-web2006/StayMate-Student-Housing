@@ -1,7 +1,8 @@
 import "./Home.css";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import PGDetails from "./PGDetails";
 import Sidebar from "./Sidebar";
+import { usePersistentState } from "../utils/usePersistentState";
 
 import heroRoom from "../assets/hero-room.jpg";
 import roommate1 from "../assets/roommate1.jpg";
@@ -25,13 +26,16 @@ function Home({
   onSettings,
   savedPGs = [],
   onToggleSaved,
-  listings = []
+  onBook,
+  listings = [],
+  persistenceKey = "staymate:guest"
 }) {
-  const [selectedPG, setSelectedPG] = useState(null);
-  const [searchTab, setSearchTab] = useState("pg"); 
-  const [expandedFaq, setExpandedFaq] = useState(null);
+  const [selectedPG, setSelectedPG] = usePersistentState(`${persistenceKey}:home:selectedPG`, null);
+  const [searchTab, setSearchTab] = usePersistentState(`${persistenceKey}:home:searchTab`, "pg");
+  const [homeSearch, setHomeSearch] = usePersistentState(`${persistenceKey}:home:search`, "");
+  const [expandedFaq, setExpandedFaq] = usePersistentState(`${persistenceKey}:home:expandedFaq`, null);
 
-  const [matcherPrefs, setMatcherPrefs] = useState({
+  const [matcherPrefs, setMatcherPrefs] = usePersistentState(`${persistenceKey}:home:matcherPrefs`, {
     sleep: "night",
     clean: "neat", 
     food: "any", 
@@ -62,7 +66,7 @@ function Home({
     if (searchTab === "roommate") {
       onRoommates();
     } else {
-      onFindPGs();
+      onFindPGs(homeSearch);
     }
   };
 
@@ -91,6 +95,10 @@ function Home({
       <PGDetails
         pg={selectedPG}
         onBack={() => setSelectedPG(null)}
+        onBook={(pg) => {
+          setSelectedPG(null);
+          onBook?.(pg);
+        }}
       />
     );
   }
@@ -143,13 +151,13 @@ function Home({
               Roommate Match
             </button>
 
-            <div className="user-area" onClick={onProfile} title="View Profile">
-              <div className="user-avatar">
+            <button className="user-area" onClick={onProfile} title="View Profile" type="button" aria-label={`Open profile for ${userName}`}>
+              <span className="user-avatar">
                 {userName.charAt(0).toUpperCase()}
-              </div>
+              </span>
               <span className="user-name">{userName}</span>
               <span className="dropdown-arrow">▾</span>
-            </div>
+            </button>
           </div>
         </header>
 
@@ -216,6 +224,8 @@ function Home({
                       : "Search by course, branch, sleep habits, or campus..."
                   }
                   autoComplete="off"
+                  value={homeSearch}
+                  onChange={(event) => setHomeSearch(event.target.value)}
                 />
 
                 <button type="submit" className="search-submit-btn">
@@ -297,6 +307,7 @@ function Home({
               <div className="section-eyebrow">CURATED SELECTION</div>
               <h2>Recommended Student Stays</h2>
               <p>Hand-picked, high-rated student accommodations around campus.</p>
+              <p className="listing-sync-note">New listings and rent updates from hosts appear here automatically.</p>
             </div>
 
             <div className="heading-actions">
@@ -335,7 +346,7 @@ function Home({
                       className={`heart-button ${isSaved ? "saved" : ""}`}
                       onClick={(e) => {
                         e.stopPropagation();
-                        onToggleSaved && onToggleSaved(pg);
+                        if (onToggleSaved) onToggleSaved(pg);
                       }}
                       aria-label={isSaved ? "Remove from saved" : "Save PG"}
                       title={isSaved ? "Saved" : "Save to wishlist"}
@@ -636,50 +647,6 @@ function Home({
             </div>
           </div>
         </section>
-
-
-        <section className="how-section">
-          <div className="section-heading">
-            <div>
-              <div className="section-eyebrow">SIMPLE & SEAMLESS</div>
-              <h2>How StayMate Works in 4 Steps</h2>
-              <p>From finding your ideal spot to picking the right people to live with.</p>
-            </div>
-          </div>
-
-          <div className="steps-container">
-            <div className="step-card">
-              <div className="step-number">01</div>
-              <h3>Search & Filter</h3>
-              <p>Explore verified PGs by location, budget, room type, AC, food, and distance from campus.</p>
-            </div>
-
-            <div className="step-line"></div>
-
-            <div className="step-card">
-              <div className="step-number">02</div>
-              <h3>Compare Stays</h3>
-              <p>Review real student photos, rent details, verified amenities, and authentic community ratings.</p>
-            </div>
-
-            <div className="step-line"></div>
-
-            <div className="step-card">
-              <div className="step-number">03</div>
-              <h3>Find Your Roommate</h3>
-              <p>Match with students based on lifestyle compatibility scores and chat before deciding.</p>
-            </div>
-
-            <div className="step-line"></div>
-
-            <div className="step-card">
-              <div className="step-number">04</div>
-              <h3>Move In with Ease</h3>
-              <p>Finalize your stay with complete peace of mind, zero broker hassles, and total transparency.</p>
-            </div>
-          </div>
-        </section>
-
 
         <section className="testimonials-section">
           <div className="section-heading">
