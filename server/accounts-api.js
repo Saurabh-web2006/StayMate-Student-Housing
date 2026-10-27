@@ -47,6 +47,10 @@ async function readDatabase() {
     || Array.isArray(account.profile)
   ));
   if (invalidAccount) throw new Error("Account database contains invalid account data. Restore a valid JSON file before continuing.");
+  parsed.accounts.forEach((account) => {
+    if (!account.publicId) account.publicId = randomBytes(16).toString("hex");
+  });
+  if (!Array.isArray(parsed.messages)) parsed.messages = [];
   return parsed;
 }
 
@@ -115,6 +119,79 @@ function validateProfile(profile) {
   }
 }
 
+function isCompleteStudentProfile(profile) {
+  const requiredFields = ["name", "age", "gender", "college", "course", "location", "food", "lifestyle", "cleanliness", "budget"];
+  return requiredFields.every((field) => String(profile[field] ?? "").trim() !== "")
+    && String(profile.email || profile.phone || "").trim() !== "";
+}
+
+function listRoommateProfiles(database) {
+  return database.accounts
+    .filter((account) => account.role === "student" && isCompleteStudentProfile(account.profile))
+    .map((account) => {
+      const { name, age, gender, college, course, location, food, lifestyle, cleanliness, budget } = account.profile;
+      return { id: account.publicId, name, age, gender, college, course, location, food, lifestyle, cleanliness, budget };
+    });
+}
+
+function accountByPublicId(database, publicId) {
+  return database.accounts.find((account) => account.publicId === publicId);
+}
+
+function listMessagingContacts(database) {
+  return database.accounts.map((account) => ({
+    id: account.publicId,
+    name: account.role === "owner" ? (account.profile.businessName || account.profile.name) : account.profile.name,
+    role: account.role,
+    location: account.role === "student" ? account.profile.location || "" : "",
+  })).filter((contact) => contact.role === "owner" || database.accounts.some((account) => account.publicId === contact.id && isCompleteStudentProfile(account.profile)));
+}
+
+function studentProfileForOwner(database, identifier) {
+  const normalizedIdentifier = normalizeIdentifier(identifier);
+  const account = findAccount(database, "student", normalizedIdentifier);
+  if (!account) throw Object.assign(new Error("Student account was not found."), { status: 404 });
+  const fields = ["name", "age", "gender", "college", "course", "location", "food", "lifestyle", "cleanliness", "budget"];
+  const profile = Object.fromEntries(fields.map((field) => [field, account.profile[field] ?? ""]));
+  return { profile };
+}
+
+async function getMessages(accountId) {
+  if (!accountId) throw Object.assign(new Error("Account id is required."), { status: 400 });
+  await databaseQueue;
+  const database = await readDatabase();
+  if (!accountByPublicId(database, accountId)) {
+    throw Object.assign(new Error("Account was not found."), { status: 404 });
+  }
+  return database.messages.filter((message) => message.senderId === accountId || message.recipientId === accountId);
+}
+
+async function createMessage(body) {
+  if (!body || typeof body.senderId !== "string" || typeof body.recipientId !== "string") {
+    throw Object.assign(new Error("A sender and recipient are required."), { status: 400 });
+  }
+  if (typeof body.text !== "string" || !body.text.trim() || body.text.length > 2000) {
+    throw Object.assign(new Error("Message must contain 1 to 2,000 characters."), { status: 400 });
+  }
+  if (body.senderId === body.recipientId) {
+    throw Object.assign(new Error("You cannot send a message to yourself."), { status: 400 });
+  }
+  return updateDatabase((database) => {
+    if (!accountByPublicId(database, body.senderId) || !accountByPublicId(database, body.recipientId)) {
+      throw Object.assign(new Error("One of these accounts is no longer available."), { status: 404 });
+    }
+    const message = {
+      id: randomBytes(12).toString("hex"),
+      senderId: body.senderId,
+      recipientId: body.recipientId,
+      text: body.text.trim(),
+      sentAt: new Date().toISOString(),
+    };
+    database.messages.push(message);
+    return message;
+  });
+}
+
 function credentialHash(password, salt) {
   return pbkdf2Sync(password, Buffer.from(salt, "hex"), PBKDF2_ITERATIONS, 32, "sha256");
 }
@@ -135,6 +212,7 @@ async function registerAccount(body) {
   const account = {
     role: body.role,
     normalizedIdentifier,
+    publicId: randomBytes(16).toString("hex"),
     salt,
     passwordHash: credentialHash(body.password, salt).toString("hex"),
     profile: body.profile,
@@ -146,7 +224,7 @@ async function registerAccount(body) {
       throw Object.assign(new Error("An account with this email or phone number already exists. Please log in."), { status: 409 });
     }
     database.accounts.push(account);
-    return { profile: account.profile };
+    return { profile: account.profile, accountId: account.publicId };
   });
 }
 
@@ -164,17 +242,19 @@ async function importLegacyAccount(body) {
   }
   return updateDatabase((database) => {
     const existing = findAccount(database, body.role, normalizedIdentifier);
-    if (existing) return { profile: existing.profile };
-    database.accounts.push({
+    if (existing) return { profile: existing.profile, accountId: existing.publicId };
+    const account = {
       role: body.role,
       normalizedIdentifier,
+      publicId: randomBytes(16).toString("hex"),
       salt: body.salt,
       passwordHash: body.passwordHash,
       profile: body.profile,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
-    });
-    return { profile: body.profile };
+    };
+    database.accounts.push(account);
+    return { profile: body.profile, accountId: account.publicId };
   });
 }
 
@@ -194,7 +274,7 @@ async function authenticateAccount(body) {
   if (expectedHash.length !== actualHash.length || !timingSafeEqual(actualHash, expectedHash)) {
     throw Object.assign(new Error("Email/phone number or password is incorrect."), { status: 401 });
   }
-  return { profile: account.profile };
+  return { profile: account.profile, accountId: account.publicId };
 }
 
 async function updateAccountProfile(body) {
@@ -205,7 +285,7 @@ async function updateAccountProfile(body) {
     if (!account) throw Object.assign(new Error("Account was not found in the saved account file."), { status: 404 });
     account.profile = body.profile;
     account.updatedAt = new Date().toISOString();
-    return { profile: account.profile };
+    return { profile: account.profile, accountId: account.publicId };
   });
 }
 
@@ -235,6 +315,80 @@ const server = createServer(async (request, response) => {
     sendJson(response, 200, { ready: true });
     return;
   }
+  if (request.method === "GET" && request.url === "/api/accounts/roommates") {
+    try {
+      await databaseQueue;
+      const database = await readDatabase();
+      sendJson(response, 200, { profiles: listRoommateProfiles(database) });
+    } catch (error) {
+      console.error("Could not read roommate profiles.", error);
+      sendJson(response, 500, { error: "Could not load roommate profiles. Please try again." });
+    }
+    return;
+  }
+  if (request.method === "GET" && request.url === "/api/accounts/contacts") {
+    try {
+      await databaseQueue;
+      const database = await readDatabase();
+      sendJson(response, 200, { contacts: listMessagingContacts(database) });
+    } catch (error) {
+      sendJson(response, 500, { error: "Could not load message contacts. Please try again." });
+    }
+    return;
+  }
+  if (request.method === "GET" && request.url.startsWith("/api/accounts/owner?")) {
+    try {
+      const identifier = new URL(request.url, `http://${HOST}:${PORT}`).searchParams.get("identifier");
+      if (!identifier) throw Object.assign(new Error("Owner identifier is required."), { status: 400 });
+      await databaseQueue;
+      const database = await readDatabase();
+      const account = findAccount(database, "owner", normalizeIdentifier(identifier));
+      if (!account) throw Object.assign(new Error("This property's owner is not registered for messaging."), { status: 404 });
+      sendJson(response, 200, { profile: { id: account.publicId, name: account.profile.businessName || account.profile.name, role: "owner" } });
+    } catch (error) {
+      sendJson(response, error.status || 500, { error: error.message || "Could not find this property owner." });
+    }
+    return;
+  }
+  if (request.method === "GET" && request.url.startsWith("/api/accounts/id?")) {
+    try {
+      const query = new URL(request.url, `http://${HOST}:${PORT}`).searchParams;
+      const role = query.get("role");
+      const identifier = query.get("identifier");
+      if (!ACCOUNT_ROLES.has(role) || !identifier) {
+        throw Object.assign(new Error("A valid account identifier is required."), { status: 400 });
+      }
+      await databaseQueue;
+      const database = await readDatabase();
+      const account = findAccount(database, role, normalizeIdentifier(identifier));
+      if (!account) throw Object.assign(new Error("Account was not found."), { status: 404 });
+      sendJson(response, 200, { accountId: account.publicId });
+    } catch (error) {
+      sendJson(response, error.status || 500, { error: error.message || "Could not find account." });
+    }
+    return;
+  }
+  if (request.method === "GET" && request.url.startsWith("/api/accounts/student-profile?")) {
+    try {
+      const identifier = new URL(request.url, `http://${HOST}:${PORT}`).searchParams.get("identifier");
+      if (!identifier) throw Object.assign(new Error("Student identifier is required."), { status: 400 });
+      await databaseQueue;
+      const database = await readDatabase();
+      sendJson(response, 200, studentProfileForOwner(database, identifier));
+    } catch (error) {
+      sendJson(response, error.status || 500, { error: error.message || "Could not load the student profile." });
+    }
+    return;
+  }
+  if (request.method === "GET" && request.url.startsWith("/api/messages?")) {
+    try {
+      const accountId = new URL(request.url, `http://${HOST}:${PORT}`).searchParams.get("accountId");
+      sendJson(response, 200, { messages: await getMessages(accountId) });
+    } catch (error) {
+      sendJson(response, error.status || 500, { error: error.message || "Could not load messages." });
+    }
+    return;
+  }
 
   try {
     const body = await readRequestBody(request);
@@ -243,6 +397,7 @@ const server = createServer(async (request, response) => {
     else if (request.method === "POST" && request.url === "/api/accounts/login") result = await authenticateAccount(body);
     else if (request.method === "POST" && request.url === "/api/accounts/migrate") result = await importLegacyAccount(body);
     else if (request.method === "PATCH" && request.url === "/api/accounts/profile") result = await updateAccountProfile(body);
+    else if (request.method === "POST" && request.url === "/api/messages") result = await createMessage(body);
     else {
       sendJson(response, 404, { error: "Account API route was not found." });
       return;

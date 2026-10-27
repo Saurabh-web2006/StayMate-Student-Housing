@@ -27,6 +27,8 @@ const PROFILE_GROUPS = [
     fields: [
       { name: "food", label: "Food preference", type: "select", options: ["Vegetarian", "Non-Vegetarian"], icon: "🥗" },
       { name: "lifestyle", label: "Lifestyle", type: "select", options: ["Early Bird", "Night Owl", "Flexible"], icon: "🌙" },
+      { name: "cleanliness", label: "Cleanliness preference", type: "select", options: ["Very Clean", "Clean", "Moderate"], icon: "✨" },
+      { name: "location", label: "Preferred area / city", type: "text", icon: "📍" },
       { name: "budget", label: "Monthly budget (₹)", type: "number", min: "0", icon: "₹" },
     ],
   },
@@ -39,14 +41,18 @@ function maskContact(value) {
 }
 
 function getCompletion(profile) {
-  const fields = ["name", "email", "phone", "age", "gender", "college", "course", "food", "lifestyle", "budget"];
-  const completedFields = fields.filter((field) => Boolean(profile[field])).length;
-  return Math.round((completedFields / fields.length) * 100);
+  const fields = ["name", "age", "gender", "college", "course", "location", "food", "lifestyle", "cleanliness", "budget"];
+  let completedFields = fields.filter((field) => String(profile[field] ?? "").trim() !== "").length;
+  // Accounts use either email or phone as their login identifier, so count contact once.
+  if (String(profile.email || profile.phone || "").trim()) completedFields += 1;
+  const totalFields = fields.length + 1;
+  return Math.round((completedFields / totalFields) * 100);
 }
 
 function StudentProfile({
   userProfile,
   userName,
+  bookingNotice = "",
   onSaveProfile,
   onHome,
   onFindPGs,
@@ -174,6 +180,7 @@ function StudentProfile({
           </div>
 
           {savedMessage && <p className="student-profile-notice" role="status">{savedMessage}</p>}
+          {bookingNotice && <p className="student-profile-booking-notice" role="alert">{bookingNotice} Use “Edit profile” to fill in the missing details, then try booking again.</p>}
 
           <div className="student-profile-layout">
             <div className="student-profile-primary">

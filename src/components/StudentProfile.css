@@ -143,6 +143,17 @@
   font-size: 13px;
 }
 
+.student-profile-booking-notice {
+  margin: 0 0 16px;
+  padding: 12px 15px;
+  border: 1px solid #e5c98d;
+  border-radius: 10px;
+  background: #fff7e5;
+  color: #73551b;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .student-profile-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 310px;

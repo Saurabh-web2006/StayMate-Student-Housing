@@ -1,0 +1,226 @@
+.student-notifications-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f5efe6;
+  color: #29291f;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.student-notifications-main {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  margin-left: 90px;
+}
+
+.student-notifications-topbar {
+  min-height: 75px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fbf8f2;
+  border-bottom: 1px solid #e2dace;
+}
+
+.student-notifications-topbar > div > span {
+  color: #718253;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.student-notifications-topbar h1 {
+  margin: 4px 0 0;
+  font-size: 20px;
+}
+
+.student-notifications-user {
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #5a5648;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.student-notifications-user > span {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #596c3d;
+  color: white;
+  display: grid;
+  place-items: center;
+}
+
+.student-notifications-content {
+  width: min(1040px, calc(100% - 64px));
+  margin: 42px auto 64px;
+}
+
+.student-notifications-heading {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.student-notifications-heading > div > p {
+  margin: 0 0 6px;
+  color: #718253;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.student-notifications-heading h2 {
+  margin: 0;
+  font-size: 25px;
+}
+
+.student-notifications-heading h2 span {
+  margin-left: 8px;
+  color: #77796d;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.student-notifications-heading > button,
+.student-notification-card > button {
+  border: 0;
+  border-radius: 8px;
+  color: #596c3d;
+  background: #e9ecdf;
+  padding: 10px 13px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.student-notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.student-notification-card {
+  min-height: 92px;
+  padding: 16px 18px;
+  border: 1px solid #e5dfd3;
+  border-radius: 13px;
+  background: #fbf8f2;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.student-notification-card.unread {
+  border-color: #cbd5b9;
+  background: #f4f6ef;
+}
+
+.student-notification-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: #e9ecdf;
+  color: #596c3d;
+  font-size: 22px;
+}
+
+.student-notification-icon.message {
+  background: #edf0f4;
+  color: #536b88;
+}
+
+.student-notification-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.student-notification-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.student-notification-title-row h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.student-notification-body > p {
+  margin: 5px 0 6px;
+  color: #6e6a60;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.student-notification-body > small {
+  color: #999386;
+  font-size: 10px;
+}
+
+.student-notification-unread-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #718253;
+}
+
+.student-notifications-error {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border: 1px solid #e5c98d;
+  border-radius: 9px;
+  background: #fff7e5;
+  color: #73551b;
+  font-size: 12px;
+}
+
+.student-notifications-empty {
+  min-height: 260px;
+  border: 1px dashed #d9d3c7;
+  border-radius: 14px;
+  background: #fbf8f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.student-notifications-empty > span {
+  font-size: 34px;
+}
+
+.student-notifications-empty h3 {
+  margin: 12px 0 4px;
+}
+
+.student-notifications-empty p {
+  max-width: 380px;
+  margin: 0;
+  color: #77796d;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .student-notifications-main { margin-left: 68px; }
+  .student-notifications-topbar { padding: 0 18px; }
+  .student-notifications-content { width: calc(100% - 32px); margin-top: 28px; }
+  .student-notification-card { align-items: flex-start; flex-wrap: wrap; }
+  .student-notification-card > button { margin-left: 59px; }
+}

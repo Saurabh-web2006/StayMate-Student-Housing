@@ -149,7 +149,7 @@ async function registerAccount(storageKey, formData, profile) {
   });
   accounts.push({ ...account, profile: savedAccount.profile });
   saveAccounts(storageKey, accounts);
-  return savedAccount.profile;
+  return { ...savedAccount.profile, accountId: savedAccount.accountId };
 }
 
 async function authenticateAccount(storageKey, identifier, password) {
@@ -172,7 +172,7 @@ async function authenticateAccount(storageKey, identifier, password) {
       accounts[accountIndex] = { ...account, profile: result.profile };
       saveAccounts(storageKey, accounts);
     }
-    return result.profile;
+    return { ...result.profile, accountId: result.accountId };
   } catch (apiError) {
     if (apiError.status !== 404 && apiError.status !== 0) throw apiError;
     if (browserCacheError) throw browserCacheError;
@@ -200,7 +200,7 @@ async function authenticateAccount(storageKey, identifier, password) {
         });
         account.profile = imported.profile;
         saveAccounts(storageKey, accounts);
-        return imported.profile;
+        return { ...imported.profile, accountId: imported.accountId };
       } catch (migrationError) {
         if (migrationError.status !== 0) throw migrationError;
         console.error("Could not copy this older browser account to the local account file.", migrationError);
@@ -268,7 +268,7 @@ export async function updateStudentAccountProfile(identifier, profile) {
       accounts[accountIndex] = { ...accounts[accountIndex], profile: savedProfile.profile };
       saveAccounts(STUDENT_ACCOUNTS_KEY, accounts);
     }
-    return savedProfile.profile;
+    return { ...savedProfile.profile, accountId: savedProfile.accountId };
   } catch (apiError) {
     if (apiError.status !== 404 || accountIndex === -1) throw apiError;
     const account = accounts[accountIndex];
@@ -287,6 +287,76 @@ export async function updateStudentAccountProfile(identifier, profile) {
     });
     accounts[accountIndex] = { ...account, profile: savedProfile.profile };
     saveAccounts(STUDENT_ACCOUNTS_KEY, accounts);
-    return savedProfile.profile;
+    return { ...savedProfile.profile, accountId: savedProfile.accountId };
   }
+}
+
+export async function getStudentRoommateProfiles() {
+  let response;
+  try {
+    response = await fetch(`${ACCOUNT_API_URL}/roommates`);
+  } catch (error) {
+    throw new Error("Could not connect to the roommate directory.", { cause: error });
+  }
+  let result;
+  try {
+    result = await response.json();
+  } catch (error) {
+    throw new Error("The roommate directory returned an unreadable response.", { cause: error });
+  }
+  if (!response.ok) throw new Error(result.error || "Could not load roommate profiles.");
+  return Array.isArray(result.profiles) ? result.profiles : [];
+}
+
+export async function getMessagingContacts() {
+  const response = await fetch(`${ACCOUNT_API_URL}/contacts`);
+  const result = await response.json();
+  if (!response.ok) throw new Error(result.error || "Could not load message contacts.");
+  return Array.isArray(result.contacts) ? result.contacts : [];
+}
+
+export async function getOwnerContactProfile(identifier) {
+  const query = new URLSearchParams({ identifier: String(identifier || "") });
+  const response = await fetch(`${ACCOUNT_API_URL}/owner?${query}`);
+  const result = await response.json();
+  if (!response.ok) throw new Error(result.error || "Could not find this property owner.");
+  return result.profile;
+}
+
+export async function getAccountId(role, identifier) {
+  const query = new URLSearchParams({ role, identifier });
+  const response = await fetch(`${ACCOUNT_API_URL}/id?${query}`);
+  const result = await response.json();
+  if (!response.ok) throw new Error(result.error || "Could not identify this account.");
+  return result.accountId;
+}
+
+export async function getStudentProfileByIdentifier(identifier) {
+  const query = new URLSearchParams({ identifier });
+  const response = await fetch(`${ACCOUNT_API_URL}/student-profile?${query}`);
+  const result = await response.json();
+  if (!response.ok) throw new Error(result.error || "Could not load the student profile.");
+  return result.profile;
+}
+
+function getMessagesApiUrl() {
+  return `${ACCOUNT_API_URL.replace(/\/accounts$/, "")}/messages`;
+}
+
+export async function getStudentMessages(accountId) {
+  const response = await fetch(`${getMessagesApiUrl()}?accountId=${encodeURIComponent(accountId)}`);
+  const result = await response.json();
+  if (!response.ok) throw new Error(result.error || "Could not load messages.");
+  return Array.isArray(result.messages) ? result.messages : [];
+}
+
+export async function sendStudentMessage(senderId, recipientId, text) {
+  const response = await fetch(getMessagesApiUrl(), {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ senderId, recipientId, text }),
+  });
+  const result = await response.json();
+  if (!response.ok) throw new Error(result.error || "Could not send this message.");
+  return result;
 }

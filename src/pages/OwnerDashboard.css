@@ -156,6 +156,17 @@
 .owner-booking-info h3 { overflow: hidden; margin: 5px 0 4px; color: var(--owner-ink); font-size: 14px; text-overflow: ellipsis; white-space: nowrap; }
 .owner-booking-info > p { overflow: hidden; margin: 0 0 8px; color: var(--owner-muted); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
 .owner-booking-student { color: #596b40; font-size: 10px; font-weight: 700; }
+.owner-booking-profile-button { display: block; padding: 0; margin-top: 8px; border: 0; background: transparent; color: #596b40; font-size: 10px; font-weight: 700; cursor: pointer; }
+.owner-booking-profile-button:hover { color: #37452a; text-decoration: underline; }
+.owner-student-profile-backdrop { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 20px; background: rgba(28, 31, 24, .48); }
+.owner-student-profile-modal { position: relative; width: min(620px, 100%); max-height: min(82vh, 760px); overflow-y: auto; padding: 26px; border: 1px solid var(--owner-border); border-radius: 16px; background: var(--owner-card); box-shadow: 0 24px 70px rgba(22, 26, 18, .24); }
+.owner-student-profile-modal h2 { margin: 0 0 6px; color: var(--owner-ink); font-size: 21px; }
+.owner-student-profile-booking { margin: 0 0 20px; color: var(--owner-muted); font-size: 11px; }
+.owner-student-profile-close { position: absolute; top: 14px; right: 15px; width: 32px; height: 32px; border: 1px solid var(--owner-border); border-radius: 50%; background: #fff; color: var(--owner-muted); font-size: 21px; cursor: pointer; }
+.owner-student-profile-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.owner-student-profile-grid > div { min-width: 0; padding: 12px; border: 1px solid var(--owner-border); border-radius: 9px; background: #fbfaf6; display: flex; flex-direction: column; gap: 5px; }
+.owner-student-profile-grid span { color: var(--owner-muted); font-size: 9px; }
+.owner-student-profile-grid strong { overflow-wrap: anywhere; color: var(--owner-ink); font-size: 11px; }
 .owner-booking-summary { min-width: 120px; display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
 .owner-booking-summary > strong { color: var(--owner-ink); font-size: 14px; white-space: nowrap; }
 .owner-booking-summary > strong > span { margin-left: 3px; color: #929387; font-size: 9px; font-weight: 400; }
@@ -190,3 +201,4 @@
 @media (max-width: 760px) { .owner-app { display: block; } .owner-sidebar { width: 100%; min-height: auto; padding: 15px; border-right: 0; border-bottom: 1px solid var(--owner-border); } .owner-brand { margin-bottom: 13px; } .owner-profile, .owner-nav-label, .owner-sidebar-bottom { display: none; } .owner-sidebar > .owner-nav-item { display: inline-flex; width: auto; margin: 2px; padding: 10px; } .owner-main { width: 100%; padding: 20px 14px; } .owner-topbar { align-items: flex-start; flex-direction: column; } .owner-topbar-actions { width: 100%; justify-content: space-between; } .owner-welcome { padding: 24px; } .owner-welcome-art { display: none; } .owner-stat-grid { gap: 10px; } .owner-stat-card { padding: 14px; } .owner-panel { padding: 16px; } .owner-form { grid-template-columns: 1fr; } .owner-field:has(textarea) { grid-column: auto; } .owner-panel-heading { align-items: flex-start; } .owner-footer { flex-direction: column; } }
 @media (max-width: 480px) { .owner-listing-image-wrap { height: 165px; } .owner-listing-body { padding: 14px; } .owner-listing-heading { flex-direction: column; } .owner-listing-price { align-items: flex-start; flex-direction: row; gap: 5px; } .owner-form-actions { flex-wrap: wrap; } }
 @media (max-width: 600px) { .owner-booking-card { grid-template-columns: 76px minmax(0, 1fr); gap: 12px; } .owner-booking-card > img { width: 76px; height: 76px; } .owner-booking-summary { grid-column: 2; align-items: flex-start; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; min-width: 0; } .owner-booking-summary > strong { font-size: 12px; } }
+@media (max-width: 520px) { .owner-student-profile-grid { grid-template-columns: 1fr; } .owner-student-profile-modal { padding: 22px 17px; } }

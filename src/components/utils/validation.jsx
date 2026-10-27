@@ -59,6 +59,7 @@ const PROFILE_SELECT_OPTIONS = {
   gender: ["Male", "Female", "Non-binary", "Prefer not to say"],
   food: ["Vegetarian", "Non-Vegetarian"],
   lifestyle: ["Early Bird", "Night Owl", "Flexible"],
+  cleanliness: ["Very Clean", "Clean", "Moderate"],
 };
 
 export const validateProfileField = (fieldName, value) => {
@@ -91,8 +92,8 @@ export const validateProfileField = (fieldName, value) => {
     return "";
   }
 
-  if (fieldName === "college" || fieldName === "course") {
-    const label = fieldName === "college" ? "College" : "Course";
+  if (["college", "course", "location"].includes(fieldName)) {
+    const label = fieldName === "college" ? "College" : fieldName === "course" ? "Course" : "Preferred area / city";
     if (fieldValue.length > 120) return `${label} must be 120 characters or fewer`;
     if ([...fieldValue].some((character) => {
       const code = character.charCodeAt(0);
@@ -112,7 +113,7 @@ export const validateProfileField = (fieldName, value) => {
 };
 
 export const validateStudentProfile = (profile) => {
-  const fieldNames = ["name", "age", "gender", "college", "course", "food", "lifestyle", "budget"];
+  const fieldNames = ["name", "age", "gender", "college", "course", "location", "food", "lifestyle", "cleanliness", "budget"];
   return fieldNames.reduce((errors, fieldName) => {
     const error = validateProfileField(fieldName, profile[fieldName]);
     if (error) errors[fieldName] = error;

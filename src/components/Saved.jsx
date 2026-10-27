@@ -18,6 +18,7 @@ function Saved({
   savedPGs = [],
   onToggleSaved,
   onBook,
+  onContactOwner,
   persistenceKey = "staymate:guest"
 }) {
 
@@ -30,6 +31,7 @@ function Saved({
     return (
       <PGDetails
         pg={selectedPG}
+        onContactOwner={(pg) => onContactOwner?.(pg)}
         onBack={() => setSelectedPG(null)}
         onBook={(pg) => {
           setSelectedPG(null);

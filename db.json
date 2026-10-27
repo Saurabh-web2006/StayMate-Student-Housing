@@ -1,58 +1,112 @@
 {
-"properties": [
-{
-"id": "1",
-"ownerId": "owner-1",
-"name": "Royal Student PG",
-"location": "Rajpura, Punjab",
-"distance": "1.2 km from campus",
-"price": 8000,
-"rating": 4.8,
-"reviews": 128,
-"type": "Boys PG",
-"room": "Single",
-"amenities": ["WiFi", "Food Included", "AC", "Laundry"],
-"image": "/src/assets/pg1.jpg",
-"availableRooms": 4,
-"status": "Active",
-"verified": true,
-"description": "Comfortable student accommodation close to campus."
-},
-{
-"id": "2",
-"ownerId": "owner-1",
-"name": "Green View Homes",
-"location": "Rajpura, Punjab",
-"distance": "1.5 km from campus",
-"price": 9000,
-"rating": 4.9,
-"reviews": 96,
-"type": "Girls PG",
-"room": "Single",
-"amenities": ["WiFi", "Food", "Power Backup"],
-"image": "/src/assets/pg2.jpg",
-"availableRooms": 2,
-"status": "Active",
-"verified": true,
-"description": "A quiet and comfortable place for students."
-},
-{
-"id": "3",
-"ownerId": "owner-1",
-"name": "Student Hub Co-Living",
-"location": "Rajpura, Punjab",
-"distance": "2 km from campus",
-"price": 7500,
-"rating": 4.6,
-"reviews": 84,
-"type": "Co-living",
-"room": "Double",
-"amenities": ["WiFi", "AC", "Fitness Area", "Mess"],
-"image": "/src/assets/pg3.jpg",
-"availableRooms": 5,
-"status": "Active",
-"verified": true,
-"description": "Shared living with practical amenities for campus life."
-}
-]
+  "properties": [
+    {
+      "id": "1",
+      "ownerId": "owner-1",
+      "name": "Royal Student PG",
+      "location": "Rajpura, Punjab",
+      "distance": "1.2 km from campus",
+      "price": 8000,
+      "rating": 4.8,
+      "reviews": 128,
+      "type": "Boys PG",
+      "room": "Single",
+      "amenities": [
+        "WiFi",
+        "Food Included",
+        "AC",
+        "Laundry"
+      ],
+      "image": "/src/assets/pg1.jpg",
+      "availableRooms": 4,
+      "status": "Active",
+      "verified": true,
+      "description": "Comfortable student accommodation close to campus."
+    },
+    {
+      "id": "2",
+      "ownerId": "owner-1",
+      "name": "Green View Homes",
+      "location": "Rajpura, Punjab",
+      "distance": "1.5 km from campus",
+      "price": 9000,
+      "rating": 4.9,
+      "reviews": 96,
+      "type": "Girls PG",
+      "room": "Single",
+      "amenities": [
+        "WiFi",
+        "Food",
+        "Power Backup"
+      ],
+      "image": "/src/assets/pg2.jpg",
+      "availableRooms": 2,
+      "status": "Active",
+      "verified": true,
+      "description": "A quiet and comfortable place for students."
+    },
+    {
+      "id": "3",
+      "ownerId": "owner-1",
+      "name": "Student Hub Co-Living",
+      "location": "Rajpura, Punjab",
+      "distance": "2 km from campus",
+      "price": 7500,
+      "rating": 4.6,
+      "reviews": 84,
+      "type": "Co-living",
+      "room": "Double",
+      "amenities": [
+        "WiFi",
+        "AC",
+        "Fitness Area",
+        "Mess"
+      ],
+      "image": "/src/assets/pg3.jpg",
+      "availableRooms": 5,
+      "status": "Active",
+      "verified": true,
+      "description": "Shared living with practical amenities for campus life."
+    },
+    {
+      "name": "enclave",
+      "location": "rajpura",
+      "distance": "200",
+      "price": 9000,
+      "type": "Boys PG",
+      "room": "Single",
+      "amenities": [
+        "WiFi",
+        "Food"
+      ],
+      "image": "/src/assets/pg1.jpg",
+      "availableRooms": 3,
+      "description": "",
+      "ownerId": "8168549679",
+      "rating": 0,
+      "reviews": 0,
+      "verified": false,
+      "id": "OFpUOrV"
+    },
+    {
+      "name": "township",
+      "location": "banur",
+      "distance": "1000",
+      "price": 6000,
+      "type": "Boys PG",
+      "room": "Single",
+      "amenities": [
+        "WiFi",
+        "Food"
+      ],
+      "image": "/src/assets/pg1.jpg",
+      "availableRooms": 3,
+      "description": "",
+      "ownerId": "8168549679",
+      "rating": 0,
+      "reviews": 0,
+      "verified": false,
+      "id": "r57YCGO"
+    }
+  ]
 }

@@ -21,6 +21,7 @@ function FindPGs({
   savedPGs,
   onToggleSaved,
   onBook,
+  onContactOwner,
   initialSearch = "",
   onSearchChange,
   listings = [],
@@ -99,6 +100,7 @@ function FindPGs({
     return (
       <PGDetails
         pg={selectedPG}
+        onContactOwner={(pg) => onContactOwner?.(pg)}
         onBack={() => setSelectedPG(null)}
         onBook={(pg) => {
           setSelectedPG(null);

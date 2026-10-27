@@ -1,8 +1,10 @@
 import "./Roommates.css";
+import { useEffect, useState } from "react";
 
 import RoommateProfile from "./RoommateProfile";
 import Sidebar from "./Sidebar";
 import { usePersistentState } from "../utils/usePersistentState";
+import { getStudentRoommateProfiles } from "../utils/studentAuth";
 
 import roommate1 from "../assets/roommate1.jpg";
 import roommate2 from "../assets/roommate2.jpg";
@@ -24,9 +26,38 @@ function Roommates({
   onNotifications,
   onSettings,
   onConnect,
+  currentAccountId,
   initialSearch = "",
   persistenceKey = "staymate:guest"
 }) {
+
+  const [studentProfiles, setStudentProfiles] = useState([]);
+  const [directoryError, setDirectoryError] = useState("");
+
+  useEffect(() => {
+    let isCurrent = true;
+    const refreshDirectory = async () => {
+      try {
+        const profiles = await getStudentRoommateProfiles();
+        if (isCurrent) {
+          setStudentProfiles(profiles);
+          setDirectoryError("");
+        }
+      } catch (error) {
+        console.error("Could not load student roommate profiles.", error);
+        if (isCurrent) setDirectoryError("Student profiles could not load. Refresh the page or try again shortly.");
+      }
+    };
+    const refreshOnFocus = () => { void refreshDirectory(); };
+    void refreshDirectory();
+    window.addEventListener("focus", refreshOnFocus);
+    const refreshTimer = window.setInterval(refreshDirectory, 30000);
+    return () => {
+      isCurrent = false;
+      window.removeEventListener("focus", refreshOnFocus);
+      window.clearInterval(refreshTimer);
+    };
+  }, []);
 
   const [search, setSearch] = usePersistentState(`${persistenceKey}:roommates:search`, initialSearch);
   const [gender, setGender] = usePersistentState(`${persistenceKey}:roommates:gender`, "All");
@@ -37,7 +68,7 @@ function Roommates({
 
 
 
-  const roommates = [
+  const sampleRoommates = [
 
     {
       id: 1,
@@ -136,6 +167,17 @@ function Roommates({
     }
 
   ];
+
+  const avatars = [roommate1, roommate2, roommate3, roommate4, roommate5, roommate6];
+  const registeredRoommates = studentProfiles
+    .filter((profile) => profile.id !== currentAccountId)
+    .map((profile, index) => ({
+    ...profile,
+    compatibility: 80,
+    avatar: avatars[index % avatars.length],
+    budget: Number(profile.budget) || 0,
+  }));
+  const roommates = [...sampleRoommates, ...registeredRoommates];
 
 
 
@@ -277,6 +319,8 @@ function Roommates({
           </button>
 
         </header>
+
+        {directoryError && <p className="roommates-directory-error" role="status">{directoryError}</p>}
 
 
 

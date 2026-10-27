@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useProperties } from "../context/PropertyContext";
 import { useBookings } from "../context/BookingContext";
 import { usePersistentState } from "../utils/usePersistentState";
+import { getStudentProfileByIdentifier } from "../utils/studentAuth";
+import OwnerMessages from "./OwnerMessages";
 import "./OwnerDashboard.css";
 
 const blankForm = {
@@ -217,7 +219,7 @@ function PropertyForm({ editing, property, ownerId, onSave, onCancel, onViewList
   );
 }
 
-function OwnerDashboard({ ownerProfile = {}, onLogout }) {
+function OwnerDashboard({ ownerProfile = {}, accountId, onLogout }) {
   const navigate = useNavigate();
   const location = useLocation();
   const editMatch = location.pathname.match(/\/owner\/properties\/([^/]+)\/edit$/);
@@ -226,6 +228,10 @@ function OwnerDashboard({ ownerProfile = {}, onLogout }) {
   const { properties, loading, error, addProperty, updateProperty, deleteProperty, refreshProperties } = useProperties();
   const { getPropertyBookings, updateBookingStatus, error: bookingReadWarning } = useBookings();
   const [actionError, setActionError] = useState("");
+  const [selectedBooking, setSelectedBooking] = useState(null);
+  const [customerProfile, setCustomerProfile] = useState(null);
+  const [customerProfileError, setCustomerProfileError] = useState("");
+  const [isLoadingCustomerProfile, setIsLoadingCustomerProfile] = useState(false);
   const [saving, setSaving] = useState(false);
   const [savedVisibleListingCount, setVisibleListingCount] = usePersistentState(
     `staymate:owner:${encodeURIComponent(ownerId || "owner-1")}:visibleListingCount`,
@@ -255,6 +261,23 @@ function OwnerDashboard({ ownerProfile = {}, onLogout }) {
     } catch (bookingError) {
       console.error("Could not update booking request status.", bookingError);
       setActionError(bookingError.message || "Could not update this booking request.");
+    }
+  };
+
+  const viewCustomerProfile = async (booking) => {
+    setSelectedBooking(booking);
+    setCustomerProfile(booking.studentProfile || null);
+    setCustomerProfileError("");
+    setIsLoadingCustomerProfile(false);
+    if (booking.studentProfile) return;
+    setIsLoadingCustomerProfile(true);
+    try {
+      const profile = await getStudentProfileByIdentifier(booking.studentId);
+      setCustomerProfile(profile);
+    } catch (profileError) {
+      setCustomerProfileError(profileError.message || "Could not load this student's profile.");
+    } finally {
+      setIsLoadingCustomerProfile(false);
     }
   };
 
@@ -288,6 +311,7 @@ function OwnerDashboard({ ownerProfile = {}, onLogout }) {
   const nav = (path) => navigate(path);
   const activeTab = location.pathname.includes("/bookings")
     ? "bookings"
+    : location.pathname.includes("/messages") ? "messages"
     : location.pathname.includes("/properties") ? "properties" : "overview";
 
   return (
@@ -305,6 +329,7 @@ function OwnerDashboard({ ownerProfile = {}, onLogout }) {
         <button className={`owner-nav-item ${activeTab === "properties" ? "active" : ""}`} onClick={() => nav("/owner/properties")}>⌂ <span>My properties</span><b>{ownerProperties.length}</b></button>
         <button className="owner-nav-item" onClick={() => nav("/owner/properties/new")}>＋ <span>Add a listing</span></button>
         <button className={`owner-nav-item ${activeTab === "bookings" ? "active" : ""}`} onClick={() => nav("/owner/bookings")}>▤ <span>My bookings</span><b>{ownerBookings.length}</b></button>
+        <button className={`owner-nav-item ${activeTab === "messages" ? "active" : ""}`} onClick={() => nav("/owner/messages")}>✉ <span>Messages</span></button>
         <div className="owner-sidebar-bottom">
           <div className="owner-help-card"><span>✦</span><strong>Hosting tip</strong><p>Clear photos and accurate room availability help students choose confidently.</p></div>
           <button className="owner-nav-item" onClick={() => nav("/")}>↩ <span>Switch role</span></button>
@@ -314,7 +339,7 @@ function OwnerDashboard({ ownerProfile = {}, onLogout }) {
 
       <main className="owner-main">
         <header className="owner-topbar">
-          <div><span className="owner-topbar-kicker">STAYMATE / OWNER</span><h1>{isForm ? (editing ? "Edit listing" : "Add a listing") : activeTab === "properties" ? "My properties" : "Owner overview"}</h1></div>
+          <div><span className="owner-topbar-kicker">STAYMATE / OWNER</span><h1>{isForm ? (editing ? "Edit listing" : "Add a listing") : activeTab === "properties" ? "My properties" : activeTab === "messages" ? "Messages" : activeTab === "bookings" ? "My bookings" : "Owner overview"}</h1></div>
           <div className="owner-topbar-actions"><span className="owner-status"><i /> Workspace active</span><button className="owner-btn owner-btn-primary" onClick={() => nav("/owner/properties/new")}>＋ Add property</button></div>
         </header>
 
@@ -323,6 +348,8 @@ function OwnerDashboard({ ownerProfile = {}, onLogout }) {
         ) : isForm ? (
           editing && !editingProperty ? <div className="owner-panel owner-state"><h2>Listing not found</h2><button className="owner-btn owner-btn-primary" onClick={() => nav("/owner/properties")}>Back to properties</button></div> :
           <PropertyForm key={draftKey} draftKey={draftKey} editing={editing} property={editingProperty} ownerId={ownerId} onSave={save} onCancel={() => nav("/owner/properties")} onViewListings={() => nav("/owner/properties")} saving={saving} error={actionError} />
+        ) : activeTab === "messages" ? (
+          <OwnerMessages accountId={accountId || ownerProfile.accountId} ownerName={ownerProfile.name || ownerProfile.businessName} />
         ) : activeTab === "bookings" ? (
           <section className="owner-panel owner-bookings-panel">
             <div className="owner-panel-heading">
@@ -359,6 +386,9 @@ function OwnerDashboard({ ownerProfile = {}, onLogout }) {
                       <h3>{booking.name || "Property"}</h3>
                       <p>{booking.location || "Location not provided"}</p>
                       <span className="owner-booking-student">Requested by {booking.studentName || "Student"}</span>
+                      <button className="owner-booking-profile-button" type="button" onClick={() => viewCustomerProfile(booking)}>
+                        View student profile →
+                      </button>
                     </div>
                     <div className="owner-booking-summary">
                       <strong>₹{Number(booking.price || 0).toLocaleString("en-IN")}<span>/month</span></strong>
@@ -509,6 +539,32 @@ function OwnerDashboard({ ownerProfile = {}, onLogout }) {
               </div>
             </section>
           </>
+        )}
+        {selectedBooking && (
+          <div className="owner-student-profile-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) setSelectedBooking(null); }}>
+            <section className="owner-student-profile-modal" role="dialog" aria-modal="true" aria-labelledby="owner-student-profile-title">
+              <button className="owner-student-profile-close" type="button" onClick={() => setSelectedBooking(null)} aria-label="Close student profile">×</button>
+              <p className="owner-eyebrow">BOOKING REQUEST</p>
+              <h2 id="owner-student-profile-title">Student profile</h2>
+              <p className="owner-student-profile-booking">{selectedBooking.name || "Property"} · Requested by {selectedBooking.studentName || "Student"}</p>
+              {isLoadingCustomerProfile ? <p className="owner-muted">Loading student details…</p> : customerProfileError ? (
+                <div className="owner-alert owner-alert-error" role="alert">{customerProfileError}</div>
+              ) : customerProfile ? (
+                <div className="owner-student-profile-grid">
+                  <div><span>Full name</span><strong>{customerProfile.name || "Not provided"}</strong></div>
+                  <div><span>Age</span><strong>{customerProfile.age ? `${customerProfile.age} years` : "Not provided"}</strong></div>
+                  <div><span>Gender</span><strong>{customerProfile.gender || "Not provided"}</strong></div>
+                  <div><span>College / University</span><strong>{customerProfile.college || "Not provided"}</strong></div>
+                  <div><span>Course</span><strong>{customerProfile.course || "Not provided"}</strong></div>
+                  <div><span>Preferred area</span><strong>{customerProfile.location || "Not provided"}</strong></div>
+                  <div><span>Food preference</span><strong>{customerProfile.food || "Not provided"}</strong></div>
+                  <div><span>Lifestyle</span><strong>{customerProfile.lifestyle || "Not provided"}</strong></div>
+                  <div><span>Cleanliness</span><strong>{customerProfile.cleanliness || "Not provided"}</strong></div>
+                  <div><span>Monthly budget</span><strong>{customerProfile.budget !== "" && customerProfile.budget !== undefined ? `₹${Number(customerProfile.budget).toLocaleString("en-IN")}` : "Not provided"}</strong></div>
+                </div>
+              ) : <p className="owner-muted">No profile details were saved with this request.</p>}
+            </section>
+          </div>
         )}
         <footer className="owner-footer">StayMate · Find a place that feels like home <span>Phase 2 prototype</span></footer>
       </main>

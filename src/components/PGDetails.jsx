@@ -1,8 +1,11 @@
 import "./PGDetails.css";
+import { useState } from "react";
 
 import logo from "../assets/logo.png";
 
-function PGDetails({ pg, onBack, onBook }) {
+function PGDetails({ pg, onBack, onBook, onContactOwner }) {
+  const [contactError, setContactError] = useState("");
+  const [contactingOwner, setContactingOwner] = useState(false);
   if (!pg) {
     return null;
   }
@@ -158,8 +161,14 @@ function PGDetails({ pg, onBack, onBook }) {
 
           <div className="details-actions">
 
-            <button className="contact-button">
-              Contact Owner
+            <button className="contact-button" type="button" disabled={contactingOwner || !onContactOwner} onClick={async () => {
+              setContactingOwner(true);
+              setContactError("");
+              try { await onContactOwner(pg); }
+              catch (error) { setContactError(error.message || "Could not open a conversation with this owner."); }
+              finally { setContactingOwner(false); }
+            }}>
+              {contactingOwner ? "Opening messages…" : "Contact Owner"}
             </button>
 
             <button className="book-button" onClick={() => onBook?.(pg)}>
@@ -167,6 +176,7 @@ function PGDetails({ pg, onBack, onBook }) {
             </button>
 
           </div>
+          {contactError && <p role="alert" className="details-contact-error">{contactError}</p>}
 
         </div>
 

@@ -5,6 +5,12 @@
   font-family: Inter, Arial, sans-serif;
 }
 
+.details-contact-error {
+  margin: 12px 0 0;
+  color: #8a4d12;
+  font-size: 14px;
+}
+
 /* NavBar */
 
 .pg-details-navbar {

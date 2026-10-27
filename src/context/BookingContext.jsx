@@ -162,7 +162,7 @@ export function BookingProvider({ children }) {
       });
   }, [store.bookings]);
 
-  const createBooking = useCallback((studentId, studentName, property) => {
+  const createBooking = useCallback((studentId, studentProfile, property) => {
     if (!property || typeof property.id === "undefined") {
       throw new Error("Choose a valid property before requesting a booking.");
     }
@@ -187,7 +187,19 @@ export function BookingProvider({ children }) {
       type: property.type || "",
       room: property.room || "",
       studentId: normalizedId,
-      studentName: studentName || "Student",
+      studentName: studentProfile?.name || "Student",
+      studentProfile: studentProfile && {
+        name: studentProfile.name || "",
+        age: studentProfile.age ?? "",
+        gender: studentProfile.gender || "",
+        college: studentProfile.college || "",
+        course: studentProfile.course || "",
+        location: studentProfile.location || "",
+        food: studentProfile.food || "",
+        lifestyle: studentProfile.lifestyle || "",
+        cleanliness: studentProfile.cleanliness || "",
+        budget: studentProfile.budget ?? "",
+      },
       requestedAt: new Date().toISOString(),
       status: "pending",
     };
@@ -204,7 +216,7 @@ export function BookingProvider({ children }) {
     const bookingExists = currentSnapshot.bookings.some((booking) => String(booking.id) === String(bookingId));
     if (!bookingExists) throw new Error("This booking request could not be found.");
     const updatedBookings = currentSnapshot.bookings.map((booking) => (
-      String(booking.id) === String(bookingId) ? { ...booking, status } : booking
+      String(booking.id) === String(bookingId) ? { ...booking, status, statusUpdatedAt: new Date().toISOString() } : booking
     ));
     writeBookings(updatedBookings);
   }, []);
