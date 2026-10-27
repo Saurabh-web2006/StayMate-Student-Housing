@@ -122,6 +122,8 @@ import RoleSelection from "./components/RoleSelection";
 // Owner Components
 import OwnerLogin from "./components/OwnerLogin";
 import OwnerDashboard from "./pages/OwnerDashboard";
+import AddProperty from "./pages/owner/AddProperty";
+import EditProperty from "./pages/owner/EditProperty";
 
 import { PropertyProvider, useProperties } from "./context/PropertyContext";
 import { BookingProvider, useBookings } from "./context/BookingContext";
@@ -416,32 +418,38 @@ function AppRoutes() {
         <Route path="/student/settings" element={<ComingSoon pageKey="settings" userName={userName} {...navCallbacks} />} />
 
         {/* Owner Portal Routes */}
-        <Route 
-          path="/owner/login" 
+        <Route
+          path="/owner/login"
           element={
-            <OwnerLogin 
-              onBack={() => navigate("/")} 
-              onForgotPassword={() => navigate("/forgot-password")} 
-              onLegal={() => navigate("/legal")} 
+            <OwnerLogin
+              onBack={() => navigate("/")}
+              onForgotPassword={() => navigate("/forgot-password")}
+              onLegal={() => navigate("/legal")}
               onOwnerLogin={ownerSignIn}
               onOwnerRegister={ownerSignUp}
             />
-          } 
+          }
         />
+        {/* Separate owner pages */}
+
+        <Route
+          path="/owner/properties/new"
+          element={<AddProperty />}
+        />
+
+        <Route
+          path="/owner/properties/:id/edit"
+          element={<EditProperty />}
+        />
+
+        {/* Main owner dashboard and other owner sections */}
+
         <Route
           path="/owner/*"
           element={
-            ownerProfile.ownerId ? (
-              <OwnerDashboard
-                ownerProfile={ownerProfile}
-                accountId={ownerProfile.accountId}
-                onLogout={() => {
-                  localStorage.removeItem("staymateOwnerProfile");
-                  setOwnerProfile({});
-                  navigate("/owner/login");
-                }}
-              />
-            ) : <Navigate to="/owner/login" replace />
+            <OwnerDashboard
+              onLogout={() => navigate("/owner/login")}
+            />
           }
         />
 
